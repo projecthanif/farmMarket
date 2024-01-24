@@ -6,6 +6,7 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RedirectIfAuthenticated
 {
@@ -23,7 +24,9 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // Redirect to the previous URL if available, otherwise to the default location
+                return redirect(Session::get('url.intended', '/shop/product'));
+                // return redirect()->route('user.profile');
             }
         }
 

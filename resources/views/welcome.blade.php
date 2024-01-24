@@ -30,9 +30,16 @@
             <a href="" class="nav-logo">
                 <img src="user/img/logo.png" alt="" class=""> Farmers Marketplace
             </a>
+            <span style="background-color: rgb(32, 220, 166);">
+                <li class="nav-item" style=" padding: 10px 10px 0px 10px; list-style-type:none; border-radius:5px;">
+                    <a href="{{ route('shop.product') }}" class="nav-link">Shop</a>
+                </li>
+            </span>
 
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
+
+
                     <li class="nav-item">
                         <a href="#home" class="nav-link active-link">Home</a>
                     </li>
