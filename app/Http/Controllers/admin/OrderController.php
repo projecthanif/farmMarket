@@ -13,7 +13,7 @@ class OrderController extends Controller
     {
         Session::put('page', 'orders');
 
-        $orders = orders::with(['product', 'user', 'addresses'])->get();
+        $orders = orders::with(['product', 'user', 'addresses'])->orderBy('created_at','desc')->get();
         return view('admin.orders')->with(compact('orders'));
     }
 

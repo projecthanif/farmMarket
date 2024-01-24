@@ -72,6 +72,43 @@ Route::prefix('/admin')->namespace('admin')->group(function () {
     });
 });
 
+Route::prefix('shop')->group(function () {
+
+    Route::get('/product', 'Shop\ProductController@index')->name('shop.product');
+
+    //add to cart
+    Route::post('/add-to-cart', 'Shop\CartController@addToCart')->name('cart.add');
+
+    //remove from cart
+    Route::post('/remove-from-cart', 'Shop\CartController@removeFromCart')->name('cart.remove');
+
+    //update item quantity
+    Route::post('/update-item-quantity', 'Shop\CartController@updateQuantity')->name('cart.updateQuantity');
+    Route::get('/cart', 'Shop\CartController@viewCart')->name('shop.cart');
+
+    //checkout
+    Route::get('/checkout', 'Shop\CheckoutController@index')->name('checkout.index');
+    Route::post('/checkout/order', 'Shop\CheckoutController@process')->name('checkout.order');
+
+
+});
+
+
+
+
+Route::prefix('user')->group(function () {
+    //profile
+    Route::get('/profile', 'User\profileController@index')->name('user.profile');
+
+     //profile
+     Route::get('/order', 'User\OrderController@index')->name('user.order');
+
+    Route::get('/login', 'User\Auth\LoginController@showLoginForm')->name('user.login');
+    Route::post('/login', 'User\Auth\LoginController@loginAction')->name('user.login.action');
+    Route::get('/logout', 'User\Auth\LoginController@logout')->name('user.logout');
+
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
