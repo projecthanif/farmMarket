@@ -97,6 +97,20 @@ use Illuminate\Support\Facades\Session; ?>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label for="unit">Weight Unit</label>
+                                        <select name="unit" id="unit" class="form-control select2"
+                                            style="width: 100%;">
+                                            <option value="">Select</option>
+                                            {{-- @php $units = ['kG', 'L', 'CL']; @endphp --}}
+                                            <option value="kg">Kilograms (Kg)</option>
+                                            <option value="l">Litre (L)</option>
+                                            <option value="cl">Centilitres (CL)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label for="product_weight">Product Weight</label>
                                         <input type="number" class="form-control" id="product_weight" name="product_weight"
                                             step="0.01" placeholder="Enter product Weight"

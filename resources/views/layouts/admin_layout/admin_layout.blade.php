@@ -118,6 +118,7 @@
             $("#sections").DataTable({
                 "responsive": true,
                 "autoWidth": false,
+                "pageLength": 100
             });
 
         });
@@ -125,6 +126,7 @@
             $("#categories").DataTable({
                 "responsive": true,
                 "autoWidth": false,
+                "pageLength": 100
             });
 
         });
@@ -132,6 +134,7 @@
             $("#products").DataTable({
                 "responsive": true,
                 "autoWidth": false,
+                "pageLength": 100
             });
 
         });
@@ -140,6 +143,7 @@
             $("#users").DataTable({
                 "responsive": true,
                 "autoWidth": false,
+                "pageLength": 100
             });
 
         });

@@ -105,6 +105,7 @@ class productController extends Controller
             $product->product_name = $data['product_name'];
             $product->price = $data['price'];
             $product->quantity = $data['quantity'];
+            $product->unit = $data['unit'] ? $data['unit'] : 'kg';
             $product->product_weight = $data['product_weight'] ? $data['product_weight'] : 0;
             $product->product_discount = $data['product_discount'] ? $data['product_discount'] : 0;
             $product->description = $data['description'];
