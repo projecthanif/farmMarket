@@ -66,6 +66,7 @@ Route::prefix('/admin')->namespace('admin')->group(function () {
         Route::get('delete-image/{id}', [productController::class, 'deleteImage']);
 
         //orders route
+        Route::get('cart', [OrderController::class, 'cart']);
         Route::get('orders', [OrderController::class, 'orders']);
         Route::post('update-payment-status', [OrderController::class, 'updatePaymentStatus']);
         Route::post('update-order-status/{id}', [OrderController::class, 'updateOrderStatus']);
