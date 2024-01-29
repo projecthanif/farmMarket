@@ -37,6 +37,25 @@ class adminController extends Controller
         return view('admin.users')->with(compact('users'));
     }
 
+    public function shipping()
+    {
+        Session::put('page', 'shipping');
+
+        $shippings = DB::table('shipping')->get();
+        return view('admin.shipping')->with(compact('shippings'));
+    }
+
+    public function editShipping(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $data = $request->all();
+
+            dd($data);
+            return response()->json(['status' => $data]);
+        }
+    }
+
     public function login(Request $request)
     {
         if ($request->isMethod('post')) {

@@ -40,6 +40,9 @@ Route::prefix('/admin')->namespace('admin')->group(function () {
         Route::post('update-current-pwd', [adminController::class, 'updateCurrentPassword']);
         Route::match(['get', 'post'], 'update-admin-details', [adminController::class, 'updateAdminDetails']);
 
+        Route::get('shipping', [adminController::class, 'shipping']);
+        Route::post('edit-shipping', [adminController::class, 'editShipping']);
+
         //categories route
         Route::get('categories', [categoryController::class, 'categories']);
         Route::post('update-category-status', [categoryController::class, 'updateCategoryStatus']);
@@ -89,8 +92,6 @@ Route::prefix('shop')->group(function () {
     //checkout
     Route::get('/checkout', 'Shop\CheckoutController@index')->name('checkout.index');
     Route::post('/checkout/order', 'Shop\CheckoutController@process')->name('checkout.order');
-
-
 });
 
 
@@ -100,13 +101,12 @@ Route::prefix('user')->group(function () {
     //profile
     Route::get('/profile', 'User\profileController@index')->name('user.profile');
 
-     //profile
-     Route::get('/order', 'User\OrderController@index')->name('user.order');
+    //profile
+    Route::get('/order', 'User\OrderController@index')->name('user.order');
 
     Route::get('/login', 'User\Auth\LoginController@showLoginForm')->name('user.login');
     Route::post('/login', 'User\Auth\LoginController@loginAction')->name('user.login.action');
     Route::get('/logout', 'User\Auth\LoginController@logout')->name('user.logout');
-
 });
 
 Auth::routes();
