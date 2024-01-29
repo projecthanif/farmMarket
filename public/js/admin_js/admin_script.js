@@ -138,21 +138,17 @@ $(document).ready(function () {
     });
 
     $(".edit-shipping").click(function (e) {
+        e.preventDefault();
+
         let amount = $(e.currentTarget).closest("tr").find("#shipping").val();
         let id = $(e.currentTarget).attr("shipping_id");
 
-        //    $.ajaxSetup({
-        //        headers: {
-        //            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-        //        },
-        //    });
-
         $.ajax({
-            method: "post",
+            type: "post",
             url: "/admin/edit-shipping",
-            data: { amount: amount, id: id },
+            data: { amount: Number(amount), id: Number(id) },
             success: function (resp) {
-                console.log(resp);
+                // console.log(resp);
                 window.location.reload();
             },
             error: function (err) {

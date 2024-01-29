@@ -51,8 +51,8 @@ class adminController extends Controller
 
             $data = $request->all();
 
-            dd($data);
-            return response()->json(['status' => $data]);
+            DB::table('shipping')->where('id', $data['id'])->update(['cost' => $data['amount']]);
+            return response()->json(['status' => 200, 'data' => $data]);
         }
     }
 
