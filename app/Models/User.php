@@ -22,6 +22,7 @@ class User extends Authenticatable
         'password',
     ];
 
+    public $timestamps = false;
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -44,5 +45,10 @@ class User extends Authenticatable
     public function orders()
     {
         return $this->hasMany('App\Models\orders', 'user_id');
+    }
+
+    public function addresses()
+    {
+        return $this->hasOne('App\Models\addresses', 'user_id');
     }
 }

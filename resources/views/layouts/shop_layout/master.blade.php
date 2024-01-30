@@ -33,81 +33,72 @@
 
     {{-- <link rel="shortcut icon" href="{{ asset('f') }}uploaded_files/favicon/favicon.png" type="image/x-icon" /> --}}
     <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}" />
+
+    <style>
+        /* CSS */
+        .button-3 {
+            appearance: none;
+            background-color: #2ea44f;
+            border: 1px solid rgba(27, 31, 35, .15);
+            border-radius: 6px;
+            box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+            padding: 6px 16px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .button-3:focus:not(:focus-visible):not(.focus-visible) {
+            box-shadow: none;
+            outline: none;
+        }
+
+        .button-3:hover {
+            background-color: #2c974b;
+        }
+
+        .button-3:focus {
+            box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+            outline: none;
+        }
+
+        .button-3:disabled {
+            background-color: #94d3a2;
+            border-color: rgba(27, 31, 35, .1);
+            color: rgba(255, 255, 255, .8);
+            cursor: default;
+        }
+
+        .button-3:active {
+            background-color: #298e46;
+            box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+        }
+    </style>
 </head>
 
 <body class="direction-ltr">
-    {{-- <div id="preloader">
-        <div id="status">
-            <img src="uploaded_files/preloader/preloader.svg" alt="img" />
-        </div>
-    </div> --}}
+
 
     @include('layouts.shop_layout.mainheader')
 
     @yield('content')
 
-    {{-- <div id="AddToCompareItemUrl" data-url="user/compare/add.json"></div> --}}
-    {{-- <div id="AddToCartIntoSession" data-url="{{ route('cart.add') }}"></div> --}}
-    {{-- <div id="productWishlistUrl" data-url="user/wishlist/add.json"></div>
-    <div id="currency-price-url" data-url="currency-price.html"></div>
-    <div id="currency-symbol-url" data-url="currency-symbol.html"></div>
-    <div id="productImgAsset" data-url="uploaded_files/product_image/index.html"></div> --}}
-
     @include('layouts.shop_layout.mainfooter')
 
-    {{-- <div class="modal fade bd-example-modal-lg theme-modal" id="popUpModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body modal1 modal-bg">
-                <div class="row">
-                    <div class="col-12">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="row">
-                            <div class="col-lg-7 col-md-12">
-                                <div class="offer_modal_left">
-                                    <img src="uploaded_files/logo/656f2f7abc3861701785466.png" alt="logo" />
-                                    <h3>SUBSCRIBE TO NEWSLETTER</h3>
-                                    <p class="m-0">Subscribe For The Latest News.</p>
-                                    <form id="subscribe_form" name="subscribe_form">
-                                        <input type="hidden" name="_token"
-                                            value="gNHvlijeCOFPxEm0NsNGHf12QjH54Cy79BYEIVQH" />
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control subscribeModal"
-                                                name="subscribeval" id="subscribeval" placeholder="Your email" />
-                                            <div class="input-group-append">
-                                                <button
-                                                    class="theme-btn-one btn-black-overlay btn_sm border-0 subscribeModal"
-                                                    id="subscribeModal">
-                                                    Subscribe
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="check_boxed_modal">
-                                            <input type="checkbox" id="doNotShowModel" name="dontshowmodal"
-                                                value="dont_show" />
-                                            <label for="vehicle1">Don&#039;t show this popup again</label>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-12">
-                                <div class="offer_modal_img d-none d-lg-flex">
-                                    <img src="uploaded_files/advertise/popup-image.png" alt="img" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 
-    <div id="DoNotSubscribe" data-url="do_not_subscribe.html"></div>
-    <div id="SubscribeStore" data-url="subscribe/store.html"></div>
     <div class="modal fade common-modal" id="trackOrderModal" tabindex="-1" aria-labelledby="trackOrderModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -157,7 +148,7 @@
         </div>
     </div>
 
-    <div class="modal fade common-modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
+    {{-- <div class="modal fade common-modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -185,7 +176,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div id="DoNotSubscribe" data-url="do_not_subscribe.html"></div>
     <div id="SubscribeStore" data-url="subscribe/store.html"></div>
 
@@ -240,8 +231,6 @@
         </script>
     @endif
 
-
-
     <script src="{{ asset('shop_assets/js/pages/home.js') }}"></script>
     <script src="{{ asset('shop_assets/js/pages/cart.js') }}"></script>
 
@@ -263,7 +252,9 @@
                         price: price,
                         _token: '{{ csrf_token() }}'
                     },
-                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     success: function(response) {
 
                         const Toast = Swal.mixin({
@@ -286,11 +277,13 @@
                         // Update cart count
                         $('#cart-count').text(response.cartCount);
 
+                        console.log(response.cartCount);
+
                         // Update cart items list
                         $('#cart-items').html(response.cartItems);
 
                         $('#total-cart-price').text(response.totalCartPrice);
-                        console.log( response.totalCartPrice);
+                        console.log(response.totalCartPrice);
                     },
                     error: function(error) {
                         console.log('caught it!', error);
@@ -458,13 +451,120 @@
                     });
                 }
 
-
-
-
-
             });
         });
     </script>
+
+    {{-- Shippng fee --}}
+    <script>
+        document.getElementById('locationSelect').addEventListener('change', function() {
+            var selectedLocation = this.value;
+
+            // Make an AJAX request to fetch the shipping price based on the selected location
+            fetch('/shop/get-shipping-price/' + selectedLocation)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('shippingPrice').innerText = 'Shipping Price: ₦' + data.price
+                        .toFixed(2);
+                })
+                .catch(error => {
+                    console.error('Error fetching shipping price:', error);
+                });
+        });
+    </script>
+
+    <script>
+        const paymentForm = document.getElementById('paymentForm');
+        console.log(paymentForm);
+        paymentForm.addEventListener("submit", payWithPaystack, false);
+
+        function payWithPaystack(e) {
+            e.preventDefault();
+
+            let handler = PaystackPop.setup({
+                // key: 'pk_test_f1aa39d3ac6068916f56a41a84c71314aa1b3e2d',
+                key: 'pk_live_064b702068ffa6cf068c63f0597d06169781590c',
+                email: document.getElementById("email-address").value,
+                amount: document.getElementById("amount").value * 100,
+                ref: '' + Math.floor((Math.random() * 1000000000) +
+                    1
+                ), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                // label: "Optional string that replaces customer email"
+                onClose: function() {
+                    alert('Window closed.');
+                },
+                callback: function(response) {
+                    handlePaystackCallback(response);
+                    window.location.href = '{{ route('checkout.thankyou') }}'; // Replace with your actual URL
+                    let message = 'Payment complete! Reference: ' + response.reference;
+                    alert(message);
+                }
+            });
+
+            handler.openIframe();
+        }
+    </script>
+
+    <script>
+        function handlePaystackCallback(response) {
+            if (response.status === 'success') {
+                // Get the input data (replace 'myInput' with the actual ID of your input field)
+
+
+                var fullnameElement = document.getElementById("fullname");
+                var fullnameValue = fullnameElement.value;
+
+                var addressElement = document.getElementById("address");
+                var addressValue = addressElement.value;
+
+                var locationSelectElement = document.getElementById("locationSelect");
+                var locationSelectElementValue = locationSelectElement.value;
+
+                var cityElement = document.getElementById("city");
+                var cityElementValue = cityElement.value;
+
+                var phoneElement = document.getElementById("phone");
+                var phoneValue = phoneElement.value;
+
+                var additionalPhoneElement = document.getElementById("additionalPhone");
+                var additionalPhoneValue = additionalPhoneElement.value;
+
+                console.log(fullnameValue, addressValue, locationSelectElementValue, cityElementValue,
+                    phoneValue, additionalPhoneValue);
+
+                // Make a fetch request to the controller
+                fetch('/shop/checkout/order', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        },
+                        body: JSON.stringify({
+                            fullname: fullnameValue,
+                            address: addressValue,
+                            state: locationSelectElementValue,
+                            city: cityElementValue,
+                            phone: phoneValue,
+
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        // Handle the response from the controller if needed
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        // Handle errors if necessary
+                    });
+            } else {
+                // Handle other statuses or errors as needed
+                console.error('Payment failed:', response.message);
+            }
+        }
+    </script>
+
+
 
 </body>
 

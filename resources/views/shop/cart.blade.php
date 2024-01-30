@@ -160,11 +160,8 @@
             <!-- Cart Page Bottom box area End -->
         </div>
     </div>
-    <!-- wish-list area end here  -->
-    {{-- <div id="CartDeleteFromSession" data-url="{{ route('cart.delete') }}"></div>
-    <div id="CartIncrementFromSession" data-url="{{ route('cart.increase') }}"></div>
-    <div id="CartDecrementFromSession" data-url="{{ route('cart.decrease') }}"></div> --}}
-    @push('post_script')
+
+    {{-- @push('post_script')
         <script src="{{ asset('frontend/assets/js/pages/cart.js') }}"></script>
-    @endpush
+    @endpush --}}
 @endsection

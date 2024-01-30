@@ -425,7 +425,8 @@ ul {
 }
 
 .section-bg-two {
-    background-color: #F8F3E7
+    /* background-color: #F8F3E7 */
+    background-color: #F4F4F4
 }
 
 #scrollUp {
@@ -3361,7 +3362,8 @@ ul {
 .hero-section-v2 .signle-banner {
     position: relative;
     padding: 6rem 0 6rem 0;
-    background: #F8F3E7
+    /* background: #F8F3E7 */
+    background: #32520b
 }
 
 .hero-section-v2 .signle-banner .hero-title {
@@ -3913,7 +3915,8 @@ ul {
     font-family: "Marcellus", serif;
     font-size: 4.8rem;
     line-height: 5.85rem;
-    color: var(--black)
+    /* color: var(--black) */
+    color: #49ab6a;
 }
 
 .popular-categories-area-v2 .catagory-left .catagory-title:after {
@@ -3933,7 +3936,8 @@ ul {
     height: 100%;
     top: 0;
     left: -60px;
-    background: #F8F3E7;
+    /* background: #F8F3E7; */
+    background: #f2f2f2;
     border-radius: 0 320px 320px 0;
     z-index: -1
 }
@@ -4073,7 +4077,8 @@ ul {
     font-size: 3.6rem;
     font-weight: 600;
     text-transform: capitalize;
-    color: var(--black)
+    /* color: var(--black) */
+    color: #49ab6a;
 }
 
 .section-header-two {
@@ -4086,7 +4091,8 @@ ul {
     font-size: 4.8rem;
     font-weight: 400;
     text-transform: capitalize;
-    color: var(--black);
+    /* color: var(--black); */
+    color: #49ab6a;
     display: inline-block
 }
 
@@ -13011,7 +13017,7 @@ ul {
     font-size: 2.4rem;
     font-weight: 700;
     text-transform: capitalize;
-    color: #222222
+    color: #49ab6a
 }
 
 .checkout .cart-summary .summary-top .edite-btn {

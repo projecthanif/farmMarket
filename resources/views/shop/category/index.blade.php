@@ -2,11 +2,12 @@
 @section('content')
     <div class="container">
         <div class="section-header-two text-center">
-            <h2 class="section-title">Products</h2>
+
+            <h2 class="section-title">{{ $category->name }}</h2>
         </div>
         <div class="row">
 
-            @foreach ($products as $row)
+            @forelse ($products as $row)
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-grid-product-v2">
                         <div class="product-top">
@@ -30,7 +31,17 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="container">
+                    <div class="empty-box-wrap text-center">
+                        <img class="empty-box-img"
+                            src="https://zairito.zainikthemes.com/frontend/assets/images/empty-box.png" alt="empty-box" />
+                        <h2 class="empty-box-title">Your no product listed yet</h2>
+                        {{-- <p class="empty-box-content">
+                            Cart is empty. Please go to your home page for listing it. </p> --}}
+                    </div>
+                </div>
+            @endforelse
 
         </div>
     </div>
@@ -38,42 +49,12 @@
 
     <div class="hero-section-v2">
         <div class="hero-section-wrap">
-            {{-- <div class="signle-banner">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-md-6 col-7">
-                            <div class="hero-content">
-                                <h1 class="hero-title" style="color:white">Best Selling</h1>
-                                <p class="hero-text" style="color:white">tyty</p>
-                                <div class="hero-btn">
-                                    <a href="" class="secondary-btn" style="color:white">fgfg <i
-                                            class="iocn flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-6 col-5">
-                            <div class="hero-banner-image text-center">
-                                    <img class="hero-image"
-                                        src="{{ asset('shop_assets/images/farmers_bg.jpg') }}"
-                                        alt="wa" />
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
             <div class="hero-banner-image text-center">
                 <a href="#">
-                    <img class="hero-image" width="100%"
-                    src="{{ asset('shop_assets/images/farmers_bg.jpg') }}"
-                    alt="wa" />
+                    <img class="hero-image" width="100%" src="{{ asset('shop_assets/images/farmers_bg.jpg') }}"
+                        alt="wa" />
                 </a>
-
-
-
-        </div>
+            </div>
         </div>
     </div>
 
@@ -89,9 +70,10 @@
                 </div>
                 <div class="col-lg-7">
                     <ul class="catagory-list">
-                        @foreach ($category as $category)
+                        @foreach ($categories as $category)
                             <li class="sigle-catagory">
-                                <a class="catatory-link" href="#" style="font-size: 100%">
+                                <a class="catatory-link" href="{{ route('shop.category', ['name' => $category->name]) }}"
+                                    style="font-size: 100%">
                                     {{ $category->name }}
                                     <i class="icon flaticon-arrow-point-to-right"></i>
                                 </a>
@@ -102,6 +84,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="featured-products-area-v2 section-bg-two section-top pb-100">
         <div class="container">

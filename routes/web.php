@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('/admin')->namespace('admin')->group(function () {
     //All admin routes will be defined inside here
@@ -76,6 +76,10 @@ Route::prefix('shop')->group(function () {
 
     Route::get('/product', 'Shop\ProductController@index')->name('shop.product');
 
+    //category
+    Route::get('/category/{name}', 'Shop\Category\CategoryController@index')->name('shop.category');
+
+
     //add to cart
     Route::post('/add-to-cart', 'Shop\CartController@addToCart')->name('cart.add');
 
@@ -90,6 +94,11 @@ Route::prefix('shop')->group(function () {
     Route::get('/checkout', 'Shop\CheckoutController@index')->name('checkout.index');
     Route::post('/checkout/order', 'Shop\CheckoutController@process')->name('checkout.order');
 
+    // shipping-price
+    Route::get('/get-shipping-price/{location}', 'Shop\ShippingController@getShippingPrice');
+
+    //thank you page
+    Route::get('/checkout/thank-you', 'Shop\CheckoutController@thankyou')->name('checkout.thankyou');
 
 });
 
@@ -100,15 +109,22 @@ Route::prefix('user')->group(function () {
     //profile
     Route::get('/profile', 'User\profileController@index')->name('user.profile');
 
-     //profile
-     Route::get('/order', 'User\OrderController@index')->name('user.order');
+    //profile
+    Route::get('/order', 'User\OrderController@index')->name('user.order');
+
+    // edit profile
+    Route::get('/profile-edit', 'User\profileController@edit')->name('user.edit');
+    Route::post('/profile-edit', 'User\profileController@editAction')->name('user.edit.action');
+
+    //changer password
+    Route::post('/password/change', 'User\profileController@changePassword')->name('password.change');
+
 
     Route::get('/login', 'User\Auth\LoginController@showLoginForm')->name('user.login');
     Route::post('/login', 'User\Auth\LoginController@loginAction')->name('user.login.action');
     Route::get('/logout', 'User\Auth\LoginController@logout')->name('user.logout');
-
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

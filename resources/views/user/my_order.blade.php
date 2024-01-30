@@ -41,54 +41,47 @@
                                                     <tr>
                                                         <th>Product</th>
                                                         <th>Item</th>
+                                                        <th>Quantity</th>
                                                         <th>Total Price</th>
                                                         <th>Track order</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <p>Order No: QIcLDH</p>
-                                                            <p>Order Time: January 10, 2024, 11:55 am</p>
-                                                        </td>
-                                                        <td>
-                                                            <div class="item-image-lsit d-flex align-items-center">
-                                                                <div class="single-item me-2">
-                                                                    <img class="order-image"
-                                                                        src="https://zairito.zainikthemes.com/uploaded_files/product_image/product-image-1.png"
-                                                                        alt="images">
+                                                    @forelse ($pending_order as $item)
+                                                        <tr>
+                                                            <td>
+                                                                <p>Order No: {{ $item->order_id }}</p>
+                                                                <p>Order Time:
+                                                                    {{ $item->created_at->format('M d, Y H:i A') }}</p>
+                                                            </td>
+                                                            <td>
+                                                                <div class="item-image-lsit d-flex align-items-center">
+                                                                    <div class="single-item me-2">
+                                                                        <img class="order-image"
+                                                                            src="{{ asset('images/product_images/small/' . $item->product->main_image) }}"
+                                                                            alt="images">
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="my-order-td-row">
-                                                            <span class="amount"> $ 570</span>
-                                                        </td>
-                                                        <td class="my-order-td-row"><a
-                                                                href="https://zairito.zainikthemes.com/user/track-my-order/eyJpdiI6IlpNRkd6YU5BS2N3UmM1cGlPYTRMZmc9PSIsInZhbHVlIjoiNytVNEVEa2VNdVVNeVlQUktoMmNoUT09IiwibWFjIjoiZTU3N2JhZGY0NTNkNjYzNDZmMzYwYmIzZWJiMjNmYzJmOGEyNDg1MjNhMjM0YmM5ZjY1ZmNjYTcyNjFkNmViZiIsInRhZyI6IiJ9"><i
-                                                                    class="fas fa-user-cog"></i></a></td>
-                                                    </tr>
+                                                            </td>
+                                                            <td class="my-order-td-row">
+                                                                {{ $item->qty }}
+                                                            </td>
+                                                            <td class="my-order-td-row">
+                                                                <span class="amount">
+                                                                    ₦{{ number_format($item->qty * $item->product->price) }}</span>
+                                                            </td>
+                                                            <td class="my-order-td-row"><a href="#"><i
+                                                                        class="fas fa-user-cog"></i></a></td>
 
-                                                    <tr>
-                                                        <td>
-                                                            <p>Order No: LjXoBh</p>
-                                                            <p>Order Time: October 14, 2023, 7:30 pm</p>
-                                                        </td>
-                                                        <td>
-                                                            <div class="item-image-lsit d-flex align-items-center">
-                                                                <div class="single-item me-2">
-                                                                    <img class="order-image"
-                                                                        src="https://zairito.zainikthemes.com/uploaded_files/product_image/product-image-3.png"
-                                                                        alt="images">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="my-order-td-row">
-                                                            <span class="amount"> $ 360</span>
-                                                        </td>
-                                                        <td class="my-order-td-row"><a
-                                                                href="https://zairito.zainikthemes.com/user/track-my-order/eyJpdiI6InduZjdXTTIzMVA1RGVUU0dMNzVBbVE9PSIsInZhbHVlIjoiZnhIbE1yRjIzSFMxaGpmVXl1bTJKQT09IiwibWFjIjoiMzU2MWI5NjFlMzcxMGEzY2Y4ZGQzYmVhZTNmOWI5NzA2YzZjYTk5ODU5MDkzZDE1NWQzZTg3ZjM2MzdiYTE0NSIsInRhZyI6IiJ9"><i
-                                                                    class="fas fa-user-cog"></i></a></td>
-                                                    </tr>
+                                                        </tr>
+                                                    @empty
+                                                        <tr>
+                                                            <td colspan="4" class="text-center">
+                                                                <h1>No data found!</h1>
+                                                            </td>
+                                                        </tr>
+                                                    @endforelse
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -104,52 +97,42 @@
                                                         <th>Product</th>
                                                         <th>Item</th>
                                                         <th>Total Price</th>
-                                                        <th>Write Review</th>
+                                                        {{-- <th>Write Review</th> --}}
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <p>Order No: za6Ksj</p>
-                                                            <p>Order Time: October 16, 2023, 9:34 am</p>
-                                                        </td>
-                                                        <td>
-                                                            <div class="item-image-lsit d-flex align-items-center">
-                                                                <div class="single-item me-2">
-                                                                    <img class="order-image"
-                                                                        src="https://zairito.zainikthemes.com/uploaded_files/product_image/651e352d98c731696478509.png"
-                                                                        alt="images">
+                                                    @forelse ($completed_order as $item)
+                                                        <tr>
+                                                            <td>
+                                                                <p>Order No: {{ $item->order_id }}</p>
+                                                                <p>Order Time:
+                                                                    {{ $item->updated_at->format('M d, Y H:i A') }}</p>
+                                                            </td>
+                                                            <td>
+                                                                <div class="item-image-lsit d-flex align-items-center">
+                                                                    <div class="single-item me-2">
+                                                                        <img class="order-image"
+                                                                            src="{{ asset('images/product_images/small/' . $item->product->main_image) }}"
+                                                                            alt="images">
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="my-order-td-row">
-                                                            <span class="amount"> $ 1470</span>
-                                                        </td>
-                                                        <td class="my-order-td-row"><a
-                                                                href="https://zairito.zainikthemes.com/user/track-my-order/eyJpdiI6ImpZbXgvdUxTdmE1eUdPcGdDcVJQeWc9PSIsInZhbHVlIjoiSW9mV1RjNEJMMU1pN1hrTGk5ZjNEZz09IiwibWFjIjoiZmM5MWEzNjdlZGYyZTczNzIyMWU4MzIxNGVkOWM2OWQ4ZjE0MjBlMGQxYWFlM2U0YTZlYzQyNmVjNjkzNWE4YiIsInRhZyI6IiJ9"><i
-                                                                    class="fas fa-user-cog"></i></a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <p>Order No: nBVl4c</p>
-                                                            <p>Order Time: October 9, 2023, 7:35 am</p>
-                                                        </td>
-                                                        <td>
-                                                            <div class="item-image-lsit d-flex align-items-center">
-                                                                <div class="single-item me-2">
-                                                                    <img class="order-image"
-                                                                        src="https://zairito.zainikthemes.com/uploaded_files/product_image/product-image-7.png"
-                                                                        alt="images">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="my-order-td-row">
-                                                            <span class="amount"> $ 2250</span>
-                                                        </td>
-                                                        <td class="my-order-td-row"><a
-                                                                href="https://zairito.zainikthemes.com/user/track-my-order/eyJpdiI6Ii9ybXZZTFRSZkROSmpiTmpXTHNDSHc9PSIsInZhbHVlIjoiYTJOb09JWHpGTGhXYTMwM0tEaklYUT09IiwibWFjIjoiMTAyMTFlYjU2ZDJlNzA1ZjY3ZTQ3Mzk0ZGZlOTU5Y2ZiNjM2N2QxZDUyMTUxMTFmMWFhNDVlOGRjOTQ2MjA2YiIsInRhZyI6IiJ9"><i
-                                                                    class="fas fa-user-cog"></i></a></td>
-                                                    </tr>
+                                                            </td>
+
+                                                            <td class="my-order-td-row">
+                                                                <span class="amount">
+                                                                    ₦{{ number_format($item->qty * $item->product->price) }}</span>
+                                                            </td>
+
+
+                                                        </tr>
+                                                    @empty
+                                                        <tr>
+                                                            <td colspan="4" class="text-center">
+                                                                <h1>No data found!</h1>
+                                                            </td>
+                                                        </tr>
+                                                    @endforelse
+
                                                 </tbody>
                                             </table>
                                         </div>

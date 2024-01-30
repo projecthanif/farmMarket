@@ -76,8 +76,6 @@ class CartController extends Controller
 
         $cart = $request->session()->get('cart', []);
 
-        // dd($cart);
-        // $totalCartPrice = $this->calculateTotalPrice($cart);
         $totalCartPrice = $this->calculateTotalCartPrice($cart);
 
         return view('shop.cart', compact('cart', 'totalCartPrice'));
