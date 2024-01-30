@@ -482,8 +482,8 @@
             e.preventDefault();
 
             let handler = PaystackPop.setup({
-                // key: 'pk_test_f1aa39d3ac6068916f56a41a84c71314aa1b3e2d',
-                key: 'pk_live_064b702068ffa6cf068c63f0597d06169781590c',
+                key: 'pk_test_f1aa39d3ac6068916f56a41a84c71314aa1b3e2d',
+                // key: 'pk_live_064b702068ffa6cf068c63f0597d06169781590c',
                 email: document.getElementById("email-address").value,
                 amount: document.getElementById("amount").value * 100,
                 ref: '' + Math.floor((Math.random() * 1000000000) +

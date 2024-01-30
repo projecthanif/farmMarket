@@ -97,7 +97,6 @@ Route::prefix('shop')->group(function () {
     //checkout
     Route::get('/checkout', 'Shop\CheckoutController@index')->name('checkout.index');
     Route::post('/checkout/order', 'Shop\CheckoutController@process')->name('checkout.order');
-<<<<<<< HEAD
 
     // shipping-price
     Route::get('/get-shipping-price/{location}', 'Shop\ShippingController@getShippingPrice');
@@ -105,8 +104,6 @@ Route::prefix('shop')->group(function () {
     //thank you page
     Route::get('/checkout/thank-you', 'Shop\CheckoutController@thankyou')->name('checkout.thankyou');
 
-=======
->>>>>>> 99d2778405d019e7a4e6cab4f304dfc4ee49a464
 });
 
 
@@ -118,7 +115,6 @@ Route::prefix('user')->group(function () {
 
     //profile
     Route::get('/order', 'User\OrderController@index')->name('user.order');
-<<<<<<< HEAD
 
     // edit profile
     Route::get('/profile-edit', 'User\profileController@edit')->name('user.edit');
@@ -127,8 +123,6 @@ Route::prefix('user')->group(function () {
     //changer password
     Route::post('/password/change', 'User\profileController@changePassword')->name('password.change');
 
-=======
->>>>>>> 99d2778405d019e7a4e6cab4f304dfc4ee49a464
 
     Route::get('/login', 'User\Auth\LoginController@showLoginForm')->name('user.login');
     Route::post('/login', 'User\Auth\LoginController@loginAction')->name('user.login.action');
