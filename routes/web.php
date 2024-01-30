@@ -40,6 +40,9 @@ Route::prefix('/admin')->namespace('admin')->group(function () {
         Route::post('update-current-pwd', [adminController::class, 'updateCurrentPassword']);
         Route::match(['get', 'post'], 'update-admin-details', [adminController::class, 'updateAdminDetails']);
 
+        Route::get('shipping', [adminController::class, 'shipping']);
+        Route::post('edit-shipping', [adminController::class, 'editShipping']);
+
         //categories route
         Route::get('categories', [categoryController::class, 'categories']);
         Route::post('update-category-status', [categoryController::class, 'updateCategoryStatus']);
@@ -63,6 +66,7 @@ Route::prefix('/admin')->namespace('admin')->group(function () {
         Route::get('delete-image/{id}', [productController::class, 'deleteImage']);
 
         //orders route
+        Route::get('cart', [OrderController::class, 'cart']);
         Route::get('orders', [OrderController::class, 'orders']);
         Route::post('update-payment-status', [OrderController::class, 'updatePaymentStatus']);
         Route::post('update-order-status/{id}', [OrderController::class, 'updateOrderStatus']);
@@ -93,6 +97,7 @@ Route::prefix('shop')->group(function () {
     //checkout
     Route::get('/checkout', 'Shop\CheckoutController@index')->name('checkout.index');
     Route::post('/checkout/order', 'Shop\CheckoutController@process')->name('checkout.order');
+<<<<<<< HEAD
 
     // shipping-price
     Route::get('/get-shipping-price/{location}', 'Shop\ShippingController@getShippingPrice');
@@ -100,6 +105,8 @@ Route::prefix('shop')->group(function () {
     //thank you page
     Route::get('/checkout/thank-you', 'Shop\CheckoutController@thankyou')->name('checkout.thankyou');
 
+=======
+>>>>>>> 99d2778405d019e7a4e6cab4f304dfc4ee49a464
 });
 
 
@@ -111,6 +118,7 @@ Route::prefix('user')->group(function () {
 
     //profile
     Route::get('/order', 'User\OrderController@index')->name('user.order');
+<<<<<<< HEAD
 
     // edit profile
     Route::get('/profile-edit', 'User\profileController@edit')->name('user.edit');
@@ -119,6 +127,8 @@ Route::prefix('user')->group(function () {
     //changer password
     Route::post('/password/change', 'User\profileController@changePassword')->name('password.change');
 
+=======
+>>>>>>> 99d2778405d019e7a4e6cab4f304dfc4ee49a464
 
     Route::get('/login', 'User\Auth\LoginController@showLoginForm')->name('user.login');
     Route::post('/login', 'User\Auth\LoginController@loginAction')->name('user.login.action');

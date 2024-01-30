@@ -21,6 +21,11 @@ class product extends Model
         return $this->hasMany('App\Models\Orders', 'prod_id');
     }
 
+    public function cart()
+    {
+        return $this->hasMany('App\Models\Cart', 'prod_id');
+    }
+
     public function images()
     {
         return $this->hasMany('App\Models\productsImage');

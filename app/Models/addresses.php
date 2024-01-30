@@ -25,4 +25,9 @@ class addresses extends Model
     {
         return $this->hasMany('App\Models\orders', 'user_id');
     }
+
+    public function cart()
+    {
+        return $this->hasMany('App\Models\Cart', 'user_id');
+    }
 }

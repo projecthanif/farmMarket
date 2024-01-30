@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -13,8 +14,16 @@ class OrderController extends Controller
     {
         Session::put('page', 'orders');
 
-        $orders = orders::with(['product', 'user', 'addresses'])->orderBy('created_at','desc')->get();
+        $orders = orders::with(['product', 'user', 'addresses'])->orderBy('created_at', 'desc')->get();
         return view('admin.orders')->with(compact('orders'));
+    }
+
+    public function cart()
+    {
+        Session::put('page', 'cart');
+
+        $cart = Cart::with(['product', 'user', 'addresses'])->get();
+        return view('admin.cart')->with(compact('cart'));
     }
 
     public function sales()

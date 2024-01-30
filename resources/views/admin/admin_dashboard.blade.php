@@ -86,7 +86,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="{{ url('/admin/orders') }}" class="small-box-footer">More info <i
+                            <a href="{{ url('/admin/cart') }}" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>

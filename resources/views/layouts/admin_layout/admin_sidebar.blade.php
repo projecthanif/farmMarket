@@ -132,6 +132,30 @@
                             </a>
                         </li>
 
+                        @if (Session::get('page') == 'cart')
+                            <?php $active = 'active'; ?>
+                        @else
+                            <?php $active = ''; ?>
+                        @endif
+                        <li class="nav-item">
+                            <a href="{{ url('admin/cart') }}" class="nav-link {{ $active }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Cart items</p>
+                            </a>
+                        </li>
+
+                        @if (Session::get('page') == 'shipping')
+                            <?php $active = 'active'; ?>
+                        @else
+                            <?php $active = ''; ?>
+                        @endif
+                        <li class="nav-item">
+                            <a href="{{ url('admin/shipping') }}" class="nav-link {{ $active }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Manage shipping</p>
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
             </ul>

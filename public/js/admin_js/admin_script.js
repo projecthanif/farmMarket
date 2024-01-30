@@ -137,6 +137,27 @@ $(document).ready(function () {
         });
     });
 
+    $(".edit-shipping").click(function (e) {
+        e.preventDefault();
+
+        let amount = $(e.currentTarget).closest("tr").find("#shipping").val();
+        let id = $(e.currentTarget).attr("shipping_id");
+
+        $.ajax({
+            type: "post",
+            url: "/admin/edit-shipping",
+            data: { amount: Number(amount), id: Number(id) },
+            success: function (resp) {
+                // console.log(resp);
+                window.location.reload();
+            },
+            error: function (err) {
+                console.log(err);
+                alert("Error");
+            },
+        });
+    });
+
     //Adding and removing fields
     var maxField = 10; //Input fields increment limitation
     var addButton = $(".add_button"); //Add button selector
