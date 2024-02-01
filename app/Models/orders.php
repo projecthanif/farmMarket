@@ -9,6 +9,8 @@ class orders extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['is_rated'];
+
     public function product()
     {
         return $this->belongsTo('App\Models\product', 'prod_id');

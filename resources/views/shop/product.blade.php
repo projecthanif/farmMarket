@@ -19,8 +19,15 @@
                             {{-- <input type="hidden" name="quantity" value="1" id="product_quantity" /> --}}
                             <input type="hidden" class="quantity-input" value="1" min="1">
                             <h3 class="product-name">
-                                <a class="product-link" href="#">{{ $row->product_name }}</a>
+                                <a class="product-link" href="{{ route('shop.product.details', ['product_name' => $row->product_name]) }}">{{ $row->product_name }}</a>
                             </h3>
+                            <ul class="product-review">
+                                <li class="review-item {{ $row->rating >= 1 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                                <li class="review-item {{ $row->rating >= 2 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                                <li class="review-item {{ $row->rating >= 3 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                                <li class="review-item {{ $row->rating >= 4 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                                <li class="review-item {{ $row->rating >= 5 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                            </ul>
                             <div class="product-price">
                                 <span class="price">&#8358; {{ number_format($row->price) }}</span>
                             </div>
@@ -115,7 +122,7 @@
                         <div class="single-grid-product-v2">
                             <div class="product-top">
                                 <a href="#"><img class="product-thumbnal"
-                                        src="{{ asset('images/product_images/small/' . $row->main_image) }}" alt="product"
+                                    src="{{ asset('images/product_images/small/' . $row ->main_image) }}" alt="product"
                                         height="100" width="200" /></a>
                             </div>
 
@@ -123,8 +130,15 @@
                                 {{-- <input type="hidden" name="quantity" value="1" id="product_quantity" /> --}}
                                 <input type="hidden" class="quantity-input" value="1" min="1">
                                 <h3 class="product-name">
-                                    <a class="product-link" href="#">{{ $row->product_name }}</a>
+                                    <a class="product-link" href="{{ route('shop.product.details', ['product_name' => $row->product_name]) }}">{{ $row->product_name }}</a>
                                 </h3>
+                                <ul class="product-review">
+                                    <li class="review-item {{ $row->rating >= 1 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                                    <li class="review-item {{ $row->rating >= 2 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                                    <li class="review-item {{ $row->rating >= 3 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                                    <li class="review-item {{ $row->rating >= 4 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                                    <li class="review-item {{ $row->rating >= 5 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                                </ul>
                                 <div class="product-price">
                                     <span class="price">&#8358; {{ number_format($row->price) }}</span>
                                 </div>

@@ -11,8 +11,10 @@ class ShippingController extends Controller
 
     public function getShippingPrice($location)
     {
+
         $shippingPrice = ShippingPrice::where('state', $location)->first();
 
         return response()->json(['price' => $shippingPrice->price]);
+
     }
 }

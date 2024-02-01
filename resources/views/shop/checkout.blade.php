@@ -34,7 +34,7 @@
                                 @csrf
                                 <input type="email" id="email-address"
                                     value="{{ auth()->user()->email ?? 'mnanjwan@gmail.com' }}" hidden />
-                                <input type="text" id="amount" value="{{ $totalCartPrice }}" readonly hidden />
+                                <input type="text" id="amount" value="{{ $finalPrice }}" readonly hidden />
                                 <input type="text" id="first-name" {{ auth()->user()->firstname ?? 'guest' }} hidden />
 
                                 <div class="row">
@@ -199,7 +199,7 @@
                                 <li>Sub Total <span id="delivery-charge">
                                         <h3>
 
-                                            <span class="float-right" id="total-cart-price">
+                                            <span class="float-right" id="">
                                                 NGN {{ number_format($totalCartPrice, 2) }}
                                             </span>
                                         </h3>
@@ -207,19 +207,34 @@
                                 </li>
 
                                 <li>
-                                    {{-- <span id="delivery-charge">&#8358;{{ number_format($shipping_fee) }}</span> --}}
-                                    <p id="shippingPrice"></p>
+                                    @if (auth()->user())
+                                        <span id="shippingPrice">&#8358;{{ number_format($shippingPrice, 2) }}</span>
+                                        <div id="shippingPrice">Shipping Price: </div>
+                                    @endif
                                 </li>
                             </ul>
                             <div class="total-amount">
                                 {{-- @php
                                     $grandTotal = $totalCartPrice + $shipping_fee;
                                 @endphp --}}
+
                                 <h3>
                                     Total Cost
-                                    <span class="float-right" id="total-cart-price">
-                                        NGN {{ number_format($totalCartPrice, 2) }}
-                                    </span>
+
+                                    @if (!auth()->user())
+                                        <span class="float-right" id="total-cart-price">
+                                            NGN {{ number_format($totalCartPrice, 2) }}
+                                        </span>
+                                    @elseif(auth()->user() && empty(!auth()->user()->addresses->state))
+                                        <span class="float-right" id="total-cart-price">
+                                            NGN {{ number_format($finalPrice, 2) }}
+                                        </span>
+
+                                        {{-- <span class="float-right" id="total-cart-price">
+                                            NGN {{ number_format($totalCartPrice, 2) }}
+                                        </span> --}}
+                                    @endif
+
                                 </h3>
                             </div>
                         </div>

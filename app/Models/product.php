@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class product extends Model
 {
+
+    protected $fillable = ['rating'];
+
     public function category()
     {
         return $this->belongsTo('App\Models\category', 'category_id');
@@ -30,4 +33,10 @@ class product extends Model
     {
         return $this->hasMany('App\Models\productsImage');
     }
+
+    public function ratings()
+{
+    return $this->hasMany(Rating::class);
+}
+
 }

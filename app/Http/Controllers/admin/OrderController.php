@@ -17,8 +17,8 @@ class OrderController extends Controller
         $orders = orders::with(['product', 'user', 'addresses'])->orderBy('created_at', 'desc')->get();
 
         // $order = orders::get();
-
         // dd($order->addresses);
+        
         // echo "<pre>";print_r($orders);die;
 
         return view('admin.orders')->with(compact('orders'));

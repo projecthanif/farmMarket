@@ -6,6 +6,8 @@
                             class="fas fa-user"></i>My Profile</a></li>
                 <li class><a href="{{ route('user.order') }}"><i
                             class="fas fa-box-open"></i>My Order</a></li>
+                            <li class><a href="{{ route('user.review') }}"><i
+                                class="fas fa-user-edit"></i>My Review</a></li>
 
             </ul>
         </nav>

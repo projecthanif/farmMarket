@@ -1,6 +1,5 @@
 @extends('layouts.shop_layout.master')
 @section('content')
-
     <div class="sign-in-page section">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -10,21 +9,23 @@
                             <span class="far fa-user"></span>
                         </div>
                         <h1 class="text-center mb-4">Sign In</h1>
+
+
                         <form class="login-form" method="post" action="{{ route('user.login.action') }}">
                             @csrf
                             <div class="form-group">
                                 <input type="email" class="form-control rounded-left" placeholder="Email" name="email"
-                                value="{{ old('email') }}" >
-                                @error('email')
-                                <span class="text-red-500">{{ $message }}</span>
-                            @enderror
+                                    value="{{ old('email') }}">
+                                {{-- @error('email')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror --}}
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control rounded-left" placeholder="Password"
-                                    name="password" >
-                                    @error('password')
+                                    name="password">
+                                {{-- @error('password')
                                     <span class="text-red-500">{{ $message }}</span>
-                                @enderror
+                                @enderror --}}
                             </div>
                             <div class="form-group">
                                 <button type="submit"
@@ -43,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="already-have-account">
-                                Dont have an account?<a href="#" class="forget-password-link">Sign Up</a>
+                                Dont have an account?<a href="{{ route('user.register') }}" class="forget-password-link">Sign Up</a>
                             </div>
                         </form>
                     </div>

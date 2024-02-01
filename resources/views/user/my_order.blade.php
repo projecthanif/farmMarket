@@ -70,7 +70,7 @@
                                                                 <span class="amount">
                                                                     ₦{{ number_format($item->qty * $item->product->price) }}</span>
                                                             </td>
-                                                            <td class="my-order-td-row"><a href="#"><i
+                                                            <td class="my-order-td-row"><a href="{{ route('user.track', ['order_id' => $item->order_id]) }}" ><i
                                                                         class="fas fa-user-cog"></i></a></td>
 
                                                         </tr>
@@ -97,7 +97,7 @@
                                                         <th>Product</th>
                                                         <th>Item</th>
                                                         <th>Total Price</th>
-                                                        {{-- <th>Write Review</th> --}}
+                                                        <th>Write Review</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -122,6 +122,9 @@
                                                                 <span class="amount">
                                                                     ₦{{ number_format($item->qty * $item->product->price) }}</span>
                                                             </td>
+
+                                                            <td class="my-order-td-row"><a href="{{ route('user.track', ['order_id' => $item->order_id]) }}" ><i
+                                                                class="fas fa-user-cog"></i></a></td>
 
 
                                                         </tr>

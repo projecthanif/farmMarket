@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('user.profile');
@@ -22,10 +27,14 @@ class ProfileController extends Controller
 
     public function editAction(Request $request)
     {
+
         $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
             'phone' => 'required',
+            'address' => 'required',
+            'state' => 'required',
+            'city' => 'required',
             // Add other validation rules as needed
         ]);
 
@@ -35,27 +44,35 @@ class ProfileController extends Controller
         $user->phone = $request->input('phone');
         $user->save();
 
-        $address = addresses::where('user_id', auth()->user()->id)->first();
-        $address->address = $request->input('address');
-        $address->city = $request->input('city');
-        $address->state = $request->input('state');
-        $address->phone = $request->input('phone');
-        $address->timestamps = false;
-        $address->save();
+        $address = addresses::updateorInsert(
+            ['user_id' => auth()->user()->id],
+            [
+                'fullname' => auth()->user()->firstname.' '. auth()->user()->lastname,
+                'address' => $request->input('address'),
+                'state' => $request->input('state'),
+                'city' => $request->input('city'),
+                'phone' => $request->input('phone'),
+                'isPrimary' => 1
+            ]
+        );
+
+        // $address = addresses::where('user_id', auth()->user()->id)->first();
+        // $address->address = $request->input('address');
+        // $address->city = $request->input('city');
+        // $address->state = $request->input('state');
+        // $address->phone = $request->input('phone');
+        // $address->timestamps = false;
+        // $address->save();
         $address->timestamps = true;
-
-
 
         return redirect()->back()->with('success', 'Profile data updated.');
     }
 
     public function changePassword(Request $request)
     {
-        // dd($request->all());
-
         $request->validate([
             'current_password' => 'required',
-            'new_password' => 'required|string|confirmed',
+            'new_password' => 'required|confirmed',
         ]);
 
         $user = auth()->user();

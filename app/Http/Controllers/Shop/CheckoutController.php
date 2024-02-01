@@ -17,12 +17,22 @@ class CheckoutController extends Controller
 
     public function index(Request $request)
     {
-        // $shipping_fee = 1000;
         $cart = $request->session()->get('cart', []);
         $totalCartPrice = $this->calculateTotalCartPrice($cart);
         $shipping_price = ShippingPrice::all();
 
-        return view('shop.checkout', compact('cart', 'totalCartPrice', 'shipping_price'));
+        // Retrieve the selected location from the session
+        $selectedLocation = $request->session()->get('selectedLocation');
+
+        // Use $selectedLocation to calculate the shipping price
+        $shippingPrice = $this->getShippingPrice($selectedLocation);
+
+        // Calculate the final price
+        $finalPrice = $shippingPrice + $totalCartPrice;
+
+        // dd($cart);
+
+        return view('shop.checkout', compact('cart', 'totalCartPrice', 'shipping_price', 'finalPrice', 'shippingPrice'));
     }
 
     public function process(Request $request)
@@ -43,7 +53,7 @@ class CheckoutController extends Controller
             //     'phone' => 'required|numeric',
             // ]);
 
-            $fullname = $request->input('fullname');
+            // $fullname = $request->input('fullname');
             // $address = $request->input('address');
             // $state = $request->input('state');
             // $city = $request->input('city');
@@ -88,7 +98,7 @@ class CheckoutController extends Controller
                 $orderItem->order_status = 'completed';
                 $orderItem->track_order = '1';
                 $orderItem->payment_status = 'paid';
-                $orderItem->is_rated = '1';
+                $orderItem->is_rated = '0';
                 $orderItem->save();
             }
 
@@ -112,11 +122,46 @@ class CheckoutController extends Controller
         return $totalCartPrice;
     }
 
-    public function getShippingPrice($location)
+    private function getShippingPrice($location)
     {
-        $shippingPrice = ShippingPrice::where('state', $location)->first();
+        // $shippingPrice = ShippingPrice::where('state', $location)->first();
+        // return response()->json(['price' => $shippingPrice->price]);
 
-        return response()->json(['price' => $shippingPrice->price]);
+
+        $shippingPrice = 0;
+        if ($location != null) {
+            $shippingPriceData = ShippingPrice::where('state', $location)->first();
+            if (!is_null($shippingPriceData)) {
+                $shippingPrice = $shippingPriceData->price;
+            }
+        }
+        // return response()->json(['price' => $shippingPrice]);
+        return $shippingPrice;
+
+    }
+
+    public function setLocation(Request $request)
+    {
+        // Retrieve the data from the request
+        $location = $request->input('selectedLocation');
+        Session::put('selectedLocation', $location);
+        $shippingPriceData = ShippingPrice::where('state', $location)->value('price');
+
+        $cart = $request->session()->get('cart', []);
+        $totalCartPrice = $this->calculateTotalCartPrice($cart);
+
+        $selectedLocation = $request->session()->get('selectedLocation');
+        $shippingPrice = $this->getShippingPrice($selectedLocation);
+
+        // Calculate the final price
+        $finalPrice = $shippingPrice + $totalCartPrice;
+        return response()->json([
+            'price' => $shippingPriceData,
+            'totalCartPrice' => $finalPrice,
+        ]);
+
+        // return response()->json(['success' => true])->withCookie(cookie('laravel_session', session()->getId(), 60, '/', null, false, false));
+
     }
 
     public function thankyou()
