@@ -26,7 +26,6 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 // Redirect to the previous URL if available, otherwise to the default location
                 return redirect(Session::get('url.intended', '/shop/product'));
-                // return redirect()->route('user.profile');
             }
         }
 

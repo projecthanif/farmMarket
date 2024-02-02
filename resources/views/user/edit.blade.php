@@ -19,13 +19,23 @@
                                     <button class="nav-link" id="pills-password-tab" data-bs-toggle="pill"
                                         data-bs-target="#pills-password" type="button" role="tab"
                                         aria-controls="pills-password" aria-selected="false">
-                                        Change Password</button>
+                                        Change Password</b utton>
                                 </li>
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-profile" role="tabpanel"
                                     aria-labelledby="pills-profile-tab">
                                     <div class="profile-form mt-5">
+
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                         <form enctype="multipart/form-data" action="{{ route('user.edit.action') }}"
                                             method="post">
                                             @csrf
@@ -67,7 +77,7 @@
                                                     <div class="form-group">
                                                         <label for="fname">Phone</label>
                                                         <input type="text" class="form-control" id="lastname"
-                                                            name="phone" value="{{ auth()->user()->phone }}">
+                                                            name="phone" value="{{ auth()->user()->phone ?? '' }}">
                                                         @error('phone')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -80,7 +90,8 @@
                                                     <div class="form-group">
                                                         <label for="lname">Street Address</label>
                                                         <input type="text" class="form-control" id="street_address"
-                                                            name="address" value="{{ auth()->user()->addresses->address }}">
+                                                            name="address"
+                                                            value="{{ auth()->user()->addresses->address ?? '' }}">
                                                         @error('address')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -137,7 +148,8 @@
                                                     <div class="form-group">
                                                         <label for="lname">City</label>
                                                         <input type="text" class="form-control" id="city"
-                                                            name="city" value="{{ auth()->user()->addresses->city }}">
+                                                            name="city"
+                                                            value="{{ auth()->user()->addresses->city ?? '' }}">
                                                         @error('city')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -174,7 +186,7 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="password" class="form-control" id="NewPassword"
+                                                    <input type="password" class="form-control" id=""
                                                         name="new_password" placeholder="New Password" />
                                                     @error('new_password')
                                                         <span class="invalid-feedback" role="alert">
@@ -185,8 +197,8 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="password" class="form-control" id="ConfirmPassword"
-                                                        name="confirm_password" placeholder="Confirm Password" />
+                                                    <input type="password" class="form-control" id=""
+                                                        name="password_confirmation" placeholder="Confirm Password" />
                                                 </div>
                                             </div>
                                             <div>

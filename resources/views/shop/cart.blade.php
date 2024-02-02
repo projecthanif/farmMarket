@@ -122,26 +122,6 @@
             <!-- Cart Page Bottom box area Start -->
             <div class="row cart-page-bottom-box-wrap">
 
-                <!-- Cart page bottom box -->
-                {{-- <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-                    <div class="cart-page-bottom-box">
-                        <h2 class="bottom-box-title">{{ __('Discount Codes') }}</h2>
-
-                        <form action="{{ route('apply.coupon') }}" method="post">
-                            @csrf
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="coupon_code"
-                                    placeholder="{{ __('Enter your coupon code') }}" />
-                            </div>
-                            <div class="form-button text-center">
-                                <button type="submit" class="form-btn">{{ __('Apply Coupon') }}</button>
-                            </div>
-                        </form>
-                    </div>
-                </div> --}}
-                <!-- Cart page bottom box -->
-                <!-- Cart page bottom box -->
-
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4">
                     <div class="cart-page-bottom-box cart-page-sub-total-box">
                         <div class="sub-total-inner-box d-flex justify-content-between align-items-center">

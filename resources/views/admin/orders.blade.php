@@ -74,13 +74,13 @@ use Illuminate\Support\Facades\Session;
                                                 </td>
                                                 <td>
                                                     <p>
-                                                        {{ $order->addresses->fullname ?? 'Nil' }}
+                                                        {{ $order->user->addresses->fullname ?? 'Nil' }}
                                                     </p>
                                                     <p>
-                                                        {{ $order->addresses->phone ?? 'Nil' }}
+                                                        {{ $order->user->addresses->phone ?? 'Nil' }}
                                                     </p>
                                                 </td>
-                                                <td>{{ ($order->addresses->address ?? 'Nil') . ', ' . ($order->addresses->city ?? 'Nil') . ', ' . ($order->addresses->state ?? 'Nil') }}
+                                                <td>{{ ($order->user->addresses->address ?? 'Nil') . ', ' . ($order->user->addresses->city ?? 'Nil') . ', ' . ($order->user->addresses->state ?? 'Nil') }}
                                                 </td>
                                                 <td>{{ $order->product->product_name }}</td>
                                                 <td>

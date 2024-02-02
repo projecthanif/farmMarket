@@ -132,7 +132,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="https://zairito.zainikthemes.com/order-track" method="POST">
+                    <form action="#" method="POST">
                         <input type="hidden" name="_token" value="gNHvlijeCOFPxEm0NsNGHf12QjH54Cy79BYEIVQH" />
                         <div class="mb-3">
                             <label for="exampleFormControlInput2" class="form-label">Order Number</label>
@@ -147,6 +147,7 @@
             </div>
         </div>
     </div>
+
 
     {{-- <div class="modal fade common-modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
         aria-hidden="true">
@@ -456,7 +457,7 @@
     </script>
 
     {{-- Shippng fee --}}
-    <script>
+    {{-- <script>
         document.getElementById('locationSelect').addEventListener('change', function() {
             var selectedLocation = this.value;
 
@@ -471,6 +472,72 @@
                     console.error('Error fetching shipping price:', error);
                 });
         });
+    </script> --}}
+
+    <script>
+        document.getElementById('locationSelect').addEventListener('change', function() {
+            var selectedLocation = this.value;
+
+            $.ajax({
+                type: 'POST',
+                url: '/shop/get-shipping-price',
+                data: {
+                    selectedLocation: selectedLocation
+                },
+                dataType: 'json',
+                success: function(data) {
+                    console.log(selectedLocation);
+
+                    $('#shippingPrice').text('₦' + data.price.toFixed(2));
+                    console.log('Shipping Price: ₦' + data.price.toFixed(2));
+
+                    $('#total-cart-price').text(data.totalCartPrice);
+                    console.log('Updated Total Cart Price:', data.totalCartPrice);
+
+                    location.reload();
+                },
+                error: function(error) {
+                    // Handle error if needed
+                }
+            });
+
+            // fetch('/shop/get-shipping-price', {
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json',
+            //             'X-CSRF-TOKEN': '{{ csrf_token() }}', // Include the CSRF token if needed
+            //         },
+            //         body: JSON.stringify({
+            //             selectedLocation: selectedLocation
+            //         }),
+            //     })
+            //     .then(response => response.json())
+            //     .then(data => {
+
+            //         // document.getElementById('shippingPrice').innerText = 'Shipping Price: ₦' + data.price.toFixed(2);
+            //         $('#shippingPrice').text('Shipping Price: ₦' + data.shippingPrice.toFixed(2));
+
+            //         console.log(data.price);
+
+
+            //         // Update the total cart price display with currency formatting
+            //         var totalCartPrice = response.totalCartPrice.toLocaleString(
+            //             'en-US', {
+            //                 style: 'currency',
+            //                 currency: 'NGN'
+            //             });
+
+            //         $('#total-cart-price').text(totalCartPrice);
+            //         console.log('Updated Total Cart Price:', totalCartPrice);
+
+            //     })
+            //     .catch(error => {
+            //         // Handle the error if needed
+            //     });
+
+
+
+        });
     </script>
 
     <script>
@@ -482,8 +549,8 @@
             e.preventDefault();
 
             let handler = PaystackPop.setup({
-                // key: 'pk_test_f1aa39d3ac6068916f56a41a84c71314aa1b3e2d',
-                key: 'pk_live_064b702068ffa6cf068c63f0597d06169781590c',
+                key: 'pk_test_f1aa39d3ac6068916f56a41a84c71314aa1b3e2d',
+                // key: 'pk_live_064b702068ffa6cf068c63f0597d06169781590c',
                 email: document.getElementById("email-address").value,
                 amount: document.getElementById("amount").value * 100,
                 ref: '' + Math.floor((Math.random() * 1000000000) +
