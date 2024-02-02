@@ -59,7 +59,7 @@ use Illuminate\Support\Facades\Session;
                                                     method="POST">@csrf --}}
 
                                                 <td>{{ $index + 1 }}</td>
-                                                <td>{{ $shipping->state }}</td>
+                                                <td>{{ $shipping->city }}</td>
                                                 <td>
                                                     <input id="shipping" type="number" name="shipping"
                                                         class="form-control" value="{{ $shipping->cost }}" />

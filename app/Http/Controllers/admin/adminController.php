@@ -41,7 +41,7 @@ class adminController extends Controller
     {
         Session::put('page', 'shipping');
 
-        $shippings = DB::table('shipping')->get();
+        $shippings = DB::table('lagos_shipping')->get();
         return view('admin.shipping')->with(compact('shippings'));
     }
 
@@ -51,7 +51,7 @@ class adminController extends Controller
 
             $data = $request->all();
 
-            DB::table('shipping')->where('id', $data['id'])->update(['cost' => $data['amount']]);
+            DB::table('lagos_shipping')->where('id', $data['id'])->update(['cost' => $data['amount']]);
             return response()->json(['status' => 200, 'data' => $data]);
         }
     }
