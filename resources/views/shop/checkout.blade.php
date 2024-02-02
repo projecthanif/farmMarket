@@ -230,11 +230,7 @@
                                             NGN {{ number_format($finalPrice, 2) }}
                                         </span>
 
-                                        {{-- <span class="float-right" id="total-cart-price">
-                                            NGN {{ number_format($totalCartPrice, 2) }}
-                                        </span> --}}
                                     @endif
-
                                 </h3>
                             </div>
                         </div>

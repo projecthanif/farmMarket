@@ -105,7 +105,6 @@ Route::prefix('shop')->group(function () {
 
     //thank you page
     Route::get('/checkout/thank-you', 'Shop\CheckoutController@thankyou')->name('checkout.thankyou');
-
 });
 //Email Verification
 

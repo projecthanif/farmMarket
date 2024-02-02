@@ -27,8 +27,8 @@ class RegisterController extends Controller
             'password' => 'required|confirmed',
         ]);
 
-         // Create a new user
-         $user = User::create([
+        // Create a new user
+        $user = User::create([
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
             'email' => $request->input('email'),
@@ -38,44 +38,40 @@ class RegisterController extends Controller
         ]);
 
         if ($user) {
-             // Send email to user
-          $replyToEmail = 'admin@farmersmarketplace.ng';
-          $userEmail = $user->email;
-          $subject = 'Account Created';
-          $body = "<h1>Hi " . $user->firstname . ",</h1>
+            // Send email to user
+            $replyToEmail = 'admin@farmersmarketplace.ng';
+            $userEmail = $user->email;
+            $subject = 'Account Created';
+            $body = "<h1>Hi " . $user->firstname . ",</h1>
                           <p>
                           Your Account has been Created Successfully, please verify your account and login.<br><br>
                           </p>
                           <br>";
 
-          try {
-              dispatch(new SendEmail($userEmail, $body, $subject, $replyToEmail));
-          } catch (\Exception $ex) {}
+            try {
+                dispatch(new SendEmail($userEmail, $body, $subject, $replyToEmail));
+            } catch (\Exception $ex) {
+            }
 
 
-          $otp = Str::random(6);
-          User::where('email', $user->email)->update(['code' => $otp]);
+            $otp = Str::random(6);
+            User::where('email', $user->email)->update(['code' => $otp]);
 
-          $userEmail = $user->email;
-          $body = "<h1>Hi " . $user->surname . " ,</h1>
+            $userEmail = $user->email;
+            $body = "<h1>Hi " . $user->surname . " ,</h1>
                               <h1>One-Time Password</h1>
               <p>Your one-time password is: <strong> $otp</strong></p>
               <p>Please use this OTP to proceed with your action.</p>";
-          $subject = 'Otp Verification';
-          $replyToEmail = 'admin@farmersmarketplace.ng';
+            $subject = 'Otp Verification';
+            $replyToEmail = 'admin@farmersmarketplace.ng';
 
-          try {
-              dispatch(new SendEmail($userEmail, $body, $subject, $replyToEmail));
-          } catch (\Exception $ex) {
-          }
+            try {
+                dispatch(new SendEmail($userEmail, $body, $subject, $replyToEmail));
+            } catch (\Exception $ex) {
+            }
 
-        //   return view('user.auth.verification.email-verification');\
-        return redirect()->route('email.verification')->with('success','Your account has been created successfully');
-
-
+            //   return view('user.auth.verification.email-verification');\
+            return redirect()->route('email.verification')->with('success', 'Your account has been created successfully');
         }
-
-
-
     }
 }
