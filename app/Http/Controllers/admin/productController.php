@@ -69,13 +69,13 @@ class productController extends Controller
             //validating the form
             $rules = [
                 'category_id' => 'required',
-                'product_name' => 'required|regex:/^[\pL\s\-]+$/u',
+                'product_name' => 'required',
                 'price' => 'required|numeric',
             ];
             $customMessages = [
                 'category_id.required' => 'Category is required',
                 'product_name.required' => 'Product name is required',
-                'product_name.regex' => 'Valid Product name is required',
+                // 'product_name.regex' => 'Valid Product name is required',
                 'price.required' => 'Product price is required',
                 'price.numeric' => 'Valid Product price is required',
             ];

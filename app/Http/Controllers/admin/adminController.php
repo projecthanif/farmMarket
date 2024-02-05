@@ -37,6 +37,21 @@ class adminController extends Controller
         return view('admin.users')->with(compact('users'));
     }
 
+    public function manageAdmins()
+    {
+        Session::put('page', 'manage_admins');
+
+        $users = DB::table('admins')->get();
+        return view('admin.admins')->with(compact('users'));
+    }
+
+    public function addAdmin()
+    {
+        Session::put('page', 'add_admin');
+
+        return view('admin.add_admin');
+    }
+
     public function shipping()
     {
         Session::put('page', 'shipping');
@@ -54,6 +69,33 @@ class adminController extends Controller
             DB::table('lagos_shipping')->where('id', $data['id'])->update(['cost' => $data['amount']]);
             return response()->json(['status' => 200, 'data' => $data]);
         }
+    }
+
+    public function deleteAdmin($id)
+    {
+        admin::where('id', $id)->delete();
+
+        $message = "Admin has been successfully deleted";
+        Session::flash('Success_message', $message);
+        return redirect()->back();
+    }
+
+    public function addNewAdmin(Request $request)
+    {
+        $data = $request->all();
+        $admin = new admin();
+
+        $admin->name = $data['name'];
+        $admin->email = $data['email'];
+        $admin->mobile = $data['phone'];
+        $admin->password = Hash::make($data['password']);
+        $admin->type = 'admin';
+        $admin->image = '';
+        $admin->status = 1;
+        $admin->save();
+
+        Session::flash('Success_message', 'New admin added successfully');
+        return redirect('admin/manage_admins');
     }
 
     public function login(Request $request)
