@@ -45,6 +45,8 @@ class CartController extends Controller
             // Update the cart in the session
             $request->session()->put('cart', $cart);
 
+            $cart = $request->session()->get('cart', []);
+
             $cartCount = count($cart);
 
             // Calculate total cart price using query builder

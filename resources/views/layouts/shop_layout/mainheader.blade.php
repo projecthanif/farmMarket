@@ -136,9 +136,8 @@
 
 
                         <li class="single-item cart-area">
-                            <a class="single-btn cart-btn" data-bs-toggle="offcanvas"
-                                href="{{ route('shop.cart') }}" role="button"
-                                aria-controls="cartOffcanvasSidebar"><i
+                            <a class="single-btn cart-btn"
+                                href="{{ route('shop.cart') }}"  ><i
                                     class="btn-icon flaticon-shopping-bag"></i></a>
                         </li>
                         <li class="single-item user-area">
@@ -166,34 +165,7 @@
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
         </div>
-        <!-- <div class="menu-search-form">
-      <form>
-        <div class="search-wrap">
-          <select class="form-select">
-            <option selected>Categoria</option>
-            <option value="product/category/1.html">Health Category</option>
-            <option value="product/category/2.html">Women Fashion</option>
-            <option value="product/category/3.html">Men Fashion</option>
-            <option value="product/category/4.html">Electronic</option>
-            <option value="product/category/11.html">
-              SMM Panel Scripts
-            </option>
-          </select>
-          <div class="form-group">
-            <input
-              type="text"
-              class="form-control"
-              id="mobilesearch"
-              name="search"
-              placeholder="Search Here"
-            />
-            <button type="button" class="search-btn">
-              <i class="flaticon-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-    </div> -->
+
         <nav class="main-menu">
             <ul class="menu-list">
                 <li class="menu-item">
@@ -203,35 +175,28 @@
                     <span class="menu-expand"></span>
                     <a class="menu-link" href="#">More Products</a>
                     <ul class="sub-menu">
+                        @forelse ($categories as $category)
                         <li class="sub-menu-item">
-                            <a class="sub-menu-link" href="product/category/1.html">Health Category</a>
+                            <a class="sub-menu-link"
+                                href="{{ route('shop.category', ['name' => $category->name]) }}">{{$category->name}}</a>
                         </li>
-                        <li class="sub-menu-item">
-                            <a class="sub-menu-link" href="product/category/2.html">Women Fashion</a>
-                        </li>
-                        <li class="sub-menu-item">
-                            <a class="sub-menu-link" href="product/category/3.html">Men Fashion</a>
-                        </li>
-                        <li class="sub-menu-item">
-                            <a class="sub-menu-link" href="product/category/4.html">Electronic</a>
-                        </li>
-                        <li class="sub-menu-item">
-                            <a class="sub-menu-link" href="product/category/11.html">SMM Panel Scripts</a>
-                        </li>
+                    @empty
+                        <p>No category yet</p>
+                    @endforelse
+
                     </ul>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="about-us.html">Policy</a>
+                    <a class="menu-link" href="{{ route('home') }}">Policy</a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="blog.html">FAQ</a>
+                    <a class="menu-link" href="{{ route('home') }}">FAQ</a>
                 </li>
 
             </ul>
         </nav>
         <div class="menu-bottom">
-
-            <a class="account-btn" href="user/sign-in.html"><i class="user-icon flaticon-user"></i> My Account
+            <a class="account-btn" href="{{ route('user.login') }}"><i class="user-icon flaticon-user"></i> My Account
             </a>
         </div>
     </div>

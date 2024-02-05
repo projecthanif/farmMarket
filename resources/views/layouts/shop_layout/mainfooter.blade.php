@@ -1,4 +1,3 @@
-<div>
     <footer class="footer-area-v2">
         <div class="footer-widget-area">
             <div class="container">
@@ -23,23 +22,25 @@
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-6">
                         <div class="single-widget">
-                            <h3 class="widget-title mobile-dropdown-title">Categoria</h3>
+                            <h3 class="widget-title mobile-dropdown-title">Categories</h3>
                             <ul class="widget-menu show">
-                                <li class="meni-item">
-                                    <a class="menu-link" href="product/category/1.html">Health Category</a>
-                                </li>
-                                <li class="meni-item">
-                                    <a class="menu-link" href="product/category/2.html">Women Fashion</a>
-                                </li>
+                                @forelse ($categories as $category)
+                                    <li class="meni-item">
+                                        <a class="menu-link"
+                                            href="{{ route('shop.category', ['name' => $category->name]) }}">{{ $category->name }}</a>
+                                    </li>
+                                @empty
+                                    <p>No category yet</p>
+                                @endforelse
 
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-6">
                         <div class="single-widget">
-                            <h3 class="widget-title mobile-dropdown-title">Brand</h3>
+                            {{-- <h3 class="widget-title mobile-dropdown-title">&nbsp;</h3> --}}
                             <ul class="widget-menu">
-                                <li class="meni-item">
+                                {{-- <li class="meni-item">
                                     <a class="menu-link" href="#">Circle</a>
                                 </li>
                                 <li class="meni-item">
@@ -47,7 +48,7 @@
                                 </li>
                                 <li class="meni-item">
                                     <a class="menu-link" href="#">HEXLAB</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </div>
@@ -87,8 +88,7 @@
                                             class="fab fa-facebook-f"></i></a>
                                 </li>
                                 <li class="social-media-item">
-                                    <a class="social-media-link" href="www.skype.html"><i
-                                            class="fab fa-skype"></i></a>
+                                    <a class="social-media-link" href="www.skype.html"><i class="fab fa-skype"></i></a>
                                 </li>
                                 <li class="social-media-item">
                                     <a class="social-media-link" href="www.twitter.html"><i

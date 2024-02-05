@@ -187,8 +187,8 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <input type="password" class="form-control" id=""
-                                                        name="new_password" placeholder="New Password" />
-                                                    @error('new_password')
+                                                        name="password" placeholder="New Password" />
+                                                    @error('password')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>

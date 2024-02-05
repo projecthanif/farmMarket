@@ -5,11 +5,11 @@
         <div class="container">
             <div class="breadcrumb-wrap text-center">
                 <h2 class="page-title">{{ __('Cart') }}</h2>
-                <ul class="breadcrumb-pages">
+                {{-- <ul class="breadcrumb-pages">
                     <li class="page-item"><a class="page-item-link" href="">{{ __('Home') }}</a>
                     </li>
                     <li class="page-item">{{ __('Shopping Cart') }}</li>
-                </ul>
+                </ul> --}}
             </div>
         </div>
     </div>

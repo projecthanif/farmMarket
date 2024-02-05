@@ -15,7 +15,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="product-thumbnail-image">
+                            {{-- <div class="product-thumbnail-image">
                                 <ul class="product-thumb-silide-v2">
                                     <li class="single-item">
                                         <img class="single-item-image"
@@ -23,7 +23,7 @@
                                             alt="product" />
                                     </li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -64,10 +64,13 @@
                                         data-product-id="{{ $product->id }}" data-price="{{ $product->price }}">Add To Cart
                                         <i class="icon fas fa-plus-circle"></i></a>
                                 </div>
-                                {{-- <div class="product-bottom-button d-flex">
-                                    <a href="javascript:void(0)" class="primary-btn buyNow" data-id="12">Buy Now</a>
+                                <div class="product-bottom-button d-flex">
+                                    {{-- <a href="javascript:void(0)" class="primary-btn buyNow" data-id="12">Buy Now</a> --}}
+                                    <div class="product-description">
+                                        <p>Description: {{ $product->description }}</p>
+                                    </div>
 
-                                </div> --}}
+                                </div>
                             </div>
                             <div class="product-right-bottom">
                                 <ul class="features">
@@ -85,11 +88,7 @@
                                             ₦ 2,000</span>
                                     </li>
                                 </ul>
-                                {{-- <div class="guarantee-checkout-area">
-                                    <h3 class="guarantee-title">Guarantee safe &amp; secure checkout</h3>
-                                    <img src="#"
-                                        alt="payment-method-image" />
-                                </div> --}}
+
 
                             </div>
                         </div>
@@ -99,12 +98,12 @@
             <div class="product-bottom-info mt-50">
                 <div class="nav-tabs-menu">
                     <ul class="nav nav-tabs" id="ProductTab" role="tablist">
-                        <li class="nav-item" role="presentation">
+                        {{-- <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="Description-tab" data-bs-toggle="tab"
                                 data-bs-target="#Description" type="button" role="tab" aria-controls="Description"
                                 aria-selected="true">
                                 Description</button>
-                        </li>
+                        </li> --}}
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="Reviews-tab" data-bs-toggle="tab" data-bs-target="#Reviews"
                                 type="button" role="tab" aria-controls="Reviews" aria-selected="false">
@@ -113,13 +112,13 @@
                     </ul>
                 </div>
                 <div class="tab-content" id="ProductTabContent">
-                    <div class="tab-pane fade show active" id="Description" role="tabpanel"
+                    {{-- <div class="tab-pane fade show active" id="Description" role="tabpanel"
                         aria-labelledby="Description-tab">
                         <div class="product-description">
                             <p>{{ $product->description }}</p>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
+                    </div> --}}
+                    <div class="tab-pane fade show active" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
                         <div class="product-reviews">
                             <div class="review-top">
                                 <div class="review-top-left">

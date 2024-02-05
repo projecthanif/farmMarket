@@ -40,7 +40,7 @@
                                     </label>
                                 </div>
                                 <div class="text-md-end text-lg-end">
-                                    <a href="#" class="forget-password-link">Forget Password?</a>
+                                    <a href="{{ route('forget.password.get') }}" class="forget-password-link">Forget Password?</a>
                                 </div>
                             </div>
                             <div class="already-have-account">

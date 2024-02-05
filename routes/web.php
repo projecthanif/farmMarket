@@ -107,11 +107,17 @@ Route::prefix('shop')->group(function () {
     Route::get('/checkout/thank-you', 'Shop\CheckoutController@thankyou')->name('checkout.thankyou');
 });
 //Email Verification
-
 Route::get('/user/email-verificaton', 'Verification\EmailVerificationController@index')->name('email.verification');
 Route::post('email-verification-action', 'Verification\EmailVerificationController@validateOtp')->name('user-email-action');
 Route::get('/verification-successful', 'Verification\EmailVerificationController@verifiedSuccessfull')->name('user.verifiedSuccessfull');
 
+
+//Password-rest
+Route::get('forget-password', 'User\Auth\ForgotPasswordController@showForgetPasswordForm')->name('forget.password.get');
+Route::post('forget-password', 'User\Auth\ForgotPasswordController@submitForgetPasswordForm')->name('forget.password.post');
+
+Route::get('reset-password/{token}', 'User\Auth\ForgotPasswordController@showResetPasswordForm')->name('reset.password.get');
+Route::post('reset-password', 'User\Auth\ForgotPasswordController@submitResetPasswordForm')->name('reset.password.post');
 
 // Register
 Route::get('/user/register', 'User\Auth\RegisterController@showRegisterForm')->name('user.register');

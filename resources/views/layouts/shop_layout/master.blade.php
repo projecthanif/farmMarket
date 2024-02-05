@@ -456,23 +456,7 @@
         });
     </script>
 
-    {{-- Shippng fee --}}
-    {{-- <script>
-        document.getElementById('locationSelect').addEventListener('change', function() {
-            var selectedLocation = this.value;
 
-            // Make an AJAX request to fetch the shipping price based on the selected location
-            fetch('/shop/get-shipping-price/' + selectedLocation)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('shippingPrice').innerText = 'Shipping Price: ₦' + data.price
-                        .toFixed(2);
-                })
-                .catch(error => {
-                    console.error('Error fetching shipping price:', error);
-                });
-        });
-    </script> --}}
 
     <script>
         document.getElementById('locationSelect').addEventListener('change', function() {
@@ -500,41 +484,6 @@
                     // Handle error if needed
                 }
             });
-
-            // fetch('/shop/get-shipping-price', {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json',
-            //             'X-CSRF-TOKEN': '{{ csrf_token() }}', // Include the CSRF token if needed
-            //         },
-            //         body: JSON.stringify({
-            //             selectedLocation: selectedLocation
-            //         }),
-            //     })
-            //     .then(response => response.json())
-            //     .then(data => {
-
-            //         // document.getElementById('shippingPrice').innerText = 'Shipping Price: ₦' + data.price.toFixed(2);
-            //         $('#shippingPrice').text('Shipping Price: ₦' + data.shippingPrice.toFixed(2));
-
-            //         console.log(data.price);
-
-
-            //         // Update the total cart price display with currency formatting
-            //         var totalCartPrice = response.totalCartPrice.toLocaleString(
-            //             'en-US', {
-            //                 style: 'currency',
-            //                 currency: 'NGN'
-            //             });
-
-            //         $('#total-cart-price').text(totalCartPrice);
-            //         console.log('Updated Total Cart Price:', totalCartPrice);
-
-            //     })
-            //     .catch(error => {
-            //         // Handle the error if needed
-            //     });
-
 
 
         });
