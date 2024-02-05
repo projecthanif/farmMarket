@@ -82,6 +82,20 @@
                     </a>
                 </li>
 
+                @if (Session::get('page') == 'manage_admins')
+                    <?php $active = 'active'; ?>
+                @else
+                    <?php $active = ''; ?>
+                @endif
+                <li class="nav-item">
+                    <a href="{{ url('admin/manage_admins') }}" class="nav-link {{ $active }}">
+                        <i class="nav-icon fas fa-user-plus"></i>
+                        <p>
+                            Manage admins
+                        </p>
+                    </a>
+                </li>
+
                 @if (Session::get('page') == 'categories' || Session::get('page') == 'products' || Session::get('page') == 'orders')
                     <?php $active = 'active'; ?>
                 @else

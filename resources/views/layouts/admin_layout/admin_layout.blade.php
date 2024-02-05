@@ -125,6 +125,14 @@
 
         });
         $(function() {
+            $("#admins").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+                "pageLength": 100
+            });
+
+        });
+        $(function() {
             $("#sections").DataTable({
                 "responsive": true,
                 "autoWidth": false,

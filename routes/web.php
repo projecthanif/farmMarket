@@ -34,6 +34,11 @@ Route::prefix('/admin')->namespace('admin')->group(function () {
     Route::group(['middleware' => ['admin']], function () {
         Route::get('dashboard', [adminController::class, 'dashboard']);
         Route::get('users', [adminController::class, 'users']);
+        Route::get('manage_admins', [adminController::class, 'manageAdmins']);
+        Route::get('add-admin', [adminController::class, 'addAdmin']);
+        Route::post('add-new-admin', [adminController::class, 'addNewAdmin']);
+        Route::get('delete-admin/{id}', [adminController::class, 'deleteAdmin']);
+
         Route::get('settings', [adminController::class, 'settings']);
         Route::get('logout', [adminController::class, 'logout']);
         Route::post('check-current-pwd', [adminController::class, 'checkCurrentPassword']);
