@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="section-header-two text-center">
-            <h2 class="section-title">Products</h2>
+            <h2 class="section-title">Latest Products</h2>
         </div>
         <div class="row">
 
@@ -46,6 +46,34 @@
             @endforeach
 
         </div>
+
+        <div class="popular-categories-area-v2 section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="catagory-left">
+                            <h2 class="catagory-title">Popular Categories</h2>
+                            <a href="#" class="primary-btn-v2">View All Products
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <ul class="catagory-list">
+                            @foreach ($categories as $category)
+                                <li class="sigle-catagory">
+                                    <a class="catatory-link" href="{{ route('shop.category', ['name' => $category->name]) }}"
+                                        style="font-size: 100%">
+                                        {{ $category->name }}
+                                        <i class="icon flaticon-arrow-point-to-right"></i>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     </div>
 
@@ -89,32 +117,6 @@
         </div>
     </div>
 
-    <div class="popular-categories-area-v2 section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="catagory-left">
-                        <h2 class="catagory-title">Popular Categories</h2>
-                        <a href="#" class="primary-btn-v2">View All Products
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <ul class="catagory-list">
-                        @foreach ($categories as $category)
-                            <li class="sigle-catagory">
-                                <a class="catatory-link" href="{{ route('shop.category', ['name' => $category->name]) }}"
-                                    style="font-size: 100%">
-                                    {{ $category->name }}
-                                    <i class="icon flaticon-arrow-point-to-right"></i>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="featured-products-area-v2 section-bg-two section-top pb-100">
         <div class="container">

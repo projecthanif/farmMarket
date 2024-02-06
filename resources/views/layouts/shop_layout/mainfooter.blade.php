@@ -3,20 +3,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-widget about-widget">
+                        <div class="single-widget about-widget" style="">
                             {{-- <a href="index.html" class="footer-brand-logo mb-25">
                                 <img src="uploaded_files/logo/footer-logo.png" alt="." />
                             </a> --}}
-                            <h3 class="widget-title mobile-dropdown-title">Logo</h3>
-
+                            <a class="brand-logo" href="{{ route('home') }}" style="color: black; background-color: rgb(219, 244, 219);">
+                                <img src="{{ asset('user/img/logo.png') }}" alt="" width="50" class="">
+                                Farmers
+                                Marketplace
+                            </a>
                             <p class="address-text">
                                 . <br />
                                 . <br />
-                                .
                             </p>
                             <div class="block-content mb-30">
-                                <p class="contact">Call us: .</p>
-                                <p class="contact">Email: .</p>
+                                <p class="contact">Call us: +234 802 454 3272</p>
+                                <p class="contact">Email: marketplacefarmers@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -59,29 +61,21 @@
                             </h3>
                             <ul class="widget-menu">
                                 <li class="meni-item">
-                                    <a class="menu-link" href="">Help &amp; FAQ</a>
+                                    <a class="menu-link" href="{{ route('home') }}">Help &amp; FAQ</a>
                                 </li>
                                 <li class="meni-item">
-                                    <a class="menu-link" href="">Terms of Conditions</a>
+                                    <a class="menu-link" href="{{ route('home') }}">Terms of Conditions</a>
                                 </li>
                                 <li class="meni-item">
-                                    <a class="menu-link" href="">Privacy Policy</a>
+                                    <a class="menu-link" href="{{ route('home') }}">Privacy Policy</a>
                                 </li>
-                                <li class="meni-item">
-                                    <a class="menu-link" href="">Online Returns Policy</a>
-                                </li>
-                                <li class="meni-item">
-                                    <a class="menu-link" href="">Shipping &amp; Return</a>
-                                </li>
-                                <li class="meni-item">
-                                    <a class="menu-link" href="">Contact Us</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-widget social-media-widget">
-                            <h3 class="widget-title">Social Links</h3>
+                            <h3 class="widget-title">Get in Touch</h3>
                             <ul class="social-media">
                                 <li class="social-media-item">
                                     <a class="social-media-link" href="www.facebook.html"><i

@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         $featuredProducts = product::where('is_featured', 'Yes')->get();
-        $products = product::all();
+        $products = product::take(8)->take(4)->get();
         $category = category::all();
         return view('shop.product', compact('products', 'category', 'featuredProducts'));
     }

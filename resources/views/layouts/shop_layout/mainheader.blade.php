@@ -138,7 +138,8 @@
                         <li class="single-item cart-area">
                             <a class="single-btn cart-btn"
                                 href="{{ route('shop.cart') }}"  ><i
-                                    class="btn-icon flaticon-shopping-bag"></i></a>
+                                    class="btn-icon flaticon-shopping-bag"><span id="cart-count"
+                                    style="color: red;">{{ session('cartCount', 0) }}</span></i></a>
                         </li>
                         <li class="single-item user-area">
                             <a class="single-btn user-btn" href="{{ route('user.login') }}"><i
