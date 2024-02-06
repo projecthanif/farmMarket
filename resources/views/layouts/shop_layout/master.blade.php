@@ -235,6 +235,51 @@
     <script src="{{ asset('shop_assets/js/pages/home.js') }}"></script>
     <script src="{{ asset('shop_assets/js/pages/cart.js') }}"></script>
 
+
+    <script>
+        $(document).ready(function() {
+            $('.likeItem').on('click', function() {
+                var productId = $(this).data('product-id');
+                console.log(productId);
+                $.ajax({
+                    url: '{{ route('like.product') }}',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        product_id: productId,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'bottom-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal
+                                    .resumeTimer)
+                            }
+                        })
+                        Toast.fire({
+                            icon: response.status,
+                            title: response.message
+                        })
+                    },
+                    error: function(error) {
+                        console.log('caught it!', error);
+                    },
+
+                });
+            });
+        });
+    </script>
+
     <script>
         $(document).ready(function() {
             $('.addCart').on('click', function() {
@@ -257,6 +302,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
+                        console.log(response.cartCount);
 
                         const Toast = Swal.mixin({
                             toast: true,
@@ -271,9 +317,10 @@
                             }
                         })
                         Toast.fire({
-                            icon: 'success',
-                            title: 'Product Added to Cart Successfully'
+                            icon: response.status,
+                            title: response.message
                         })
+
 
                         // Update cart count
                         $('#cart-count').text(response.cartCount);
@@ -292,6 +339,14 @@
                 });
             });
         });
+
+
+        function updateCartIconCount(cartCount) {
+            // Update the cart icon count in the UI
+            $('#cart-count').text(cartCount);
+        }
+
+        updateCartCount();
     </script>
 
     <script>
@@ -457,7 +512,6 @@
     </script>
 
 
-
     <script>
         document.getElementById('locationSelect').addEventListener('change', function() {
             var selectedLocation = this.value;
@@ -529,14 +583,17 @@
 
                 var fullnameElement = document.getElementById("fullname");
                 var fullnameValue = fullnameElement.value;
+                console.log(fullnameValue);
 
                 var addressElement = document.getElementById("address");
                 var addressValue = addressElement.value;
+                console.log(addressValue);
 
                 var locationSelectElement = document.getElementById("locationSelect");
                 var locationSelectElementValue = locationSelectElement.value;
+                console.log(locationSelectElementValue);
 
-                var cityElement = document.getElementById("city");
+                var cityElement = document.getElementById("state");
                 var cityElementValue = cityElement.value;
 
                 var phoneElement = document.getElementById("phone");
@@ -558,8 +615,8 @@
                         body: JSON.stringify({
                             fullname: fullnameValue,
                             address: addressValue,
-                            state: locationSelectElementValue,
-                            city: cityElementValue,
+                            city: locationSelectElementValue,
+                            state: cityElementValue,
                             phone: phoneValue,
 
                         }),

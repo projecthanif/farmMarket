@@ -75,16 +75,16 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <select class="form-select" id="locationSelect" name="state">
-                                                <option>{{ __('State') }}</option>
+                                            <select class="form-select" id="locationSelect" name="city">
+                                                <option>{{ __('City') }}</option>
                                                 @foreach ($shipping_price as $shipping_price)
                                                     @if (auth()->user())
-                                                        <option value="{{ $shipping_price->state }}"
-                                                            {{ $shipping_price->state == (auth()->user()->addresses->state ?? ' ') ? 'selected' : '' }}>
-                                                            {{ $shipping_price->state }}</option>
+                                                        <option value="{{ $shipping_price->city }}"
+                                                            {{ $shipping_price->city == (auth()->user()->addresses->city ?? ' ') ? 'selected' : '' }}>
+                                                            {{ $shipping_price->city }}</option>
                                                     @else
-                                                        <option value="{{ $shipping_price->state }}">
-                                                            {{ $shipping_price->state }}</option>
+                                                        <option value="{{ $shipping_price->city }}">
+                                                            {{ $shipping_price->city }}</option>
                                                     @endif
                                                 @endforeach
                                             </select>
@@ -92,8 +92,8 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="city" name="city"
-                                                placeholder="City" value="{{ auth()->user()->addresses->city ?? '' }}"
+                                            <input type="text" class="form-control" id="state" name="state"
+                                                placeholder="state" value="{{ 'Lagos State' }}" readonly
                                                 required />
                                         </div>
                                     </div>

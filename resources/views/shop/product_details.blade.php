@@ -73,7 +73,27 @@
                                 </div>
                             </div>
                             <div class="product-right-bottom">
+                                <ul class="prdouct-btn-wrapper">
+                                    <li class="single-product-btn">
+                                        <a class="product-btn likeItem" data-product-id="{{ $product->id }}"
+                                            title="Like Product"><i class="icon flaticon-like"
+                                                style="font-size: 50px; "></i> <span
+                                                style="font-size: 30px">{{ $likes }} <small style="font-size: 50%">
+
+
+                                                    @if (auth()->check())
+                                                        @if ($like_user)
+                                                            (Liked)
+                                                        @else
+                                                        @endif
+                                                    @endif
+
+                                                </small> </span> </a>
+                                    </li>
+                                </ul>
+
                                 <ul class="features">
+
                                     <li class="single-feature">
                                         <img class="icon"
                                             src="https://zairito.zainikthemes.com/frontend/assets/images/delivery-van-icon.svg"
@@ -158,7 +178,7 @@
                                                 xZN53Uj0k7sILwFvmowPNmyBxN6EhcebbizUhSJT5FGa+hYiiKUG4qCmQVgTgomlBSEgRSavGJ/E/as52t7yTJCQAAAAASUVORK5CYII="
                                                     alt="reviewer-image" />
                                                 <div class="reviewer-info">
-                                                    <h4 class="reviewer-name">{{ $row->user->firstname ?? "User"}}</h4>
+                                                    <h4 class="reviewer-name">{{ $row->user->firstname ?? 'User' }}</h4>
                                                     <h4 class="review-meta"><span
                                                             class="time">{{ $row->created_at->format('M Y ') }}
                                                         </span>

@@ -51,7 +51,7 @@ class ForgotPasswordController extends Controller
         <h1>Hello</h1>
         <p> No need to worry, you can reset your password by clicking on the link below.</p>
 
-        <a href='". url('reset-password',$token) ."'>Reset Password</a>
+        <a href='" . url('reset-password', $token) . "'>Reset Password</a>
 
         <p> If you did not request a password reset, feel free to delete this email and carry on enjoying your shopping!</p>
 
@@ -97,7 +97,7 @@ class ForgotPasswordController extends Controller
 
         // Send email to user
         $replyToEmail = 'admin@farmersmarketplace.ng';
-        $userEmail = $request->email;
+        $userEmail = $updatePassword->email;
         $subject = 'Password changed';
         $body = "
 

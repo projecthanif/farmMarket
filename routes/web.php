@@ -89,6 +89,9 @@ Route::prefix('shop')->group(function () {
     //category
     Route::get('/category/{name}', 'Shop\Category\CategoryController@index')->name('shop.category');
 
+    //like product
+    Route::post('/like-product', 'Shop\CartController@likeItem')->name('like.product');
+
     //add to cart
     Route::post('/add-to-cart', 'Shop\CartController@addToCart')->name('cart.add');
 

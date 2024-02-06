@@ -101,56 +101,30 @@
                                                 </div>
                                                 <div class="col-lg-4 col-md-6">
                                                     <div class="form-group">
-                                                        <label for="Gender">State</label>
-                                                        <select class="form-control" id="state" name="state">
+                                                        <label for="Gender">City</label>
+
+                                                        <select class="form-control" id="city" name="city">
                                                             <option disabled selected>--Select State--</option>
-                                                            <option value="Abia">Abia</option>
-                                                            <option value="Adamawa">Adamawa</option>
-                                                            <option value="Akwa Ibom">Akwa Ibom</option>
-                                                            <option value="Anambra">Anambra</option>
-                                                            <option value="Bauchi">Bauchi</option>
-                                                            <option value="Bayelsa">Bayelsa</option>
-                                                            <option value="Benue">Benue</option>
-                                                            <option value="Borno">Borno</option>
-                                                            <option value="Cross River">Cross River</option>
-                                                            <option value="Delta">Delta</option>
-                                                            <option value="Ebonyi">Ebonyi</option>
-                                                            <option value="Edo">Edo</option>
-                                                            <option value="Ekiti">Ekiti</option>
-                                                            <option value="Enugu">Enugu</option>
-                                                            <option value="FCT">Federal Capital Territory</option>
-                                                            <option value="Gombe">Gombe</option>
-                                                            <option value="Imo">Imo</option>
-                                                            <option value="Jigawa">Jigawa</option>
-                                                            <option value="Kaduna">Kaduna</option>
-                                                            <option value="Kano">Kano</option>
-                                                            <option value="Katsina">Katsina</option>
-                                                            <option value="Kebbi">Kebbi</option>
-                                                            <option value="Kogi">Kogi</option>
-                                                            <option value="Kwara">Kwara</option>
-                                                            <option value="Lagos">Lagos</option>
-                                                            <option value="Nasarawa">Nasarawa</option>
-                                                            <option value="Niger">Niger</option>
-                                                            <option value="Ogun">Ogun</option>
-                                                            <option value="Ondo">Ondo</option>
-                                                            <option value="Osun">Osun</option>
-                                                            <option value="Oyo">Oyo</option>
-                                                            <option value="Plateau">Plateau</option>
-                                                            <option value="Rivers">Rivers</option>
-                                                            <option value="Sokoto">Sokoto</option>
-                                                            <option value="Taraba">Taraba</option>
-                                                            <option value="Yobe">Yobe</option>
-                                                            <option value="Zamfara">Zamfara</option>
+                                                            @foreach ($shipping_price as $shipping_price)
+                                                                @if (auth()->user())
+                                                                    <option value="{{ $shipping_price->city }}"
+                                                                        {{ $shipping_price->city == (auth()->user()->addresses->city ?? ' ') ? 'selected' : '' }}>
+                                                                        {{ $shipping_price->city }}</option>
+                                                                @else
+                                                                    <option value="{{ $shipping_price->city }}">
+                                                                        {{ $shipping_price->city }}</option>
+                                                                @endif
+                                                            @endforeach
+
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4 col-md-6">
                                                     <div class="form-group">
                                                         <label for="lname">City</label>
-                                                        <input type="text" class="form-control" id="city"
-                                                            name="city"
-                                                            value="{{ auth()->user()->addresses->city ?? '' }}">
-                                                        @error('city')
+                                                        <input type="text" class="form-control" id="state"
+                                                            name="state" value="{{ 'Lagos' }}" readonly>
+                                                        @error('state')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
                                                             </span>

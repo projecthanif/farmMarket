@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\ShippingPrice;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
@@ -20,7 +21,8 @@ class CheckoutController extends Controller
     {
         $cart = $request->session()->get('cart', []);
         $totalCartPrice = $this->calculateTotalCartPrice($cart);
-        $shipping_price = ShippingPrice::all();
+        // $shipping_price = ShippingPrice::all();
+        $shipping_price = DB::table('lagos_shipping')->get();
 
         // Retrieve the selected location from the session
         $selectedLocation = $request->session()->get('selectedLocation');
@@ -48,7 +50,7 @@ class CheckoutController extends Controller
                 return redirect()->route('user.login')->with('error', 'You must be logged in to complete the checkout.');
             }
 
-            $shipping_charge = delivery_charge($request->input('state'));
+            $shipping_charge = $this->getShippingPrice($request->input('city'));
             $cart = $request->session()->get('cart', []);
             $totalCartPrice = $this->calculateTotalCartPrice($cart);
 
@@ -67,8 +69,6 @@ class CheckoutController extends Controller
             );
 
             $cartItems = $request->session()->get('cart', []);
-
-            // if payment is successful
 
             // session()->put('order_number', $order_number);
             session()->put('shipping_charge', $shipping_charge);
@@ -91,8 +91,6 @@ class CheckoutController extends Controller
                 $orderItem->is_rated = '0';
                 $orderItem->save();
             };
-
-            // send email to user
 
             // Send email to user
             $replyToEmail = 'admin@farmersmarketplace.ng';
@@ -149,7 +147,8 @@ class CheckoutController extends Controller
 
             // Unset or clear the 'cart' session variable
             Session::forget('cart');
-
+            Session::forget('cartCount');
+            
             return redirect()->route('user.order')->with('success', 'Your order has been placed successfully!');
         } catch (\Exception $e) {
             return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
@@ -175,9 +174,11 @@ class CheckoutController extends Controller
 
         $shippingPrice = 0;
         if ($location != null) {
-            $shippingPriceData = ShippingPrice::where('state', $location)->first();
+            // $shippingPriceData = ShippingPrice::where('state', $location)->first();
+        $shippingPriceData = DB::table('lagos_shipping')->where('city', $location)->first();
+
             if (!is_null($shippingPriceData)) {
-                $shippingPrice = $shippingPriceData->price;
+                $shippingPrice = $shippingPriceData->cost;
             }
         }
         // return response()->json(['price' => $shippingPrice]);
@@ -189,7 +190,10 @@ class CheckoutController extends Controller
         // Retrieve the data from the request
         $location = $request->input('selectedLocation');
         Session::put('selectedLocation', $location);
-        $shippingPriceData = ShippingPrice::where('state', $location)->value('price');
+
+        $user = addresses::where('user_id', auth()->user()->id)->update(['city' => $location]);
+        // $shippingPriceData = ShippingPrice::where('state', $location)->value('price');
+        $shippingPriceData = DB::table('lagos_shipping')->where('city', $location)->value('cost');
 
         $cart = $request->session()->get('cart', []);
         $totalCartPrice = $this->calculateTotalCartPrice($cart);

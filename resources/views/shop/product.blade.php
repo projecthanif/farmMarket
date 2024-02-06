@@ -19,14 +19,20 @@
                             {{-- <input type="hidden" name="quantity" value="1" id="product_quantity" /> --}}
                             <input type="hidden" class="quantity-input" value="1" min="1">
                             <h3 class="product-name">
-                                <a class="product-link" href="{{ route('shop.product.details', ['product_name' => $row->product_name]) }}">{{ $row->product_name }}</a>
+                                <a class="product-link"
+                                    href="{{ route('shop.product.details', ['product_name' => $row->product_name]) }}">{{ $row->product_name }}</a>
                             </h3>
                             <ul class="product-review">
-                                <li class="review-item {{ $row->rating >= 1 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
-                                <li class="review-item {{ $row->rating >= 2 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
-                                <li class="review-item {{ $row->rating >= 3 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
-                                <li class="review-item {{ $row->rating >= 4 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
-                                <li class="review-item {{ $row->rating >= 5 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                                <li class="review-item {{ $row->rating >= 1 ? 'active' : '' }}"><i
+                                        class="flaticon-star"></i></li>
+                                <li class="review-item {{ $row->rating >= 2 ? 'active' : '' }}"><i
+                                        class="flaticon-star"></i></li>
+                                <li class="review-item {{ $row->rating >= 3 ? 'active' : '' }}"><i
+                                        class="flaticon-star"></i></li>
+                                <li class="review-item {{ $row->rating >= 4 ? 'active' : '' }}"><i
+                                        class="flaticon-star"></i></li>
+                                <li class="review-item {{ $row->rating >= 5 ? 'active' : '' }}"><i
+                                        class="flaticon-star"></i></li>
                             </ul>
                             <div class="product-price">
                                 <span class="price">&#8358; {{ number_format($row->price) }}</span>
@@ -73,14 +79,13 @@
 
             <div class="hero-banner-image text-center">
                 <a href="#">
-                    <img class="hero-image" width="100%"
-                    src="{{ asset('shop_assets/images/farmers_bg.jpg') }}"
-                    alt="wa" />
+                    <img class="hero-image" width="100%" src="{{ asset('shop_assets/images/farmers_bg.jpg') }}"
+                        alt="wa" />
                 </a>
 
 
 
-        </div>
+            </div>
         </div>
     </div>
 
@@ -96,9 +101,10 @@
                 </div>
                 <div class="col-lg-7">
                     <ul class="catagory-list">
-                        @foreach ($category as $category)
+                        @foreach ($categories as $category)
                             <li class="sigle-catagory">
-                                <a class="catatory-link" href="#" style="font-size: 100%">
+                                <a class="catatory-link" href="{{ route('shop.category', ['name' => $category->name]) }}"
+                                    style="font-size: 100%">
                                     {{ $category->name }}
                                     <i class="icon flaticon-arrow-point-to-right"></i>
                                 </a>
@@ -122,22 +128,34 @@
                         <div class="single-grid-product-v2">
                             <div class="product-top">
                                 <a href="#"><img class="product-thumbnal"
-                                    src="{{ asset('images/product_images/small/' . $row ->main_image) }}" alt="product"
+                                        src="{{ asset('images/product_images/small/' . $row->main_image) }}" alt="product"
                                         height="100" width="200" /></a>
-                            </div>
 
+                                <ul class="prdouct-btn-wrapper">
+                                    <li class="single-product-btn">
+                                        <a class="product-btn likeItem" data-product-id="{{ $row->id }}" title="Like Product"><i
+                                                class="icon flaticon-like"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
                             <div class="product-info text-center">
                                 {{-- <input type="hidden" name="quantity" value="1" id="product_quantity" /> --}}
                                 <input type="hidden" class="quantity-input" value="1" min="1">
                                 <h3 class="product-name">
-                                    <a class="product-link" href="{{ route('shop.product.details', ['product_name' => $row->product_name]) }}">{{ $row->product_name }}</a>
+                                    <a class="product-link"
+                                        href="{{ route('shop.product.details', ['product_name' => $row->product_name]) }}">{{ $row->product_name }}</a>
                                 </h3>
                                 <ul class="product-review">
-                                    <li class="review-item {{ $row->rating >= 1 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
-                                    <li class="review-item {{ $row->rating >= 2 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
-                                    <li class="review-item {{ $row->rating >= 3 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
-                                    <li class="review-item {{ $row->rating >= 4 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
-                                    <li class="review-item {{ $row->rating >= 5 ? 'active' : '' }}"><i class="flaticon-star"></i></li>
+                                    <li class="review-item {{ $row->rating >= 1 ? 'active' : '' }}"><i
+                                            class="flaticon-star"></i></li>
+                                    <li class="review-item {{ $row->rating >= 2 ? 'active' : '' }}"><i
+                                            class="flaticon-star"></i></li>
+                                    <li class="review-item {{ $row->rating >= 3 ? 'active' : '' }}"><i
+                                            class="flaticon-star"></i></li>
+                                    <li class="review-item {{ $row->rating >= 4 ? 'active' : '' }}"><i
+                                            class="flaticon-star"></i></li>
+                                    <li class="review-item {{ $row->rating >= 5 ? 'active' : '' }}"><i
+                                            class="flaticon-star"></i></li>
                                 </ul>
                                 <div class="product-price">
                                     <span class="price">&#8358; {{ number_format($row->price) }}</span>

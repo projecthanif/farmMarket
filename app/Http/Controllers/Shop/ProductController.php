@@ -7,6 +7,7 @@ use App\Models\category;
 use App\Models\product;
 use App\Models\Rating;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -30,7 +31,12 @@ class ProductController extends Controller
         $review = Rating::where('product_id', $product->id)->get();
         $reviewCount = Rating::where('product_id', $product->id)->count();
         // dd($reviewCount);
+        $likes = DB::table('likes')->where('prod_id', $product_id)->count();
 
-        return view('shop.product_details', compact('product', 'relatedProducts', 'review', 'reviewCount'));
+        $like_user = DB::table('likes')
+                                    ->where('prod_id', $product_id)
+                                    ->where('user_id', auth()->user()->id ?? '')
+                                    ->first();
+        return view('shop.product_details', compact('product', 'relatedProducts', 'review', 'reviewCount', 'likes', 'like_user'));
     }
 }

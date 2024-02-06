@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Shop;
 use App\Http\Controllers\Controller;
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
@@ -12,7 +13,6 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-
         try {
             $productId = $request->input('product_id');
             $quantity = $request->input('quantity', 1); // Default to 1 if quantity is not provided
@@ -47,15 +47,18 @@ class CartController extends Controller
 
             $cart = $request->session()->get('cart', []);
 
-            $cartCount = count($cart);
+            // $cartCount = collect($cart)->count();
+            $cartCount = sizeof($cart);
+            // Update the cart count in the session
+            session(['cartCount' => count($cart)]);
 
             // Calculate total cart price using query builder
-            $totalCartPrice = $this->calculateTotalPrice($cart);
+            $totalCartPrice = $this->calculateTotalCartPrice($cart);
 
             return response()->json([
                 'status' => 'success',
                 'message' => 'Item added to the cart.',
-                'cartCount' => $cartCount,
+                'cartCount' => count($cart),
                 'cartItems' => $this->renderCartItems($cart),
                 'totalCartPrice' => $totalCartPrice
             ]);
@@ -63,6 +66,51 @@ class CartController extends Controller
             return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
         }
     }
+
+
+    public function likeItem(Request $request)
+    {
+        try {
+            $productId = $request->input('product_id');
+
+            if (auth()->check()) {
+                $existingRecord = DB::table('likes')->where('prod_id', $productId)->first();
+
+                if ($existingRecord) {
+                    // If a record exists, delete it
+                    DB::table('likes')->where('prod_id', $productId)->delete();
+
+                    return response()->json([
+                        'status' => 'success',
+                        'message' => 'Item unliked.',
+                    ]);
+                }
+
+                if (!$existingRecord) {
+                    // Insert the new record
+                    DB::table('likes')->insert([
+                        'user_id' => auth()->user()->id,
+                        'prod_id' => $productId,
+                    ]);
+
+                    return response()->json([
+                        'status' => 'success',
+                        'message' => 'Item liked.',
+                    ]);
+                }
+            } else {
+                // return response()->json([
+                //     'status' => 'info',
+                //     'message' => 'Login to like this product.',
+
+                // ]);
+                return response()->json(['status' => 'error', 'message' => 'Login to like']);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
+        }
+    }
+
 
     private function renderCartItems($cart)
     {
@@ -107,6 +155,8 @@ class CartController extends Controller
                 $request->session()->put('cart', $cart);
 
                 $cartCount = count($cart);
+                // Update the cart count in the session
+                session(['cartCount' => count($cart)]);
 
                 return response()->json([
                     'status' => 'success',
@@ -179,6 +229,4 @@ class CartController extends Controller
 
         return $totalCartPrice;
     }
-
-
 }

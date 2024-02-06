@@ -7,6 +7,7 @@ use App\Models\addresses;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
@@ -23,7 +24,8 @@ class ProfileController extends Controller
 
     public function edit()
     {
-        return view('user.edit');
+        $shipping_price = DB::table('lagos_shipping')->get();
+        return view('user.edit', compact('shipping_price'));
     }
 
     public function editAction(Request $request)

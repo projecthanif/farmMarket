@@ -89,7 +89,7 @@
                         <li class="single-item cart-area">
                             <a class="single-btn cart-btn" href="{{ route('shop.cart') }}"><i
                                     class="btn-icon flaticon-shopping-bag"><span id="cart-count"
-                                        style="color: red;"></span></i></a>
+                                        style="color: red;">{{ session('cartCount', 0) }}</span></i></a>
                         </li>
                         @if (auth()->user())
                             <li class="single-item user-area">
