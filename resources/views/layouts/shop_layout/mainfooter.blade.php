@@ -7,8 +7,9 @@
                             {{-- <a href="index.html" class="footer-brand-logo mb-25">
                                 <img src="uploaded_files/logo/footer-logo.png" alt="." />
                             </a> --}}
-                            <a class="brand-logo" href="{{ route('home') }}" style="color: black; background-color: rgb(219, 244, 219);">
-                                <img src="{{ asset('user/img/logo.png') }}" alt="" width="50" class="">
+                            <a class="brand-logo" href="{{ route('home') }}" style="color: white">
+                                <img src="{{ asset('user/img/logo-alt.png') }}" alt="" width="50"
+                                    class="">
                                 Farmers
                                 Marketplace
                             </a>
@@ -103,4 +104,4 @@
             </div>
         </div>
     </footer>
-</div>
+    </div>
