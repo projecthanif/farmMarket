@@ -19,13 +19,21 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('user.profile');
+        $pageTitle = auth()->user()->firstname. " Profile";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        farm produce to individuals and businesses in our community";
+
+        return view('user.profile', compact('pageTitle', 'pageDescription'));
     }
 
     public function edit()
     {
+        $pageTitle = "Edit". auth()->user()->firstname. " Profile";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        farm produce to individuals and businesses in our community";
+
         $shipping_price = DB::table('lagos_shipping')->get();
-        return view('user.edit', compact('shipping_price'));
+        return view('user.edit', compact('shipping_price', 'pageTitle', 'pageDescription'));
     }
 
     public function editAction(Request $request)

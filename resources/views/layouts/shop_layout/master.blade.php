@@ -6,8 +6,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Shop | Product </title>
-    <meta name="description" content="Zairito - Laravel Ecommerce Application" />
+    <title>{{ $pageTitle }} </title>
+    <meta name="description" content="{{ $pageDescription }}" />
     <meta name="keywords"
         content="business,eCommerce, Ecommerce, ecommerce, shop, shopify, shopify ecommerce, creative, woocommerce, design, gallery, minimal, modern, html, html5, responsive" />
     <meta name="author" content="zainiktheme" />
@@ -30,6 +30,11 @@
     <link rel="stylesheet" href="{{ asset('shop_assets/css/extra.css') }}" />
     <link rel="stylesheet" href="{{ asset('shop_assets/css/responsive.css') }}" />
     <link rel="stylesheet" href="{{ asset('shop_assets/css/cookie-consent.css') }}" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('homePage_assets/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('homePage_assets/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('homePage_assets/favicon/favicon-16x16.png') }}">
+    
 
     {{-- <link rel="shortcut icon" href="{{ asset('f') }}uploaded_files/favicon/favicon.png" type="image/x-icon" /> --}}
     <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}" />

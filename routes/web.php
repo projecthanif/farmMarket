@@ -25,7 +25,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index2'])->name('home');
 
 Route::prefix('/admin')->namespace('admin')->group(function () {
     //All admin routes will be defined inside here

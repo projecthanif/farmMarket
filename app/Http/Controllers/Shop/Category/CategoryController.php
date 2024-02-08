@@ -18,7 +18,9 @@ class CategoryController extends Controller
         $products = product::where('category_id', $category_id)->get();
         $featuredProducts = product::where('is_featured', 'Yes')->take(4)->get();
 
-
-        return view('shop.category.index', compact('category', 'products', 'categories', 'featuredProducts'));
+        $pageTitle = $name. " Category";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+         farm produce to individuals and businesses in our community.";
+        return view('shop.category.index', compact('category', 'products', 'categories', 'featuredProducts', 'pageTitle', 'pageDescription'));
     }
 }

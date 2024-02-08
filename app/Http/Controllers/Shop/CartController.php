@@ -128,7 +128,11 @@ class CartController extends Controller
 
         $totalCartPrice = $this->calculateTotalCartPrice($cart);
 
-        return view('shop.cart', compact('cart', 'totalCartPrice'));
+        $pageTitle = "Cart";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+         farm produce to individuals and businesses in our community.";
+
+        return view('shop.cart', compact('cart', 'totalCartPrice', 'pageTitle', 'pageDescription'));
     }
 
     public function removeFromCart(Request $request)

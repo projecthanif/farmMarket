@@ -17,6 +17,14 @@
                                 </ul>
                             </div>
                         @endif
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                <ul>
+                                    <li>{{ session('success') }}</li>
+                                </ul>
+
+                            </div>
+                        @endif
 
                         <form class="login-form" method="post" action="{{ route('forget.password.post') }}">
                             @csrf

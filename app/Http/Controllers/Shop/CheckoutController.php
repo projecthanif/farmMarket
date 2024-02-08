@@ -33,12 +33,11 @@ class CheckoutController extends Controller
         // Calculate the final price
         $finalPrice = $shippingPrice + $totalCartPrice;
 
-        // foreach ($cart as $item) {
-        //     dd($item['name']);
-        // }
-        // dd($cart);
+        $pageTitle = "Checkout Page";
+        $pageDescription = "Checkout Page";
 
-        return view('shop.checkout', compact('cart', 'totalCartPrice', 'shipping_price', 'finalPrice', 'shippingPrice'));
+
+        return view('shop.checkout', compact('cart', 'totalCartPrice', 'shipping_price', 'finalPrice', 'shippingPrice', 'pageTitle', 'pageDescription'));
     }
 
     public function process(Request $request)
@@ -123,16 +122,16 @@ class CheckoutController extends Controller
 
             $body .= "<tr>
                                     <td colspan='3'>Subtotal:</td>
-                                    <td>".$totalCartPrice."</td>
+                                    <td>" . $totalCartPrice . "</td>
                                 </tr>
                                 <tr>
                                     <td colspan='3'>Shipping:</td>
-                                    <td>".$shipping_charge."</td>
+                                    <td>" . $shipping_charge . "</td>
                                 </tr>
 
                                 <tr>
                                     <td colspan='3'><strong>Order Total:</strong></td>
-                                    <td><strong>".$finalPrice."</strong></td>
+                                    <td><strong>" . $finalPrice . "</strong></td>
                                 </tr>
                             </table>
 
@@ -148,7 +147,7 @@ class CheckoutController extends Controller
             // Unset or clear the 'cart' session variable
             Session::forget('cart');
             Session::forget('cartCount');
-            
+
             return redirect()->route('user.order')->with('success', 'Your order has been placed successfully!');
         } catch (\Exception $e) {
             return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
@@ -175,7 +174,7 @@ class CheckoutController extends Controller
         $shippingPrice = 0;
         if ($location != null) {
             // $shippingPriceData = ShippingPrice::where('state', $location)->first();
-        $shippingPriceData = DB::table('lagos_shipping')->where('city', $location)->first();
+            $shippingPriceData = DB::table('lagos_shipping')->where('city', $location)->first();
 
             if (!is_null($shippingPriceData)) {
                 $shippingPrice = $shippingPriceData->cost;

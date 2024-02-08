@@ -12,7 +12,7 @@ class OrderController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         // dd(auth()->user()->orders);
@@ -30,6 +30,10 @@ class OrderController extends Controller
                         ->where('order_status', 'cancelled')
                         ->orderBy('created_at','desc')->paginate(10);
 
-        return view('user.my_order', compact('pending_order', 'completed_order', 'cancelled_order'));
+                        $pageTitle = "Order History";
+                        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+                        farm produce to individuals and businesses in our community";
+
+        return view('user.my_order', compact('pending_order', 'completed_order', 'cancelled_order', 'pageTitle','pageDescription'));
     }
 }

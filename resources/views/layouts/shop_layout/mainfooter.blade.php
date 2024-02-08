@@ -7,8 +7,8 @@
                             {{-- <a href="index.html" class="footer-brand-logo mb-25">
                                 <img src="uploaded_files/logo/footer-logo.png" alt="." />
                             </a> --}}
-                            <a class="brand-logo" href="{{ route('home') }}" style="color: black; background-color: rgb(219, 244, 219);">
-                                <img src="{{ asset('user/img/logo.png') }}" alt="" width="50" class="">
+                            <a class="brand-logo" href="{{ route('home') }}">
+                                <img src="{{ asset('homePage_assets/img/logo-alt.png') }}" alt="" width="50" class="">
                                 Farmers
                                 Marketplace
                             </a>
@@ -18,7 +18,7 @@
                             </p>
                             <div class="block-content mb-30">
                                 <p class="contact">Call us: +234 802 454 3272</p>
-                                <p class="contact">Email: marketplacefarmers@gmail.com</p>
+                                <p class="contact">Email: hello@marketplacefarmers.com</p>
                             </div>
                         </div>
                     </div>
@@ -81,17 +81,7 @@
                                     <a class="social-media-link" href="www.facebook.html"><i
                                             class="fab fa-facebook-f"></i></a>
                                 </li>
-                                <li class="social-media-item">
-                                    <a class="social-media-link" href="www.skype.html"><i class="fab fa-skype"></i></a>
-                                </li>
-                                <li class="social-media-item">
-                                    <a class="social-media-link" href="www.twitter.html"><i
-                                            class="fab fa-twitter"></i></a>
-                                </li>
-                                <li class="social-media-item">
-                                    <a class="social-media-link" href="www.linkedin.html"><i
-                                            class="fab fa-linkedin-in"></i></a>
-                                </li>
+
                                 <li class="social-media-item">
                                     <a class="social-media-link" href="www.instagram.html"><i
                                             class="fab fa-instagram"></i></a>

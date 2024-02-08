@@ -15,7 +15,11 @@ class RegisterController extends Controller
 {
     public function showRegisterForm()
     {
-        return view('user.auth.register');
+        $pageTitle = "Register";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        farm produce to individuals and businesses in our community";
+
+        return view('user.auth.register', compact('pageTitle', 'pageDescription'));
     }
 
     public function RegisterAction(Request $request)

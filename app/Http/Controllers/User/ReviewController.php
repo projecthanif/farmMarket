@@ -14,12 +14,17 @@ class ReviewController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
+
         $review = Rating::where('user_id', auth()->user()->id)->orderBy("created_at", "desc")->paginate(10);
 
-        return view('user.my_review', compact('review'));
+        $pageTitle = auth()->user()->firstname. " Reviews";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        farm produce to individuals and businesses in our community";
+
+        return view('user.my_review', compact('review','pageTitle', 'pageDescription'));
     }
 
     public function rateProduct(Request $request, $order_id)

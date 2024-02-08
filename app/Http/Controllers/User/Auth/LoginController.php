@@ -14,7 +14,11 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('user.auth.login');
+
+        $pageTitle = "Login";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        farm produce to individuals and businesses in our community";
+        return view('user.auth.login', compact('pageTitle', 'pageDescription'));
     }
 
     public function loginAction(Request $request)

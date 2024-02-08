@@ -19,7 +19,11 @@ class ProductController extends Controller
         $featuredProducts = product::where('is_featured', 'Yes')->get();
         $products = product::take(8)->take(4)->get();
         $category = category::all();
-        return view('shop.product', compact('products', 'category', 'featuredProducts'));
+
+        $pageTitle = "Products";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+         farm produce to individuals and businesses in our community.";
+        return view('shop.product', compact('products', 'category', 'featuredProducts', 'pageTitle', 'pageDescription'));
     }
 
     public function productDetails($product_name)
@@ -34,9 +38,13 @@ class ProductController extends Controller
         $likes = DB::table('likes')->where('prod_id', $product_id)->count();
 
         $like_user = DB::table('likes')
-                                    ->where('prod_id', $product_id)
-                                    ->where('user_id', auth()->user()->id ?? '')
-                                    ->first();
-        return view('shop.product_details', compact('product', 'relatedProducts', 'review', 'reviewCount', 'likes', 'like_user'));
+            ->where('prod_id', $product_id)
+            ->where('user_id', auth()->user()->id ?? '')
+            ->first();
+
+            $pageTitle = $product_name." Products";
+            $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+             farm produce to individuals and businesses in our community.";
+        return view('shop.product_details', compact('product', 'relatedProducts', 'review', 'reviewCount', 'likes', 'like_user', 'pageTitle', 'pageDescription'));
     }
 }

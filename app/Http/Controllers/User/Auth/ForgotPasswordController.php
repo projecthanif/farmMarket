@@ -62,7 +62,7 @@ class ForgotPasswordController extends Controller
         } catch (\Exception $ex) {
         }
 
-        return back()->with('message', 'We have e-mailed your password reset link!');
+        return back()->with('success', 'We have e-mailed your password reset link!');
     }
 
     public function showResetPasswordForm($token): View
