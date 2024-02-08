@@ -16,8 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $featuredProducts = product::where('is_featured', 'Yes')->get();
-        $products = product::take(8)->take(4)->get();
+        $featuredProducts = product::where('is_featured', 'Yes')->take(4)->get();
+        $products = product::take(8)->get();
         $category = category::all();
 
         $pageTitle = "Products";
