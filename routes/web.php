@@ -139,7 +139,7 @@ Route::post('/user/login', 'User\Auth\LoginController@loginAction')->name('user.
 
 Route::prefix('user')->group(function () {
     //profile
-    Route::get('/profile', 'User\profileController@index')->name('user.profile');
+    Route::get('/profile', 'User\ProfileController@index')->name('user.profile');
 
     //order
     Route::get('/order', 'User\OrderController@index')->name('user.order');
@@ -155,11 +155,11 @@ Route::prefix('user')->group(function () {
     Route::post('/review-my-order/{order_id}', 'User\ReviewController@rateProduct')->name('user.review.action');
 
     // edit profile
-    Route::get('/profile-edit', 'User\profileController@edit')->name('user.edit');
-    Route::post('/profile-edit', 'User\profileController@editAction')->name('user.edit.action');
+    Route::get('/profile-edit', 'User\ProfileController@edit')->name('user.edit');
+    Route::post('/profile-edit', 'User\ProfileController@editAction')->name('user.edit.action');
 
     //changer password
-    Route::post('/password/change', 'User\profileController@changePassword')->name('password.change');
+    Route::post('/password/change', 'User\ProfileController@changePassword')->name('password.change');
 
     Route::get('/logout', 'User\Auth\LoginController@logout')->name('user.logout');
 });
