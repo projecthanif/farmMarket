@@ -15,7 +15,10 @@ class EmailVerificationController extends Controller
 
     public function index()
     {
-        return view('user.auth.verification.email-verification');
+        $pageTitle = "Email Verification";
+        $pageDescription = "Checkout Page";
+
+        return view('user.auth.verification.email-verification', compact(',pageTitle', 'pageDescription'));
     }
 
     public function validateOtp(Request $request)
@@ -38,6 +41,9 @@ class EmailVerificationController extends Controller
 
     public function verifiedSuccessfull()
     {
-        return view('user.auth.verification.verification-successful');
+
+        $pageTitle = "Verification Success";
+        $pageDescription = "Checkout Page";
+        return view('user.auth.verification.verification-successful', compact(',pageTitle', 'pageDescription') );
     }
 }

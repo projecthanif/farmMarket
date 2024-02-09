@@ -222,7 +222,7 @@
     <div class="featured-products-area-v2 section-top pb-100">
         <div class="container">
             <div class="section-header-two text-center">
-                <h2 class="section-title">Releted Products</h2>
+                <h2 class="section-title">Related Products</h2>
             </div>
             <div class="row">
                 @foreach ($relatedProducts as $row)

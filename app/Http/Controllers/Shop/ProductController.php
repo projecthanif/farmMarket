@@ -31,7 +31,7 @@ class ProductController extends Controller
 
         $product_id = product::where('product_name', $product_name)->value('id');
         $product = product::findOrFail($product_id);
-        $relatedProducts = product::where('category_id', $product->category_id)->get();
+        $relatedProducts = product::where('category_id', $product->category_id)->take(4)->get();
         $review = Rating::where('product_id', $product->id)->get();
         $reviewCount = Rating::where('product_id', $product->id)->count();
         // dd($reviewCount);

@@ -344,7 +344,7 @@
                     <tr>
                         <td align="left" bgcolor="#ffffff"
                             style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
-                            <p style="margin: 0;">Cheers,<br> Paste</p>
+                            <p style="margin: 0;">Cheers,<br> Farmersmarketplace</p>
                         </td>
                     </tr>
                     <!-- end copy -->
@@ -374,7 +374,7 @@
                         <td align="center" bgcolor="#e9ecef"
                             style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
                             <p style="margin: 0;">You received this email because we received a request for
-                                [type_of_action] for your account. If you didn't request [type_of_action] you can safely
+                                a change of password for your account. If you didn't request a change of password you can safely
                                 delete this email.</p>
                         </td>
                     </tr>
@@ -382,13 +382,12 @@
 
                     <!-- start unsubscribe -->
                     <tr>
-                        <td align="center" bgcolor="#e9ecef"
+                        {{-- <td align="center" bgcolor="#e9ecef"
                             style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
                             <p style="margin: 0;">To stop receiving these emails, you can <a
                                     href="https://farmersmarketplace.ng/" target="_blank">unsubscribe</a> at any time.
                             </p>
-                            <p style="margin: 0;">Paste 1234 S. Broadway St. City, State 12345</p>
-                        </td>
+                        </td> --}}
                     </tr>
                     <!-- end unsubscribe -->
 
