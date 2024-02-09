@@ -218,7 +218,6 @@
         </div>
     </div>
 
-
     <div class="featured-products-area-v2 section-top pb-100">
         <div class="container">
             <div class="section-header-two text-center">
@@ -266,4 +265,5 @@
             </div>
         </div>
     </div>
+
 @endsection

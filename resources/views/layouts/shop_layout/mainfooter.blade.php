@@ -8,7 +8,8 @@
                                 <img src="uploaded_files/logo/footer-logo.png" alt="." />
                             </a> --}}
                             <a class="brand-logo" href="{{ route('home') }}">
-                                <img src="{{ asset('homePage_assets/img/logo-alt.png') }}" alt="" width="50" class="">
+                                <img src="{{ asset('homePage_assets/img/logo-alt.png') }}" alt="" width="50"
+                                    class="">
                                 Farmers
                                 Marketplace
                             </a>
@@ -22,7 +23,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-widget">
                             <h3 class="widget-title mobile-dropdown-title">Categories</h3>
                             <ul class="widget-menu show">
@@ -38,23 +39,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="single-widget">
-                            {{-- <h3 class="widget-title mobile-dropdown-title">&nbsp;</h3> --}}
-                            <ul class="widget-menu">
-                                {{-- <li class="meni-item">
-                                    <a class="menu-link" href="#">Circle</a>
-                                </li>
-                                <li class="meni-item">
-                                    <a class="menu-link" href="#">CodeLab</a>
-                                </li>
-                                <li class="meni-item">
-                                    <a class="menu-link" href="#">HEXLAB</a>
-                                </li> --}}
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-widget">
                             <h3 class="widget-title mobile-dropdown-title">
                                 Customer Service
@@ -92,5 +78,25 @@
                 </div>
             </div>
         </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-wrap">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <p class="copyright-text">
+                                Our mission is to empower farmers to share their organic bounty while offering health-conscious consumers easy access to fresh, ethically sourced foods. 
+                            </p>
+                        </div>
+                        <div class="col-lg-6 text-lg-end">
+                            <a href="#"><p style="color: white; font-weight:600">Terms & Conditions
+                                Privacy Policy <small> © 2024, Farmer’s Fridge</small>
+                               </p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </footer>
-    </div>
+

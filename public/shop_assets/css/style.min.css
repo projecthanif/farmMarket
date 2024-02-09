@@ -257,7 +257,7 @@ ul {
 }
 
 .pb-100 {
-    padding-bottom: 100px
+    /* padding-bottom: 100px */
 }
 
 .pb-110 {
@@ -469,7 +469,7 @@ ul {
         padding-bottom: 30px
     }
     .pb-100 {
-        padding-bottom: 30px
+        /* padding-bottom: 30px */
     }
     .pb-110 {
         padding-bottom: 40px
