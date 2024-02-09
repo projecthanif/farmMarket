@@ -450,10 +450,10 @@
     </a>
 
     <!--=============== SCROLLREVEAL ===============-->
-    <script src="js/scrollreveal.min.js"></script>
+    <script src="user/js/scrollreveal.min.js"></script>
 
     <!--=============== JS ===============-->
-    <script src="js/main.js"></script>
+    <script src="user/js/main.js"></script>
 </body>
 
 </html>
