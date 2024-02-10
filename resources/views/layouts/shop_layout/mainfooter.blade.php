@@ -18,7 +18,7 @@
                                 . <br />
                             </p>
                             <div class="block-content mb-30">
-                                <p class="contact">Call us: +234 802 454 3272</p>
+                                <p class="contact">Call us: +234 902 813 5986</p>
                                 <p class="contact">Email: hello@marketplacefarmers.com</p>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-widget">
                             <h3 class="widget-title mobile-dropdown-title">
-                                Customer Service
+                                Support
                             </h3>
                             <ul class="widget-menu">
                                 <li class="meni-item">
@@ -85,12 +85,12 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <p class="copyright-text">
-                                Our mission is to empower farmers to share their organic bounty while offering health-conscious consumers easy access to fresh, ethically sourced foods. 
+                                Our mission is to empower farmers to share their organic bounty while offering health-conscious consumers easy access to fresh, ethically sourced foods.
                             </p>
                         </div>
                         <div class="col-lg-6 text-lg-end">
                             <a href="#"><p style="color: white; font-weight:600">Terms & Conditions
-                                Privacy Policy <small> © 2024, Farmer’s Fridge</small>
+                                Privacy Policy <small> © 2024, Farmer’s Market Place</small>
                                </p></a>
                         </div>
                     </div>

@@ -18,7 +18,12 @@ class ForgotPasswordController extends Controller
 {
     public function showForgetPasswordForm()
     {
-        return view('user.auth.forgot-password');
+
+        $pageTitle = "Forgeot Password";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        farm produce to individuals and businesses in our community";
+
+        return view('user.auth.forgot-password', compact('pageTitle', 'pageDescription'));
     }
 
     public function submitForgetPasswordForm(Request $request)
@@ -67,7 +72,11 @@ class ForgotPasswordController extends Controller
 
     public function showResetPasswordForm($token): View
     {
-        return view('user.auth.forgetPasswordLink', ['token' => $token]);
+
+        $pageTitle = "Reset Password";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        farm produce to individuals and businesses in our community";
+        return view('user.auth.forgetPasswordLink',compact('pageTitle', 'pageDescription'), ['token' => $token]);
     }
 
 
