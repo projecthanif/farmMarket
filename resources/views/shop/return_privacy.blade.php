@@ -1,7 +1,7 @@
 @extends('layouts.shop_layout.master')
 @section('content')
     <!-- faq-area area start here  -->
-    <div class="faq-area section">
+    <div class="faq-area section" style="padding-top: 0%">
         <div class="container">
             <div class="row">
                @include('shop.include.page_sidebar')

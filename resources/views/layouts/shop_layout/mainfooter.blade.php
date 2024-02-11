@@ -50,10 +50,10 @@
                                     <a class="menu-link" href="{{ route('faq') }}">Help &amp; FAQ</a>
                                 </li>
                                 <li class="meni-item">
-                                    <a class="menu-link" href="{{ route('home') }}">Privacy Policy</a>
+                                    <a class="menu-link" href="{{ route('privacy_policy') }}">Privacy Policy</a>
                                 </li>
                                 <li class="meni-item">
-                                    <a class="menu-link" href="{{ route('home') }}">Return Policy</a>
+                                    <a class="menu-link" href="{{ route('return_policy') }}">Return Policy</a>
                                 </li>
 
                             </ul>
@@ -89,7 +89,7 @@
                             </p>
                         </div>
                         <div class="col-lg-6 text-lg-end">
-                            <a href="#"><p style="color: white; font-weight:600">Terms & Conditions
+                            <a href="{{ route('privacy_policy') }}"><p style="color: white; font-weight:600">
                                 Privacy Policy <small> © 2024, Farmer’s Market Place</small>
                                </p></a>
                         </div>

@@ -79,7 +79,7 @@
                                 </div>
                             </li>
                             <li class="menu-item">
-                                <a class="menu-link" href="{{ route('home') }}">Policy</a>
+                                <a class="menu-link" href="{{ route('privacy_policy') }}">Policy</a>
                             </li>
                         </ul>
                     </nav>
@@ -159,7 +159,7 @@
 <div class="offcanvas offcanvas-start menu-offcanvas" tabindex="-1" id="offcanvasMobileMenu">
     <div class="mobile-menu-area">
         <div class="offcanvas-header">
-            <a class="brand-logo" href="index.html">
+            <a class="brand-logo" href="{{ route('home') }}">
                 {{-- <img class="brand-image"
                     src="uploaded_files/logo/656f2f7abc3861701785466.png" alt="." /> --}}
             </a>
@@ -188,10 +188,10 @@
                     </ul>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="{{ route('home') }}">Policy</a>
+                    <a class="menu-link" href="{{ route('privacy_policy') }}">Policy</a>
                 </li>
                 <li class="menu-item">
-                    <a class="menu-link" href="{{ route('home') }}">FAQ</a>
+                    <a class="menu-link" href="{{ route('faq') }}">FAQ</a>
                 </li>
 
             </ul>
