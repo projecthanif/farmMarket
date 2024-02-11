@@ -1,6 +1,6 @@
 @extends('layouts.shop_layout.master')
 @section('content')
-    <div class="profile-page-area section">
+    <div class="profile-page-area section" style="padding-top: 0%">
         <div class="container">
             <div class="row">
                 @include('user.auth.includes.asidebar')
@@ -33,7 +33,7 @@
 
                                 <div class="col-md-4">
                                     <div class="address-box card">
-                                        <h3 class="text-black">Address &amp; Contact Uss</h3>
+                                        <h3 class="text-black">Contact</h3>
                                         <ul>
                                             <li>Email:<a href="" class="__cf_email__"
                                                     data-cfemail="4d383e283f7c0d2a202c2421632e2220">

@@ -7,7 +7,7 @@
                             {{-- <a href="index.html" class="footer-brand-logo mb-25">
                                 <img src="uploaded_files/logo/footer-logo.png" alt="." />
                             </a> --}}
-                            <a class="brand-logo" href="{{ route('home') }}">
+                            <a class="brand-logo" href="{{ route('home') }}" style="color: white">
                                 <img src="{{ asset('homePage_assets/img/logo-alt.png') }}" alt="" width="50"
                                     class="">
                                 Farmers
@@ -19,7 +19,7 @@
                             </p>
                             <div class="block-content mb-30">
                                 <p class="contact">Call us: +234 902 813 5986</p>
-                                <p class="contact">Email: hello@marketplacefarmers.com</p>
+                                <p class="contact">Email: hello@marketplacefarmers.ng</p>
                             </div>
                         </div>
                     </div>
@@ -49,9 +49,9 @@
                                 <li class="meni-item">
                                     <a class="menu-link" href="{{ route('faq') }}">Help &amp; FAQ</a>
                                 </li>
-                                <li class="meni-item">
+                                {{-- <li class="meni-item">
                                     <a class="menu-link" href="{{ route('privacy_policy') }}">Privacy Policy</a>
-                                </li>
+                                </li> --}}
                                 <li class="meni-item">
                                     <a class="menu-link" href="{{ route('return_policy') }}">Return Policy</a>
                                 </li>
@@ -89,8 +89,8 @@
                             </p>
                         </div>
                         <div class="col-lg-6 text-lg-end">
-                            <a href="{{ route('privacy_policy') }}"><p style="color: white; font-weight:600">
-                                Privacy Policy <small> © 2024, Farmer’s Market Place</small>
+                            <a href="{{ route('privacy_policy') }}"><p style="color: white; font-weight:600"> Terms & Conditions
+                                Privacy Policy <small> © 2024, Farmers Marketplace</small>
                                </p></a>
                         </div>
                     </div>

@@ -44,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="already-have-account">
-                                Dont have an account?<a href="{{ route('user.register') }}" class="forget-password-link">Sign Up</a>
+                                Don't have an account?<a href="{{ route('user.register') }}" class="forget-password-link">Sign Up</a>
                             </div>
                         </form>
                     </div>

@@ -1,6 +1,6 @@
 @extends('layouts.shop_layout.master')
 @section('content')
-    <div class="product-single-area-v2 section-top">
+    <div class="product-single-area-v2">
         <div class="container">
             <div class="product-single-details">
                 <div class="row">
@@ -98,7 +98,7 @@
                                         <img class="icon"
                                             src="https://zairito.zainikthemes.com/frontend/assets/images/delivery-van-icon.svg"
                                             alt="icon" /><strong class="feature-title">Estimated
-                                            Delivery:</strong><span class="feature-text">7 days</span>
+                                            Delivery:</strong><span class="feature-text">3 days</span>
                                     </li>
                                     <li class="single-feature">
                                         <img class="icon"
