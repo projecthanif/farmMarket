@@ -47,13 +47,13 @@
                             </h3>
                             <ul class="widget-menu">
                                 <li class="meni-item">
-                                    <a class="menu-link" href="{{ route('home') }}">Help &amp; FAQ</a>
-                                </li>
-                                <li class="meni-item">
-                                    <a class="menu-link" href="{{ route('home') }}">Terms of Conditions</a>
+                                    <a class="menu-link" href="{{ route('faq') }}">Help &amp; FAQ</a>
                                 </li>
                                 <li class="meni-item">
                                     <a class="menu-link" href="{{ route('home') }}">Privacy Policy</a>
+                                </li>
+                                <li class="meni-item">
+                                    <a class="menu-link" href="{{ route('home') }}">Return Policy</a>
                                 </li>
 
                             </ul>

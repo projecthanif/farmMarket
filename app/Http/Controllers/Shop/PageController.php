@@ -8,12 +8,31 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function categories()
+    public function faq()
     {
-        $categories = category::all();
+        $pageTitle = "FAQ";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        farm produce to individuals and businesses in our community";
 
-        dd($categories);
-
-        return view('layouts.shop_layout.mainheader', compact('categories'));
+        return view('shop.faq', compact('pageTitle', 'pageDescription'));
     }
+
+    public function return_policy()
+    {
+        $pageTitle = "Return privacy";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        farm produce to individuals and businesses in our community";
+
+        return view('shop.return_privacy', compact('pageTitle', 'pageDescription'));
+    }
+
+    public function privacy_policy()
+    {
+        $pageTitle = "Privacy policy";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        farm produce to individuals and businesses in our community";
+
+        return view('shop.privacy_policy', compact('pageTitle', 'pageDescription'));
+    }
+
 }

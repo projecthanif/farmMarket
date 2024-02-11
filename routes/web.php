@@ -28,6 +28,10 @@ Auth::routes();
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index2'])->name('home');
 
+Route::get('/faq', [App\Http\Controllers\Shop\PageController::class, 'faq'])->name('faq');
+Route::get('/return_policy', [App\Http\Controllers\Shop\PageController::class, 'return_policy'])->name('return_policy');
+Route::get('/privacy_policy', [App\Http\Controllers\Shop\PageController::class, 'privacy_policy'])->name('privacy_policy');
+
 Route::prefix('/admin')->namespace('admin')->group(function () {
     //All admin routes will be defined inside here
     Route::match(['get', 'post'], '/', [adminController::class, 'login']);
