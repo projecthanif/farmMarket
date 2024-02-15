@@ -35,4 +35,13 @@ class PageController extends Controller
         return view('shop.privacy_policy', compact('pageTitle', 'pageDescription'));
     }
 
+    public function terms_condition()
+    {
+        $pageTitle = "Terms Condtion";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        farm produce to individuals and businesses in our community";
+
+        return view('shop.terms_condition', compact('pageTitle', 'pageDescription'));
+    }
+
 }

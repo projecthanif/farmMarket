@@ -126,7 +126,7 @@
                                                 <input type="checkbox" class="form-check-input" id="agree" required />
                                                 <label class="form-check-label" for="agree">By clicking the
                                                     button you agree to our
-                                                    <a href="#">Terms
+                                                    <a href="{{ route('terms_condition') }}">Terms
                                                         &amp; Conditions</a></label>
                                             </div>
                                             @if (!auth()->user())

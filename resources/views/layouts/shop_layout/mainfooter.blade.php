@@ -64,12 +64,12 @@
                             <h3 class="widget-title">Get in Touch</h3>
                             <ul class="social-media">
                                 <li class="social-media-item">
-                                    <a class="social-media-link" href="www.facebook.html"><i
+                                    <a class="social-media-link" href="www.facebook.com/farmersmarketplaceng"><i
                                             class="fab fa-facebook-f"></i></a>
                                 </li>
 
                                 <li class="social-media-item">
-                                    <a class="social-media-link" href="www.instagram.html"><i
+                                    <a class="social-media-link" href="www.instagram.com/farmersmarketplace.ng"><i
                                             class="fab fa-instagram"></i></a>
                                 </li>
                             </ul>
@@ -89,9 +89,9 @@
                             </p>
                         </div>
                         <div class="col-lg-6 text-lg-end">
-                            <a href="{{ route('privacy_policy') }}"><p style="color: white; font-weight:600"> Terms & Conditions
-                                Privacy Policy <small> © 2024, Farmers Marketplace</small>
-                               </p></a>
+                           <p style="color: white; font-weight:600"> <a style="color: white; font-weight:600" href="{{ route('terms_condition') }}">Terms & Conditions</a>
+                            <a style="color: white; font-weight:600" href="{{ route('privacy_policy') }}">Privacy Policy</a> <small> © 2024, Farmers Marketplace</small>
+                               </p>
                         </div>
                     </div>
                 </div>

@@ -665,7 +665,7 @@ ul {
     -ms-flex-align: center;
     align-items: center;
     margin: 0;
-    font-family: "Jost", sans-serif;
+    font-family: "circular-Std-Book", sans-serif;
     font-size: 1.5rem;
     line-height: 1;
     font-weight: 500;
@@ -3368,7 +3368,7 @@ ul {
 
 .hero-section-v2 .signle-banner .hero-title {
     margin-bottom: 2.5rem;
-    font-family: "Marcellus", serif;
+    font-family: "circular-Std-Book", serif;
     font-size: 6.4rem;
     font-weight: 400;
     text-transform: capitalize;
@@ -4087,7 +4087,7 @@ ul {
 
 .section-header-two .section-title {
     position: relative;
-    font-family: "Marcellus", serif;
+    font-family: "Circular-Std-Book", serif;
     font-size: 4.8rem;
     font-weight: 400;
     text-transform: capitalize;
@@ -5568,7 +5568,7 @@ ul {
 .blog-area-v2 .blog-area-top .blog-left-title {
     position: relative;
     margin-bottom: 2.5rem;
-    font-family: "Marcellus", serif;
+    font-family: "circular-Std-Book", serif;
     font-size: 4.8rem;
     line-height: 5.85rem;
     color: var(--black)
@@ -5740,7 +5740,7 @@ ul {
 .single-grid-blog-v2 .blog-info .blog-category {
     display: inline-block;
     margin-bottom: 1rem;
-    font-family: "Marcellus", serif;
+    font-family: "circular-Std-Book", serif;
     font-size: 2rem;
     font-weight: 400;
     text-transform: capitalize;
@@ -5756,7 +5756,7 @@ ul {
 
 .single-grid-blog-v2 .blog-info .blog-title {
     margin-bottom: 5rem;
-    font-family: "Marcellus", serif;
+    font-family: "circular-Std-Book", serif;
     font-size: 2.4rem;
     font-weight: 400;
     line-height: 3.4rem;
@@ -10232,7 +10232,7 @@ ul {
 
 .product-single-area-v2 .product-single-details .product-info .product-name {
     margin-bottom: 3.2rem;
-    font-family: "Marcellus", serif;
+    font-family: "Circular-Std-Book", serif;
     font-size: 3.6rem;
     line-height: 3rem;
     font-weight: 600;

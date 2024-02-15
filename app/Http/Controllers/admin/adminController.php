@@ -102,14 +102,7 @@ class adminController extends Controller
     {
         if ($request->isMethod('post')) {
             $data = $request->all();
-            //echo "<pre>";print_r($data);die;
-
-            //validate the form here
-            // $validatedData = $request->validate([
-            //     'email' => 'required|email|max:255',
-            //     'password' => 'required',
-            // ]);
-
+           
             //custom messages
             $rules = [
                 'email' => 'required|email|max:255',

@@ -31,6 +31,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index2'])->name('h
 Route::get('/faq', [App\Http\Controllers\Shop\PageController::class, 'faq'])->name('faq');
 Route::get('/return_policy', [App\Http\Controllers\Shop\PageController::class, 'return_policy'])->name('return_policy');
 Route::get('/privacy_policy', [App\Http\Controllers\Shop\PageController::class, 'privacy_policy'])->name('privacy_policy');
+Route::get('/terms_condition', [App\Http\Controllers\Shop\PageController::class, 'terms_condition'])->name('terms_condition');
 
 Route::prefix('/admin')->namespace('admin')->group(function () {
     //All admin routes will be defined inside here

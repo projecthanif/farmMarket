@@ -58,7 +58,7 @@ class ForgotPasswordController extends Controller
 
         <a href='" . url('reset-password', $token) . "'>Reset Password</a>
 
-        <p> If you did not request a password reset, feel free to delete this email and carry on enjoying your shopping!</p>
+        <p> if you did not reset password please contact us immediately</p>
 
         ";
 

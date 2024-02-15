@@ -540,12 +540,12 @@
                                                 </tr>
                                             </table>
                                             <p>Thanks,
-                                                <br>Market Place
+                                                <br>Farmers Marketplace
                                             </p>
                                             <!-- Sub copy -->
                                             <p class=" sub align-center"
                                                 style="margin-top: 7px ;color: white;background: #22234f;padding: 5px">
-                                                Market Place
+                                                Farmers Marketplace
                                                 <br>
                                                 <br>
                                             </p>

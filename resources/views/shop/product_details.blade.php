@@ -46,7 +46,7 @@
                                     </ul>
                                 </div>
                                 <h3 class="product-name">
-                                    {{ $product->product_name }}</h3>
+                                    {{ $product->product_name }} {{ $product->description ?? '' }}</h3>
                                 </h3>
 
                                 <div class="product-price">
@@ -67,7 +67,7 @@
                                 <div class="product-bottom-button d-flex">
                                     {{-- <a href="javascript:void(0)" class="primary-btn buyNow" data-id="12">Buy Now</a> --}}
                                     <div class="product-description">
-                                        <p>Description: {{ $product->description }}</p>
+                                        <p>Description: {{ $product->description ?? ''}}</p>
                                     </div>
 
                                 </div>
@@ -98,7 +98,7 @@
                                         <img class="icon"
                                             src="https://zairito.zainikthemes.com/frontend/assets/images/delivery-van-icon.svg"
                                             alt="icon" /><strong class="feature-title">Estimated
-                                            Delivery:</strong><span class="feature-text">3 days</span>
+                                            Delivery:</strong><span class="feature-text">24 hrs </span>
                                     </li>
                                     <li class="single-feature">
                                         <img class="icon"
