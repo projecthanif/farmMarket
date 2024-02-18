@@ -42,7 +42,7 @@
 <script>
     const searchInput = document.querySelector("#searchInput");
 
-    searchInput.addEventListener('keyup', function() {
+    searchInput.addEventListener('keydown', function() {
         console.log(this.value)
         const query = this.value.trim(); // Trim whitespace from the input
         if (query.length == 0) {

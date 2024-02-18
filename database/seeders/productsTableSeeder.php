@@ -38,6 +38,24 @@ class productsTableSeeder extends Seeder
             [
                 'id' => 2, 'category_id' => 2,  'product_name' => 'Red  Casual T-shirt', 'price' => 2400, 'product_discount' => 10, 'product_weight' => 200, 'main_image' => '', 'description' => 'Test product',
                 'is_featured' => 'Yes', 'status' => 1, 'quantity' => 10,
+            ],
+            [
+                'id' => 3, 'category_id' => 3,  'product_name' => 'Potato',   'price' => 1500, 'product_discount' => 10, 'product_weight' => 200, 'main_image' => '', 'description' => 'Test product',
+                'is_featured' => 'No', 'status' => 1, 'quantity' => 5,
+            ],
+
+            [
+                'id' => 4, 'category_id' => 4,  'product_name' => 'Rice', 'price' => 2400, 'product_discount' => 10, 'product_weight' => 200, 'main_image' => '', 'description' => 'Test product',
+                'is_featured' => 'Yes', 'status' => 1, 'quantity' => 10,
+            ],
+            [
+                'id' => 5, 'category_id' => 5,  'product_name' => 'Plantain',   'price' => 1500, 'product_discount' => 10, 'product_weight' => 200, 'main_image' => '', 'description' => 'Test product',
+                'is_featured' => 'No', 'status' => 1, 'quantity' => 5,
+            ],
+
+            [
+                'id' => 6, 'category_id' => 6,  'product_name' => 'Beans', 'price' => 2400, 'product_discount' => 10, 'product_weight' => 200, 'main_image' => '', 'description' => 'Test product',
+                'is_featured' => 'Yes', 'status' => 1, 'quantity' => 10,
             ]
         ];
         product::insert($productRecord);
