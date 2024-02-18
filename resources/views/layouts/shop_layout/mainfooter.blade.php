@@ -64,12 +64,13 @@
                             <h3 class="widget-title">Get in Touch</h3>
                             <ul class="social-media">
                                 <li class="social-media-item">
-                                    <a class="social-media-link" href="www.facebook.com/farmersmarketplaceng"><i
+                                    <a class="social-media-link" href="https://www.facebook.com/farmersmarketplaceng"><i
                                             class="fab fa-facebook-f"></i></a>
                                 </li>
 
                                 <li class="social-media-item">
-                                    <a class="social-media-link" href="www.instagram.com/farmersmarketplace.ng"><i
+                                    <a class="social-media-link"
+                                        href="https://www.instagram.com/farmersmarketplace.ng"><i
                                             class="fab fa-instagram"></i></a>
                                 </li>
                             </ul>
