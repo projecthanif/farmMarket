@@ -85,13 +85,16 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <p class="copyright-text">
-                                Our mission is to empower farmers to share their organic bounty while offering health-conscious consumers easy access to fresh, ethically sourced foods.
+                                Our mission is to empower farmers to share their organic bounty while offering
+                                health-conscious consumers easy access to fresh, ethically sourced foods.
                             </p>
                         </div>
                         <div class="col-lg-6 text-lg-end">
-                           <p style="color: white; font-weight:600"> <a style="color: white; font-weight:600" href="{{ route('terms_condition') }}">Terms & Conditions</a>
-                            <a style="color: white; font-weight:600" href="{{ route('privacy_policy') }}">Privacy Policy</a> <small> © 2024, Farmers Marketplace</small>
-                               </p>
+                            <p style="color: white; font-weight:600"> <a style="color: white; font-weight:600"
+                                    href="{{ route('terms_condition') }}">Terms & Conditions</a>
+                                <a style="color: white; font-weight:600" href="{{ route('privacy_policy') }}">Privacy
+                                    Policy</a> <small> © 2024, Farmers Marketplace</small>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -99,4 +102,3 @@
         </div>
 
     </footer>
-

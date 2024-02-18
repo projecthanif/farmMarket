@@ -29,7 +29,9 @@
                             </div>
                             <div class="form-group">
                                 <button type="submit"
-                                    class="form-control btn btn-primary rounded submit px-3 primary-btn auth-btn">Login</button>
+                                    class="form-control btn btn-success rounded submit p-4 fs-2 ">Login</button>
+                                {{-- <button type="submit"
+                                    class="form-control btn btn-success rounded submit px-3 primary-btn auth-btn">Login</button> --}}
                             </div>
                             <hr>
                             <div class="remember-box form-group d-md-flex justify-content-between mb-0">
@@ -40,11 +42,13 @@
                                     </label>
                                 </div>
                                 <div class="text-md-end text-lg-end">
-                                    <a href="{{ route('forget.password.get') }}" class="forget-password-link">Forget Password?</a>
+                                    <a href="{{ route('forget.password.get') }}" class="forget-password-link">Forget
+                                        Password?</a>
                                 </div>
                             </div>
                             <div class="already-have-account">
-                                Don't have an account?<a href="{{ route('user.register') }}" class="forget-password-link">Sign Up</a>
+                                Don't have an account?<a href="{{ route('user.register') }}"
+                                    class="forget-password-link">Sign Up</a>
                             </div>
                         </form>
                     </div>

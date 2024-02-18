@@ -33,20 +33,20 @@
                             <div class="form-group">
                                 <input type="text" class="form-control rounded-left" placeholder="Last name"
                                     name="lastname" value="{{ old('lastname') }}">
-                                    {{-- @error('lastname')
+                                {{-- @error('lastname')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror --}}
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control rounded-left" placeholder="Email" name="email"
                                     value="{{ old('email') }}">
-                                    {{-- @error('email')
+                                {{-- @error('email')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror --}}
                             </div>
                             <div class="form-group d-flex">
                                 <input type="password" class="form-control rounded-left" placeholder="Password"
-                                    name="password" >
+                                    name="password">
                             </div>
                             <div class="form-group d-flex">
                                 <input type="password" class="form-control rounded-left" placeholder="Confirm Password"
@@ -54,8 +54,11 @@
                             </div>
                             <div class="form-group">
                                 <button type="submit"
-                                    class="form-control btn btn-primary rounded submit px-3 primary-btn auth-btn">Sign
+                                    class="form-control btn btn-success rounded submit px-3 p-4 fs-2">Sign
                                     Up</button>
+                                {{-- <button type="submit"
+                                    class="form-control btn btn-primary rounded submit px-3 primary-btn auth-btn">Sign
+                                    Up</button> --}}
                             </div>
                             <hr>
 

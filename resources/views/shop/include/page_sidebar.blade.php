@@ -8,7 +8,7 @@
             <li class="menu-item"><a class="menu-link" href="{{ route('privacy_policy') }}"><i
                         class="menu-icon far fa-file-alt"></i>{{ __('Privacy Policy') }}</a></li>
             <li class="menu-item"><a class="menu-link" href="{{ route('terms_condition') }}"><i
-                            class="menu-icon far fa-file-alt"></i>{{ __('Privacy Policy') }}</a></li>
+                        class="menu-icon far fa-file-alt"></i>{{ __('Terms and Conditions') }}</a></li>
         </ul>
     </div>
 </div>
