@@ -33,9 +33,13 @@
                                                 <a class="mega-menu-title" href="#">Categories</a>
                                                 <ul class="menu-items">
                                                     @forelse ($categories as $category)
-                                                        <li class="mega-menu-items">
+                                                        {{-- <li class="mega-menu-items">
                                                             <a class="mega-menu-link"
                                                                 href="{{ route('shop.category', ['name' => $category->name]) }}">{{ $category->name }}</a>
+                                                        </li> --}}
+                                                        <li class="mega-menu-items">
+                                                            <a class="mega-menu-link"
+                                                                href="{{ route('shop.category', ['name' => $category->category_name]) }}">{{ $category->category_name }}</a>
                                                         </li>
                                                     @empty
                                                         <p>No category yet</p>
@@ -87,17 +91,19 @@
                 <div class="header-right">
                     <ul class="btn-list">
                         <li class="single-item cart-area">
-                            <a class="single-btn cart-btn" href="{{ route('shop.cart') }}"><i
-                                    class="btn-icon flaticon-shopping-bag"><span id="cart-count"
-                                        style="color: red;">{{ session('cartCount', 0) }}</span></i></a>
-                        </li>
-                        <li class="single-item cart-area">
                             <a class="single-btn cart-btn" href="{{ route('shop.cart') }}">
-                                <i class="btn-icon flaticon-search">
-
+                                <i class="btn-icon flaticon-shopping-bag">
+                                    <span id="cart-count" style="color: red;">
+                                        {{ session('cartCount', 0) }}
+                                    </span>
                                 </i>
                             </a>
                         </li>
+
+                        <li class="single-item cart-area">
+                            @include('layouts.shop_layout.search')
+                        </li>
+
                         @if (auth()->user())
                             <li class="single-item user-area">
                                 <div class="account-switcher">
@@ -183,9 +189,13 @@
                     <a class="menu-link" href="#">More Products</a>
                     <ul class="sub-menu">
                         @forelse ($categories as $category)
-                            <li class="sub-menu-item">
+                            {{-- <li class="sub-menu-item">
                                 <a class="sub-menu-link"
                                     href="{{ route('shop.category', ['name' => $category->name]) }}">{{ $category->name }}</a>
+                            </li> --}}
+                            <li class="sub-menu-item">
+                                <a class="sub-menu-link"
+                                    href="{{ route('shop.category', ['name' => $category->category_name]) }}">{{ $category->category_name }}</a>
                             </li>
                         @empty
                             <p>No category yet</p>

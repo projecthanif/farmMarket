@@ -60,8 +60,16 @@
                     <div class="col-lg-7">
                         <ul class="catagory-list">
                             @foreach ($categories as $category)
-                                <li class="sigle-catagory">
+                                {{-- <li class="sigle-catagory">
                                     <a class="catatory-link" href="{{ route('shop.category', ['name' => $category->name]) }}"
+                                        style="font-size: 100%">
+                                        {{ $category->name }}
+                                        <i class="icon flaticon-arrow-point-to-right"></i>
+                                    </a>
+                                </li> --}}
+                                <li class="sigle-catagory">
+                                    <a class="catatory-link"
+                                        href="{{ route('shop.category', ['name' => $category->category_name]) }}"
                                         style="font-size: 100%">
                                         {{ $category->name }}
                                         <i class="icon flaticon-arrow-point-to-right"></i>
@@ -135,8 +143,8 @@
 
                                 <ul class="prdouct-btn-wrapper">
                                     <li class="single-product-btn">
-                                        <a class="product-btn likeItem" data-product-id="{{ $row->id }}" title="Like Product"><i
-                                                class="icon flaticon-like"></i></a>
+                                        <a class="product-btn likeItem" data-product-id="{{ $row->id }}"
+                                            title="Like Product"><i class="icon flaticon-like"></i></a>
                                     </li>
                                 </ul>
                             </div>

@@ -19,6 +19,7 @@ class ProductController extends Controller
         $featuredProducts = product::where('is_featured', 'Yes')->take(4)->get();
         $products = product::take(8)->get();
         $category = category::all();
+        // dd($category);
 
         $pageTitle = "Products";
         $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
@@ -42,9 +43,30 @@ class ProductController extends Controller
             ->where('user_id', auth()->user()->id ?? '')
             ->first();
 
-            $pageTitle = $product_name." Products";
-            $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+        $pageTitle = $product_name . " Products";
+        $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
              farm produce to individuals and businesses in our community.";
         return view('shop.product_details', compact('product', 'relatedProducts', 'review', 'reviewCount', 'likes', 'like_user', 'pageTitle', 'pageDescription'));
+    }
+
+    // public function search(Request $request)
+    // {
+
+    //     $query = $request->input('q');
+    //     $results = Product::where('product_name', 'like', '%' . $query . '%')->get();
+
+    //     return view('shop.include.search_bar_menu')->with('results', $results);
+    // }
+
+    public function search(Request $request)
+    {
+        try {
+
+            $query = $request->input('q');
+            $results = Product::where('product_name', 'like', '%' . $query . '%')->get();
+            return view('shop.include.search_bar_menu')->with('results', $results);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 }

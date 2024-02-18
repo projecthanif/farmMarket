@@ -25,6 +25,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index2'])->name('home');
 
@@ -89,8 +90,12 @@ Route::prefix('/admin')->namespace('admin')->group(function () {
 
 Route::prefix('shop')->group(function () {
 
+
     Route::get('/product', 'Shop\ProductController@index')->name('shop.product');
     Route::get('/product/single/{product_name}', 'Shop\ProductController@productDetails')->name('shop.product.details');
+
+    // Search
+    Route::get('/search', 'Shop\ProductController@search')->name('shop.search');
 
     //category
     Route::get('/category/{name}', 'Shop\Category\CategoryController@index')->name('shop.category');

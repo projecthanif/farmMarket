@@ -28,9 +28,13 @@
                             <h3 class="widget-title mobile-dropdown-title">Categories</h3>
                             <ul class="widget-menu show">
                                 @forelse ($categories as $category)
-                                    <li class="meni-item">
+                                    {{-- <li class="meni-item">
                                         <a class="menu-link"
                                             href="{{ route('shop.category', ['name' => $category->name]) }}">{{ $category->name }}</a>
+                                    </li> --}}
+                                    <li class="meni-item">
+                                        <a class="menu-link"
+                                            href="{{ route('shop.category', ['name' => $category->category_name]) }}">{{ $category->category_name }}</a>
                                     </li>
                                 @empty
                                     <p>No category yet</p>
