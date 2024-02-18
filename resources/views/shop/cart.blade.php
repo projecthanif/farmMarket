@@ -127,11 +127,12 @@
                         <div class="sub-total-inner-box d-flex justify-content-between align-items-center">
                             <h2 class="bottom-box-title m-0">{{ __('Total') }}</h2>
                             <h2 class="bottom-box-title cart-page-final-total m-0" id="total-cart-price">
-                                NGN {{ number_format($totalCartPrice,2) }}
+                                NGN {{ number_format($totalCartPrice, 2) }}
                             </h2>
                         </div>
                         <div class="form-button text-center">
-                            <a href="{{ route('checkout.index') }}" class="form-btn proceed-to-checkout-btn">{{ __('Proceed To Checkout') }}</a>
+                            <a href="{{ route('checkout.index') }}"
+                                class="form-btn proceed-to-checkout-btn">{{ __('Proceed To Checkout') }}</a>
                         </div>
                     </div>
                 </div>
