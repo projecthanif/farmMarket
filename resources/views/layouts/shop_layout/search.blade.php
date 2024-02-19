@@ -65,10 +65,9 @@
 <form action="/shop/search?q=" method="get">
     <input type="text" class="search-click" name="search" placeholder="search here..." id="searchInput" />
     <div id="searchListItems"></div> <!-- Correct the ID here -->
-</form>
+</form> --}}
 
 
---}}
 
 
 <style>
@@ -122,7 +121,7 @@
         outline: none;
         background-size: 22px;
         background-position: 13px;
-        border-radius: 10px;
+        /* border-radius: 10px; */
         width: 60%;
         height: 50px;
         padding: 10px;
@@ -180,6 +179,7 @@
 
     // When the user clicks the button, open the modal
     btn.onclick = function() {
+        // console.log("Hell")
         modal.style.display = "block";
     }
 

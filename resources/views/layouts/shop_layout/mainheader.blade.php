@@ -46,33 +46,6 @@
                                                     @endforelse
                                                 </ul>
                                             </li>
-                                            {{-- <li class="mega-menu-item">
-                                                <a class="mega-menu-title" href="#">Brand</a>
-                                                <ul class="menu-items">
-                                                    <li class="mega-menu-items">
-                                                        <a class="mega-menu-link" href="product/brand/1.html">Circle</a>
-                                                    </li>
-                                                    <li class="mega-menu-items">
-                                                        <a class="mega-menu-link"
-                                                            href="product/brand/2.html">CodeLab</a>
-                                                    </li>
-                                                    <li class="mega-menu-items">
-                                                        <a class="mega-menu-link" href="product/brand/3.html">HEXLAB</a>
-                                                    </li>
-                                                    <li class="mega-menu-items">
-                                                        <a class="mega-menu-link" href="product/brand/4.html">Kanba</a>
-                                                    </li>
-                                                    <li class="mega-menu-items">
-                                                        <a class="mega-menu-link" href="product/brand/5.html">treva</a>
-                                                    </li>
-                                                    <li class="mega-menu-items">
-                                                        <a class="mega-menu-link" href="product/brand/6.html">Zootv</a>
-                                                    </li>
-                                                    <li class="mega-menu-items">
-                                                        <a class="mega-menu-link" href="product/brand/7.html">BanCi</a>
-                                                    </li>
-                                                </ul>
-                                            </li> --}}
                                             <li class="mega-menu-item">
                                                 <a class="mega-menu-banner" href="javascript:void(0)">
 
@@ -152,6 +125,9 @@
                             <a class="single-btn cart-btn" href="{{ route('shop.cart') }}"><i
                                     class="btn-icon flaticon-shopping-bag"><span id="cart-count"
                                         style="color: red;">{{ session('cartCount', 0) }}</span></i></a>
+                        </li>
+                        <li class="single-item cart-area">
+                            @include('layouts.shop_layout.search2')
                         </li>
                         <li class="single-item user-area">
                             <a class="single-btn user-btn" href="{{ route('user.login') }}"><i
