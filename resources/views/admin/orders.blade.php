@@ -125,7 +125,7 @@ use Illuminate\Support\Facades\Session;
 
                                         @foreach ($orders as $index => $order)
                                             <tr>
-                                                {{-- {{ dd($order['product']) }} --}}
+                                                {{-- {{ dd($order['product']['price']) }} --}}
                                                 {{-- {{ dd($order['product']['id']) }} --}}
                                                 <td>{{ $index + 1 }}</td>
                                                 <td>#{{ $order['order_id'] }}</td>
@@ -149,7 +149,7 @@ use Illuminate\Support\Facades\Session;
 
                                                 <td>{{ ($order['user']['addresses']['address'] ?? 'Nil') . ', ' . ($order['user']['addresses']['city'] ?? 'Nil') . ', ' . ($order['user']['addresses']['state'] ?? 'Nil') }}
                                                 </td>
-                                                <td>{{ $order['product']['product_name'] ?? '' }}</td>
+                                                <td>{{ $order['product']['product_name'] ?? 'No Product' }}</td>
 
                                                 <td>
                                                     @if ($order['payment_status'] == 'paid')
@@ -163,7 +163,7 @@ use Illuminate\Support\Facades\Session;
                                                     @endif
                                                 </td>
 
-                                                <td>₦{{ $order['qty'] * ($order['product']['price'] != null) ? $order['product']['price'] : '1' }}
+                                                <td>₦{{ $order['qty'] * ($order['product']['price'] ?? '0') }}
                                                     ({{ $order['qty'] }}
                                                     Item{{ $order['qty'] > 1 ? 's' : '' }})
                                                 </td>
