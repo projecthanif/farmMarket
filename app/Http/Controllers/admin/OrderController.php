@@ -16,17 +16,8 @@ class OrderController extends Controller
 
         $orders = orders::with(['product', 'user', 'addresses'])->orderBy('created_at', 'desc')->get();
 
-        // $order = orders::get();
-        // dd($orders->toArray()
-        $orders = $orders->toArray();
-        dd($orders[0]['addresses']);
-        // echo "<pre>";print_r($orders);die;
 
-        // return view('admin.orders')->with(compact('orders'));
-        return view('admin.orders', [
-            // 'orders' => [...$orders]
-            'orders' => $orders
-        ]);
+        return view('admin.orders')->with(compact('orders'));
     }
 
     public function cart()
@@ -34,11 +25,8 @@ class OrderController extends Controller
         Session::put('page', 'cart');
 
         $cart = Cart::with(['product', 'user', 'addresses'])->get();
-        $cart = $cart->toArray();
 
-        return view('admin.cart', [
-            'carts' => $cart
-        ]);
+        return view('admin.cart')->with(compact('cart'));
     }
 
     public function sales()

@@ -52,20 +52,19 @@ use Illuminate\Support\Facades\Session;
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ($cart as $index => $cart)
+                                        @foreach ($cart as $index => $cart)
                                             <tr>
                                                 <td>{{ $index + 1 }}</td>
                                                 <td>
-                                                    <?php $cart_image_path = 'images/product_images/small/' . $cart->product->main_image; ?>
-                                                    @if (!empty($cart->product->main_image))
-                                                        <img src="{{ asset('images/product_images/small/' . $cart->product->main_image) }}"
+                                                    @if (!empty($cart->product->main_image ?? ''))
+                                                        <img src="{{ asset('images/product_images/small/' . $cart->product->main_image ?? '') }}"
                                                             width="60px" height="60px">
                                                     @else
                                                         <img src="{{ asset('images/product_images/small/no_image.png') }}"
                                                             width="60px" height="60px">
                                                     @endif
                                                 </td>
-                                                <td>{{ $cart->product->product_name }}</td>
+                                                <td>{{ $cart->product->product_name ?? 'No product name' }}</td>
 
                                                 <td>
                                                     <p>
@@ -76,41 +75,13 @@ use Illuminate\Support\Facades\Session;
                                                     </p>
                                                 </td>
 
-                                                <td>₦{{ $cart->qty * $cart->product->price }} ({{ $cart->qty }}
+                                                <td>₦{{ $cart->qty * ($cart->product->price ?? '1') }} ({{ $cart->qty }}
                                                     Item{{ $cart->qty > 1 ? 's' : '' }})
                                                 </td>
                                             </tr>
-                                        @endforeach --}}
-
-                                        @foreach ($carts as $index => $cart)
-                                            <tr>
-                                                <td>{{ $index + 1 }}</td>
-                                                <td>
-                                                    @if (!empty($cart['product']['main_image']))
-                                                        <img src="{{ asset('images/product_images/small/' . $cart['product']['main_image']) }}"
-                                                            width="60px" height="60px">
-                                                    @else
-                                                        <img src="{{ asset('images/product_images/small/no_image.png') }}"
-                                                            width="60px" height="60px">
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    <p>
-                                                        {{ $cart['addresses']['fullname'] ?? 'Nil' }}
-                                                    </p>
-                                                    <p>
-                                                        {{ $cart['addresses']['phone'] ?? 'Nil' }}
-                                                    </p>
-                                                </td>
-                                                <td>{{ $cart['product']['product_name'] ?? 'No product' }}</td>
-
-
-                                                <td>₦{{ $cart['qty'] * ($cart['product']['price'] ?? '1') }}
-                                                    ({{ $cart['qty'] }}
-                                                    Item{{ $cart['qty'] > 1 ? 's' : '' }})
-                                                </td>
-                                            </tr>
                                         @endforeach
+
+
                                     </tbody>
 
                                 </table>
