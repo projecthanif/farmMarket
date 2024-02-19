@@ -19,7 +19,7 @@
                             {{-- <input type="hidden" name="quantity" value="1" id="product_quantity" /> --}}
                             <input type="hidden" class="quantity-input" value="1" min="1">
                             <h3 class="product-name">
-                                <a class="product-link"
+                                <a class="product-link fs-3"
                                     href="{{ route('shop.product.details', ['product_name' => $row->product_name]) }}">{{ $row->product_name }}</a>
                             </h3>
                             <ul class="product-review">
@@ -152,7 +152,7 @@
                                 {{-- <input type="hidden" name="quantity" value="1" id="product_quantity" /> --}}
                                 <input type="hidden" class="quantity-input" value="1" min="1">
                                 <h3 class="product-name">
-                                    <a class="product-link"
+                                    <a class="product-link fs-3"
                                         href="{{ route('shop.product.details', ['product_name' => $row->product_name]) }}">{{ $row->product_name }}</a>
                                 </h3>
                                 <ul class="product-review">

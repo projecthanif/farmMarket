@@ -46,7 +46,7 @@
                                     </ul>
                                 </div>
                                 <h3 class="product-name">
-                                    {{ $product->product_name }} {{ $product->description ?? '' }}</h3>
+                                    {{ $product->product_name }}</h3>
                                 </h3>
 
                                 <div class="product-price">
@@ -61,13 +61,14 @@
                                         <div class="inc qtybutton btn">+</div>
                                     </div>
                                     <a href="javascript:void(0)" title="Add To Cart" class="add-cart addCart"
-                                        data-product-id="{{ $product->id }}" data-price="{{ $product->price }}">Add To Cart
+                                        data-product-id="{{ $product->id }}" data-price="{{ $product->price }}">Add To
+                                        Cart
                                         <i class="icon fas fa-plus-circle"></i></a>
                                 </div>
                                 <div class="product-bottom-button d-flex">
                                     {{-- <a href="javascript:void(0)" class="primary-btn buyNow" data-id="12">Buy Now</a> --}}
                                     <div class="product-description">
-                                        <p>Description: {{ $product->description ?? ''}}</p>
+                                        <p>Description: {{ $product->description ?? '' }}</p>
                                     </div>
 
                                 </div>
@@ -236,7 +237,7 @@
                             <div class="product-info text-center">
                                 {{-- <input type="hidden" name="quantity" value="1" id="product_quantity" /> --}}
                                 <input type="hidden" class="quantity-input" value="1" min="1">
-                                <h3 class="product-name">
+                                <h3 class="product-name fs-4">
                                     <a class="product-link"
                                         href="{{ route('shop.product.details', ['product_name' => $row->product_name]) }}">{{ $row->product_name }}</a>
                                 </h3>

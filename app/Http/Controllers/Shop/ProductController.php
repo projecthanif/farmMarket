@@ -64,7 +64,9 @@ class ProductController extends Controller
 
             $query = $request->input('q');
             $results = Product::where('product_name', 'like', '%' . $query . '%')->get();
-            return view('shop.include.search_bar_menu')->with('results', $results);
+
+            $productNames = $results->pluck('product_name')->toArray();
+            return view('shop.include.search_bar_menu')->with('results', $productNames);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }

@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Shop;
 
-use App\Http\Controllers\Controller;
+use App\Models\orders;
 use App\Jobs\SendEmail;
 use App\Models\addresses;
-use App\Models\orders;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Events\PaymentMade;
 use Illuminate\Support\Str;
-use App\Models\ShippingPrice;
 use Hamcrest\Arrays\IsArray;
+use Illuminate\Http\Request;
+use App\Models\ShippingPrice;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
@@ -68,6 +69,9 @@ class CheckoutController extends Controller
             $email = $event->data->customer->email;
 
             if ($event->event  === 'charge.success') {
+
+                // Trigger the PaymentMade event
+                // event(new PaymentMade($event->data));
                 $filename = 'paystackpayment_success' . time() . '.txt';
                 $details = 'payment sucessfull' . PHP_EOL;
 
@@ -78,7 +82,7 @@ class CheckoutController extends Controller
                         $details .= "$key: $value";
                     }
                 }
-                
+
                 file_put_contents($filename, $details);
             }
         }
