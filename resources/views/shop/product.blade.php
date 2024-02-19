@@ -69,7 +69,7 @@
                                 </li> --}}
                                 <li class="sigle-catagory">
                                     <a class="catatory-link"
-                                        href="{{ route('shop.category', ['name' => $category->category_name]) }}"
+                                        href="{{ route('shop.category', ['name' => $category->name]) }}"
                                         style="font-size: 100%">
                                         {{ $category->name }}
                                         <i class="icon flaticon-arrow-point-to-right"></i>

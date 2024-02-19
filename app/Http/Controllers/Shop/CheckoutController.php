@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\ShippingPrice;
+use Hamcrest\Arrays\IsArray;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -19,13 +20,22 @@ class CheckoutController extends Controller
 
     public function index(Request $request)
     {
+        $user = auth()->user();
+        $addressExist = addresses::where('user_id', $user->id)->exists();
+        if (!$addressExist) {
+            return redirect()->route('user.edit')->with('message', 'Please update your profile with your address.');
+        }
+        // dd(addresses::get()->where('user_id', \App\Models\User::find(1)->id));
+        // dd($request);
         $cart = $request->session()->get('cart', []);
+        // dd($cart);
         $totalCartPrice = $this->calculateTotalCartPrice($cart);
         // $shipping_price = ShippingPrice::all();
         $shipping_price = DB::table('lagos_shipping')->get();
 
         // Retrieve the selected location from the session
         $selectedLocation = $request->session()->get('selectedLocation');
+        // dd($selectedLocation);
 
         // Use $selectedLocation to calculate the shipping price
         $shippingPrice = $this->getShippingPrice($selectedLocation);
@@ -40,9 +50,42 @@ class CheckoutController extends Controller
         return view('shop.checkout', compact('cart', 'totalCartPrice', 'shipping_price', 'finalPrice', 'shippingPrice', 'pageTitle', 'pageDescription'));
     }
 
+    // callback from the webhook
+
+    public function callBack(Request $request)
+    {
+        // dd($request->json());
+        if (!$request->isMethod('POST') || !$request->header('x-paystack-signature')) {
+            abort(400, 'invalid request');
+        }
+
+        // Retrieve the request's body and parse it as JSON
+        $input = file_get_contents("php://input");
+
+        $event = json_decode($input);
+
+        if (isset($event)) {
+            $email = $event->data->customer->email;
+
+            if ($event->event  === 'charge.success') {
+                $filename = 'paystackpayment_success' . time() . '.txt';
+                $details = 'payment sucessfull' . PHP_EOL;
+
+                foreach ($event as $key => $value) {
+                    if (is_object($value) || is_array($value)) {
+                        $value = json_encode($value, JSON_PRETTY_PRINT);
+
+                        $details .= "$key: $value";
+                    }
+                }
+                
+                file_put_contents($filename, $details);
+            }
+        }
+    }
+
     public function process(Request $request)
     {
-
         try {
             // Check if the user is logged in
             if (!Auth::check()) {
@@ -148,7 +191,7 @@ class CheckoutController extends Controller
             Session::forget('cart');
             Session::forget('cartCount');
 
-            return redirect()->route('user.order')->with('success', 'Your order has been placed successfully!');
+            return redirect()->route('checkout.thankyou')->with('success', 'Your order has been placed successfully!');
         } catch (\Exception $e) {
             return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
         }
@@ -213,6 +256,8 @@ class CheckoutController extends Controller
 
     public function thankyou()
     {
-        return view('shop.thankyou');
+        $pageTitle = "Thank Page";
+        $pageDescription = "Thank Page";
+        return view('shop.thankyou', compact('pageTitle', 'pageDescription'));
     }
 }

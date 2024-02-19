@@ -34,7 +34,7 @@
                                     </li> --}}
                                     <li class="meni-item">
                                         <a class="menu-link"
-                                            href="{{ route('shop.category', ['name' => $category->category_name]) }}">{{ $category->category_name }}</a>
+                                            href="{{ route('shop.category', ['name' => $category->name]) }}">{{ $category->name }}</a>
                                     </li>
                                 @empty
                                     <p>No category yet</p>

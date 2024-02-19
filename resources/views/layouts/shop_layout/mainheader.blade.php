@@ -39,7 +39,7 @@
                                                         </li> --}}
                                                         <li class="mega-menu-items">
                                                             <a class="mega-menu-link"
-                                                                href="{{ route('shop.category', ['name' => $category->category_name]) }}">{{ $category->category_name }}</a>
+                                                                href="{{ route('shop.category', ['name' => $category->name]) }}">{{ $category->name }}</a>
                                                         </li>
                                                     @empty
                                                         <p>No category yet</p>
@@ -195,7 +195,7 @@
                             </li> --}}
                             <li class="sub-menu-item">
                                 <a class="sub-menu-link"
-                                    href="{{ route('shop.category', ['name' => $category->category_name]) }}">{{ $category->category_name }}</a>
+                                    href="{{ route('shop.category', ['name' => $category->name]) }}">{{ $category->name }}</a>
                             </li>
                         @empty
                             <p>No category yet</p>

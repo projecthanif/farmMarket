@@ -70,7 +70,7 @@ use Illuminate\Support\Facades\Session;
                                                             width="100px" height="100px">
                                                     @endif
                                                 </td>
-                                                <td>{{ $product->category->name }}</td>
+                                                <td>{{ $product->name }}</td>
                                                 <td>
                                                     @if ($product->status == 1)
                                                         <a class="updateProductStatus" id="product-{{ $product->id }}"

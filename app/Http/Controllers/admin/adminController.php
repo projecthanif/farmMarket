@@ -23,10 +23,11 @@ class adminController extends Controller
 
         $userCount = User::get()->count();
         $productCount = product::get()->count();
-        $orderCount = DB::table('orders')->get()->count();
-        $cartCount = DB::table('cart')->get()->count();
+        // $orderCount = DB::table('orders')->get()->count();
+        // $cartCount = DB::table('cart')->get()->count();
 
-        return view('admin.admin_dashboard')->with(compact('userCount', 'orderCount', 'productCount', 'cartCount'));
+        // return view('admin.admin_dashboard')->with(compact('userCount', 'orderCount', 'productCount', 'cartCount'));
+        return view('admin.admin_dashboard')->with(compact('userCount',  'productCount',));
     }
 
     public function users()
@@ -100,9 +101,10 @@ class adminController extends Controller
 
     public function login(Request $request)
     {
+        // dd($request);
         if ($request->isMethod('post')) {
             $data = $request->all();
-           
+
             //custom messages
             $rules = [
                 'email' => 'required|email|max:255',

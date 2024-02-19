@@ -30,7 +30,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{ $orderCount }}</h3>
+                                {{-- <h3>{{ $orderCount }}</h3> --}}
 
                                 <p>Orders</p>
                             </div>
@@ -79,7 +79,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>{{ $cartCount }}</h3>
+                                {{-- <h3>{{ $cartCount }}</h3> --}}
 
                                 <p>Cart Items</p>
                             </div>

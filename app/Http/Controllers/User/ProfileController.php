@@ -19,7 +19,7 @@ class ProfileController extends Controller
 
     public function index()
     {
-        $pageTitle = auth()->user()->firstname. " Profile";
+        $pageTitle = auth()->user()->firstname . " Profile";
         $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
         farm produce to individuals and businesses in our community";
 
@@ -28,7 +28,7 @@ class ProfileController extends Controller
 
     public function edit()
     {
-        $pageTitle = "Edit". auth()->user()->firstname. " Profile";
+        $pageTitle = "Edit" . auth()->user()->firstname . " Profile";
         $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
         farm produce to individuals and businesses in our community";
 
@@ -38,7 +38,7 @@ class ProfileController extends Controller
 
     public function editAction(Request $request)
     {
-
+        // dd($request);
         $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
@@ -58,7 +58,7 @@ class ProfileController extends Controller
         $address = addresses::updateorInsert(
             ['user_id' => auth()->user()->id],
             [
-                'fullname' => auth()->user()->firstname.' '. auth()->user()->lastname,
+                'fullname' => auth()->user()->firstname . ' ' . auth()->user()->lastname,
                 'address' => $request->input('address'),
                 'state' => $request->input('state'),
                 'city' => $request->input('city'),

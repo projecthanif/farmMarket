@@ -32,9 +32,11 @@
     <link rel="stylesheet" href="{{ asset('shop_assets/css/cookie-consent.css') }}" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('homePage_assets/favicon/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('homePage_assets/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('homePage_assets/favicon/favicon-16x16.png') }}">
-    
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ asset('homePage_assets/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ asset('homePage_assets/favicon/favicon-16x16.png') }}">
+
 
     {{-- <link rel="shortcut icon" href="{{ asset('f') }}uploaded_files/favicon/favicon.png" type="image/x-icon" /> --}}
     <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}" />
@@ -557,8 +559,8 @@
             e.preventDefault();
 
             let handler = PaystackPop.setup({
-                // key: 'pk_test_f1aa39d3ac6068916f56a41a84c71314aa1b3e2d',
-                key: 'pk_live_064b702068ffa6cf068c63f0597d06169781590c',
+                key: 'pk_test_ad54038cf82a2192d3f9f57d7561c318e1e11db8',
+                // key: 'pk_live_064b702068ffa6cf068c63f0597d06169781590c',
                 email: document.getElementById("email-address").value,
                 amount: document.getElementById("amount").value * 100,
                 ref: '' + Math.floor((Math.random() * 1000000000) +
@@ -570,6 +572,7 @@
                 },
                 callback: function(response) {
                     handlePaystackCallback(response);
+                    window.location.href = '{{ route('checkout.order') }}'; // Replace with your actual URL
                     window.location.href = '{{ route('checkout.thankyou') }}'; // Replace with your actual URL
                     let message = 'Payment complete! Reference: ' + response.reference;
                     alert(message);
@@ -579,6 +582,49 @@
             handler.openIframe();
         }
     </script>
+
+    {{-- <script>
+        const paymentForm = document.getElementById('paymentForm');
+        console.log(paymentForm);
+        paymentForm.addEventListener("submit", payWithPaystack, false);
+
+        function payWithPaystack(e) {
+            e.preventDefault();
+
+            let handler = PaystackPop.setup({
+                key: 'pk_test_ad54038cf82a2192d3f9f57d7561c318e1e11db8',
+                // key: 'pk_live_064b702068ffa6cf068c63f0597d06169781590c',
+                email: document.getElementById("email-address").value,
+                amount: document.getElementById("amount").value * 100,
+                ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+                onClose: function() {
+                    alert('Window closed.');
+                },
+                callback: function(response) {
+                    handlePaystackCallback(response);
+                    // Make an AJAX request to checkout.order route
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("POST", "{{ route('checkout.order') }}", true);
+                    // xhr.setRequestHeader("Content-Type", "application/formdata");
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            // If the order processing is successful, redirect to checkout.thankyou route
+                            window.location.href = '{{ route('checkout.thankyou') }}';
+                            let message = 'Payment complete! Reference: ' + response.reference;
+                            alert(message);
+                        } else {
+                            // If there's an error processing the order, display an error message
+                            alert('Failed to process order. Please try again.');
+                        }
+                    };
+                    xhr.send(JSON.stringify({})); // Send an empty JSON object as the request body
+                }
+            });
+
+            handler.openIframe();
+        }
+    </script> --}}
+
 
     <script>
         function handlePaystackCallback(response) {

@@ -1,13 +1,14 @@
 <?php
 
+use App\Models\category;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\adminController;
-use App\Http\Controllers\admin\categoryController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\productController;
 use App\Http\Controllers\admin\sectionController;
-use App\Models\category;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\admin\categoryController;
+use App\Http\Controllers\payment\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -113,9 +114,13 @@ Route::prefix('shop')->group(function () {
     Route::post('/update-item-quantity', 'Shop\CartController@updateQuantity')->name('cart.updateQuantity');
     Route::get('/cart', 'Shop\CartController@viewCart')->name('shop.cart');
 
+
     //checkout
     Route::get('/checkout', 'Shop\CheckoutController@index')->name('checkout.index');
     Route::post('/checkout/order', 'Shop\CheckoutController@process')->name('checkout.order');
+    Route::post('/checkout/webhook', 'Shop\CheckoutController@callBack');
+
+
 
     // shipping-price
     Route::post('/get-shipping-price', 'Shop\CheckoutController@setLocation');
@@ -125,6 +130,7 @@ Route::prefix('shop')->group(function () {
     //thank you page
     Route::get('/checkout/thank-you', 'Shop\CheckoutController@thankyou')->name('checkout.thankyou');
 });
+
 //Email Verification
 Route::get('/user/email-verificaton', 'Verification\EmailVerificationController@index')->name('email.verification');
 Route::post('email-verification-action', 'Verification\EmailVerificationController@validateOtp')->name('user-email-action');

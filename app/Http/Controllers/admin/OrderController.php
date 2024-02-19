@@ -18,7 +18,7 @@ class OrderController extends Controller
 
         // $order = orders::get();
         // dd($order->addresses);
-        
+
         // echo "<pre>";print_r($orders);die;
 
         return view('admin.orders')->with(compact('orders'));

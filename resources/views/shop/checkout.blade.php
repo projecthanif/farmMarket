@@ -1,6 +1,5 @@
 @extends('layouts.shop_layout.master')
 @section('content')
-
     <div class="breadcrumb-area">
         <div class="container">
             <div class="breadcrumb-wrap text-center">
@@ -93,8 +92,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="state" name="state"
-                                                placeholder="state" value="{{ 'Lagos State' }}" readonly
-                                                required />
+                                                placeholder="state" value="{{ 'Lagos State' }}" readonly required />
                                         </div>
                                     </div>
 
@@ -231,7 +229,12 @@
                                         </span>
 
                                     @endif
-                                </h3>
+                                {{-- @elseif(auth()->user() && empty(!auth()->user()->addresses->city))
+                                    <span class="float-right" id="total-cart-price">
+                                        NGN {{ number_format($finalPrice, 2) }}
+                                    </span>
+                                    @endif
+                                </h3> --}}
                             </div>
                         </div>
                     </div>

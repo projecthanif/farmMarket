@@ -121,7 +121,7 @@
                                                 </div>
                                                 <div class="col-lg-4 col-md-6">
                                                     <div class="form-group">
-                                                        <label for="lname">City</label>
+                                                        <label for="lname">State</label>
                                                         <input type="text" class="form-control" id="state"
                                                             name="state" value="{{ 'Lagos' }}" readonly>
                                                         @error('state')

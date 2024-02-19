@@ -23,5 +23,7 @@ class VerifyCsrfToken extends Middleware
         '/shop/get-shipping-price/',
         '/admin/sales',
         '/admin/edit-shipping',
+        '/webhook/*',
+        '/shop/checkout/webhook'
     ];
 }
