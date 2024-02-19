@@ -15,12 +15,11 @@ class OrderController extends Controller
         Session::put('page', 'orders');
 
         $orders = orders::with(['product', 'user', 'addresses'])->orderBy('created_at', 'desc')->get();
-        // $orders = orders::with(['product', 'user'])->latest()->get();
 
         // $order = orders::get();
         // dd($orders->toArray()
         $orders = $orders->toArray();
-        // dd($orders);
+        dd($orders[0]['addresses']);
         // echo "<pre>";print_r($orders);die;
 
         // return view('admin.orders')->with(compact('orders'));
@@ -35,7 +34,11 @@ class OrderController extends Controller
         Session::put('page', 'cart');
 
         $cart = Cart::with(['product', 'user', 'addresses'])->get();
-        return view('admin.cart')->with(compact('cart'));
+        $cart = $cart->toArray();
+
+        return view('admin.cart', [
+            'carts' => $cart
+        ]);
     }
 
     public function sales()

@@ -2,12 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\addresses;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class orders extends Model
 {
     use HasFactory;
+
+    // protected $table = 'orders';
 
     // protected $with = [];
 
@@ -15,16 +19,16 @@ class orders extends Model
 
     public function product()
     {
-        return $this->belongsTo('App\Models\product', 'prod_id');
+        return $this->belongsTo(product::class, 'prod_id');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function addresses()
     {
-        return $this->belongsTo('App\Models\addresses', 'user_id');
+        return $this->belongsTo(addresses::class, 'user_id');
     }
 }
