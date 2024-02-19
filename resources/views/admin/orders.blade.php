@@ -58,8 +58,8 @@ use Illuminate\Support\Facades\Session;
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            @foreach ($orders as $index => $order)
+                                        {{-- @foreach ($orders as $index => $order)
+                                            <tr>
                                                 <td>{{ $index + 1 }}</td>
                                                 <td>#{{ $order->order_id }}</td>
                                                 <td>
@@ -120,7 +120,78 @@ use Illuminate\Support\Facades\Session;
                                                             class="btn btn-primary w-100 mt-2">Update</button>
                                                     </form>
                                                 </td>
-                                        </tr>
+                                            </tr>
+                                        @endforeach --}}
+
+                                        @foreach ($orders as $index => $order)
+                                            <tr>
+                                                {{-- {{ dd($order['product']) }} --}}
+                                                {{-- {{ dd($order['product']['id']) }} --}}
+                                                <td>{{ $index + 1 }}</td>
+                                                <td>#{{ $order['order_id'] }}</td>
+                                                <td>
+                                                    @if (!empty($order['product']['main_image']))
+                                                        <img src="{{ asset('images/product_images/small/' . $order['product']['main_image']) }}"
+                                                            width="60px" height="60px">
+                                                    @else
+                                                        <img src="{{ asset('images/product_images/small/no_image.png') }}"
+                                                            width="60px" height="60px">
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                        {{ $order['user']['addresses']['fullname'] ?? 'Nil' }}
+                                                    </p>
+                                                    <p>
+                                                        {{ $order['user']['addresses']['phone'] ?? 'Nil' }}
+                                                    </p>
+                                                </td>
+
+                                                <td>{{ ($order['user']['addresses']['address'] ?? 'Nil') . ', ' . ($order['user']['addresses']['city'] ?? 'Nil') . ', ' . ($order['user']['addresses']['state'] ?? 'Nil') }}
+                                                </td>
+                                                <td>{{ $order['product']['product_name'] ?? '' }}</td>
+
+                                                <td>
+                                                    @if ($order['payment_status'] == 'paid')
+                                                        <a class="updateOrderStatus" id="order-{{ $order['id'] }}"
+                                                            order_id="{{ $order['id'] }}" href="javascript:void(0)">
+                                                            paid</a>
+                                                    @else
+                                                        <a class="updateOrderStatus" id="order-{{ $order['id'] }}"
+                                                            order_id="{{ $order['id'] }}" href="javascript:void(0)">
+                                                            unpaid</a>
+                                                    @endif
+                                                </td>
+
+                                                <td>₦{{ $order['qty'] * ($order['product']['price'] != null) ? $order['product']['price'] : '1' }}
+                                                    ({{ $order['qty'] }}
+                                                    Item{{ $order['qty'] > 1 ? 's' : '' }})
+                                                </td>
+                                                <td>{{ $order['order_status'] }}</td>
+
+                                                <td>
+                                                    <form method="post"
+                                                        action="{{ url('/admin/update-order-status/' . $order['id']) }}">
+                                                        @csrf
+                                                        <select class="form-control" name="order_status">
+                                                            <option value="1"
+                                                                @if ($order['track_order'] == '1') selected @endif>Order
+                                                                confirmed</option>
+                                                            <option value="2"
+                                                                @if ($order['track_order'] == '2') selected @endif>Driver
+                                                                assigned</option>
+                                                            <option value="3"
+                                                                @if ($order['track_order'] == '3') selected @endif>In transit
+                                                            </option>
+                                                            <option value="4"
+                                                                @if ($order['track_order'] == '4') selected @endif>Completed
+                                                            </option>
+                                                        </select>
+                                                        <button type="submit"
+                                                            class="btn btn-primary w-100 mt-2">Update</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
                                         @endforeach
 
                                     </tbody>

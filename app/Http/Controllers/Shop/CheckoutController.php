@@ -53,40 +53,40 @@ class CheckoutController extends Controller
 
     // callback from the webhook
 
-    public function callBack(Request $request)
-    {
-        // dd($request->json());
-        if (!$request->isMethod('POST') || !$request->header('x-paystack-signature')) {
-            abort(400, 'invalid request');
-        }
+    // public function callBack(Request $request)
+    // {
+    //     // dd($request->json());
+    //     if (!$request->isMethod('POST') || !$request->header('x-paystack-signature')) {
+    //         abort(400, 'invalid request');
+    //     }
 
-        // Retrieve the request's body and parse it as JSON
-        $input = file_get_contents("php://input");
+    //     // Retrieve the request's body and parse it as JSON
+    //     $input = file_get_contents("php://input");
 
-        $event = json_decode($input);
+    //     $event = json_decode($input);
 
-        if (isset($event)) {
-            $email = $event->data->customer->email;
+    //     if (isset($event)) {
+    //         $email = $event->data->customer->email;
 
-            if ($event->event  === 'charge.success') {
+    //         if ($event->event  === 'charge.success') {
 
-                // Trigger the PaymentMade event
-                // event(new PaymentMade($event->data));
-                $filename = 'paystackpayment_success' . time() . '.txt';
-                $details = 'payment sucessfull' . PHP_EOL;
+    //             // Trigger the PaymentMade event
+    //             // event(new PaymentMade($event->data));
+    //             $filename = 'paystackpayment_success' . time() . '.txt';
+    //             $details = 'payment sucessfull' . PHP_EOL;
 
-                foreach ($event as $key => $value) {
-                    if (is_object($value) || is_array($value)) {
-                        $value = json_encode($value, JSON_PRETTY_PRINT);
+    //             foreach ($event as $key => $value) {
+    //                 if (is_object($value) || is_array($value)) {
+    //                     $value = json_encode($value, JSON_PRETTY_PRINT);
 
-                        $details .= "$key: $value";
-                    }
-                }
+    //                     $details .= "$key: $value";
+    //                 }
+    //             }
 
-                file_put_contents($filename, $details);
-            }
-        }
-    }
+    //             file_put_contents($filename, $details);
+    //         }
+    //     }
+    // }
 
     public function process(Request $request)
     {

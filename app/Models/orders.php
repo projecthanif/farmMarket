@@ -9,6 +9,8 @@ class orders extends Model
 {
     use HasFactory;
 
+    // protected $with = [];
+
     protected $fillable = ['is_rated'];
 
     public function product()
