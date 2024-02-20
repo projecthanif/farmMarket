@@ -35,8 +35,10 @@ class CheckoutController extends Controller
         $shipping_price = DB::table('lagos_shipping')->get();
 
         // Retrieve the selected location from the session
-        $selectedLocation = $request->session()->get('selectedLocation');
-        // dd($selectedLocation);
+        // $selectedLocation = $request->session()->get('selectedLocation');
+        $selectedLocation = addresses::where('user_id', auth()->user()->id)->get();
+        $selectedLocation = $selectedLocation[0]->city;
+        // dd($selectedLocation[0]->city);
 
         // Use $selectedLocation to calculate the shipping price
         $shippingPrice = $this->getShippingPrice($selectedLocation);
