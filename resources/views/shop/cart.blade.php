@@ -45,7 +45,6 @@
 
                                         @if (is_array($cart) || is_object($cart))
                                             @foreach ($cart as $item)
-                                                {{-- {{ dd($item); }} --}}
                                                 <tr class="cart-page-item" data-price="{{ $item['price'] }}">
                                                     <td>
                                                         <div class="single-grid-product m-0">

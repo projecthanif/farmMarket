@@ -4,7 +4,7 @@
         /* Hide the model2 by default */
         position: fixed;
         /* Stay in place */
-        z-index: 1;
+        z-index: 100;
         /* Sit on top */
         left: 0;
         top: 0;
@@ -79,7 +79,7 @@
     }
 
     #searchListItems2 {
-        z-index: 30;
+        z-index: 50;
     }
 </style>
 

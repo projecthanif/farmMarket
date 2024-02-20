@@ -22,7 +22,7 @@ class CheckoutController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
-        $addressExist = addresses::where('user_id', $user->id)->exists();
+        $addressExist = addresses::where('user_id', $user->id ?? '')->exists();
         if (!$addressExist) {
             return redirect()->route('user.edit')->with('message', 'Please update your profile with your address.');
         }

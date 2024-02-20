@@ -22,6 +22,7 @@ class productController extends Controller
             $query->select('id', 'name');
         }])->get();
 
+        // dd($products[0]->category);
         return view('admin.products.products')->with(compact('products'));
     }
 
