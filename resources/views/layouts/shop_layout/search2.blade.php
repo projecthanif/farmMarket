@@ -88,9 +88,8 @@
 <div id="mymodel22" class="model2">
     <span class="close2">&times;</span>
     <div class="model2-content">
-        <form action="/shop/search?q=" method="get">
-            <input type="text" class="search-click" name="search" placeholder="search here..." id="searchInput2" />
-            <div id="searchListItems2"></div> <!-- Correct the ID here -->
+        <form action="/shop/search/" method="get">
+            <input type="text" class="search-click" name="product" placeholder="search here..." id="searchInput" />
         </form>
     </div>
 </div>
@@ -121,29 +120,4 @@
             model2.style.display = "none";
         }
     }
-</script>
-
-<script>
-    const searchInput2 = document.querySelector("#searchInput2");
-
-    searchInput2.addEventListener('keydown', function() {
-        console.log(this.value)
-        const query = this.value.trim(); // Trim whitespace from the input
-        if (query.length == 0) {
-            document.getElementById("searchListItems2").innerHTML = "";
-            document.getElementById("searchListItems2").style.border = "0px";
-            return;
-        }
-
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("searchListItems2").innerHTML = this.responseText;
-                document.getElementById("searchListItems2").style.border = "1px solid #A5ACB2";
-            }
-        }
-        xmlhttp.open("GET", "/shop/search?q=" + query, true);
-        xmlhttp.send();
-
-    });
 </script>

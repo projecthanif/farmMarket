@@ -96,7 +96,8 @@ Route::prefix('shop')->group(function () {
     Route::get('/product/single/{product_name}', 'Shop\ProductController@productDetails')->name('shop.product.details');
 
     // Search
-    Route::get('/search', 'Shop\ProductController@search')->name('shop.search');
+    Route::get('/search/', 'Shop\ProductController@search')->name('shop.search');
+
 
     //category
     Route::get('/category/{name}', 'Shop\Category\CategoryController@index')->name('shop.category');

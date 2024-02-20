@@ -1,4 +1,5 @@
 <div>
+
     <header class="header-area-v2 d-none d-lg-block">
 
         <div class="header-middle" style="padding-bottom: 2%">
@@ -6,7 +7,8 @@
 
                 <div class="header-left">
                     <a href="{{ route('home') }}" class="nav-logo" style="color: black">
-                        <img src="{{ asset('user/img/logo.png') }}" alt="" width="50" class=""> Farmers
+                        <img src="{{ asset('user/img/logo.png') }}" alt="" width="50" class="">
+                        Farmers
                         Marketplace
                     </a>
                 </div>

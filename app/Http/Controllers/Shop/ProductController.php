@@ -49,24 +49,20 @@ class ProductController extends Controller
         return view('shop.product_details', compact('product', 'relatedProducts', 'review', 'reviewCount', 'likes', 'like_user', 'pageTitle', 'pageDescription'));
     }
 
-    // public function search(Request $request)
-    // {
-
-    //     $query = $request->input('q');
-    //     $results = Product::where('product_name', 'like', '%' . $query . '%')->get();
-
-    //     return view('shop.include.search_bar_menu')->with('results', $results);
-    // }
 
     public function search(Request $request)
     {
         try {
 
-            $query = $request->input('q');
-            $results = Product::where('product_name', 'like', '%' . $query . '%')->get();
+            $products = product::where('product_name', 'like', '%' . $request->product . '%')->get();
+            $category = category::all();
+            $featuredProducts = product::where('is_featured', 'Yes')->take(4)->get();
 
-            $productNames = $results->pluck('product_name')->toArray();
-            return view('shop.include.search_bar_menu')->with('results', $productNames);
+            $pageTitle = "Products with " . $request;
+            $pageDescription = "Our marketplace is dedicated to supporting local agriculture and providing fresh, high-quality
+             farm produce to individuals and businesses in our community.";
+
+            return view('shop.include.search_bar_menu', compact('products', 'category', 'featuredProducts', 'pageTitle', 'pageDescription'));
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }

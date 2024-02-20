@@ -9,6 +9,13 @@ class product extends Model
 
     protected $fillable = ['rating'];
 
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['product_name'] ?? false) {
+            $query->where('product_name', 'like', '%' . request('tag') . '%');
+        }
+    }
+
     public function category()
     {
         return $this->belongsTo('App\Models\category', 'category_id');
